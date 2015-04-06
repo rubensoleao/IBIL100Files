@@ -1,3 +1,8 @@
+/*
+Aula Geraldo 31/03/2015
+Listas
+*/
+
 #include <iostream>
 
 //Alguns compiladores reclamam de usar cin e cout para não dar
@@ -25,6 +30,7 @@ void main(){
 	lista *fim = NULL;
 
 	//Ponta de beck auxiliar
+	
 	lista *aux;
 
 	//Ponta de beck anterior
@@ -44,7 +50,7 @@ void main(){
 		cout<<"4 - Remover da lista\n";
 		cout<<"5 - Esvaziar a Lista \n";
 		cout<<"6 - Sair\n";
-		cout<<"Digite Opcao"
+		cout<<"Digite Opcao";
 	
 		cin>>op;
 
@@ -54,7 +60,7 @@ void main(){
 
 		//Insere no inicio
 		if(op==1){
-			cout<< "Digite um numero a ser inserido no inicio\n"
+			cout<< "Digite um numero a ser inserido no inicio\n";
 			
 			//Insere elemento na listaa
 			lista *novo = new lista();
@@ -64,7 +70,7 @@ void main(){
 				fim->prox = NULL;
 			} else {				//Lista n vazia
 				novo->prox = inicio;
-				inicio = novo
+				inicio = novo;
 			}
 		}
 
@@ -99,5 +105,69 @@ void main(){
 			}
 		}
 
-	} while();
-}
+		//Remover da Lista
+		if(op==4) {
+			if(inicio == NULL){
+				cout<<"Lista vazia\n";
+			} 
+			else {
+
+				//Inicia as variáveis
+				cout<<"Elemento a ser removido \n";
+				cin>>numero;
+				aux = inicio;
+				anterior= NULL;
+				achou = 0;
+				
+
+				while(aux != NULL){
+				
+					if(aux->num == numero){ 	//# encontrado
+						achou=achou+1;
+
+						if(aux==inicio){ 		//primeiro da lista
+							inicio = aux->prox;
+							delete(aux);
+							aux = inicio;
+						}
+						else if (aux==fim) {	//ultimo da lista
+							anterior->prox=NULL;
+							fim=anterior;
+							delete(aux);
+							aux=NULL;
+						}
+						else {					//meio da lista
+							anterior->prox = aux->prox;
+							delete(aux);
+							aux = anterior->prox;
+						}
+					}
+					else {						//# ñ encontrado
+						anterior = aux;
+						aux = aux->prox;
+					}
+				}
+				if(achou==0)
+					cout<<"Numero nao encontrado\n";
+				else if (achou == 1)
+					cout<<"Numero removido 1 vez";
+				else
+					cout<<"Numero remolvido"<<achou<<"vezes\n";
+			}
+		}
+
+		//Esvaziar Lista
+		if(op=5) {
+			if(inicio=NULL)
+				cout<<"Lista vazia";
+			else{
+				aux=inicio;
+				while(aux!=NULL) {
+					inicio=inicio->prox;
+					delete(aux);
+					aux=inicio;
+				}
+			}
+		}
+	} while(op!=6);
+} //Fim Main
