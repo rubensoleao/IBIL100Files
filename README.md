@@ -4,5 +4,5 @@ Repositório que reune material de apoio e material das matérias dadas no curso
 
 TODO - Lista de afazeres:
 
--[] Definir um padrão de nomencleatura e fazer a documentação dele.
--[]	inserir um tutorial ensinando a usar git.
+- [ ] Definir um padrão de nomencleatura e fazer a documentação dele.
+- [ ]	inserir um tutorial ensinando a usar git.
