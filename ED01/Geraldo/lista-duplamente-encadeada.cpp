@@ -169,7 +169,6 @@ int main()
 								aux2=aux->prox;
 								delete(aux);
 								aux=aux2;
-								delete(aux2);
 							}
 						}
 					}
