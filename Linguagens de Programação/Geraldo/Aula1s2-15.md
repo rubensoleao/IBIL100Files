@@ -70,3 +70,83 @@ COmputadores tem sido aplicados a uma infinidade de áreas desde controlar usina
 ----
 
 ----
+
+>Aula de paradígmas 10/04/2015
+
+**Criterios de Avaliação de Linguagens de Programação**
+
+Neste tópico serão examinados conceitos fundamentais das diversas Contruções e Capacidades das Linguagens de programção. esses recursos impactam diretamente no Desenvolvimento de Software, incluindo questões de manutenção.
+
+A seguir são apresentados, em uma tabela o cruzamento dos principais criterios confrontados com características comuns em linguagens de programação.
+
+<table>
+ <tr>
+ <td>CARACTERÍSTICA</td>
+ <td>LEGIBILIDADE (READABILITY)</td>
+ <td>FACILIDADE DE ESCRITA (WRITEABIITY)</td>
+ <td>CONFIABILIDADE (TRUSTFULLNESS)</td>
+ </tr>
+ <tr>
+ <td>SIMPLICIDADE</td>
+ <td>X</td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>ORTOGONALIDADE</td>
+ <td>X</td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>TIPOS DE DADOS</td>
+ <td>X</td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>PROJETO DE SINTAXE</td>
+ <td>X</td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>SUPORTE PARA ABSTRAÇÃO</td>
+ <td></td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>EXPRESSIVIDADE</td>
+ <td></td>
+ <td>X</td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>VERIFICAÇÃO</td>
+ <td></td>
+ <td></td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>TRATAMENTO DE EXCEÇÕES</td>
+ <td></td>
+ <td></td>
+ <td>X</td>
+ </tr>
+ <tr>
+ <td>APELIDOS RESTRITOS</td>
+ <td></td>
+ <td></td>
+ <td>X</td>
+ </tr>
+</table>
+
+
+**LEGIBILIDADE **
+
+Um dos critérios mais importantes para julgar uma linguagem de programação é a facilidade com a qual os programas podem ser lidos e entendidos.
+
+Até a década de 70 o desenvolvimento de software era amplamente pensado em termos de escrita de código. As principais características positivas das linguagens de programação eram eficiêcia e a legibilidade de máquina. Focava-se mais o computador do que os usuários.
+
+A partir da década de 70, o conceito de ciclo de vida de um software foi desenvolvido. A codificação foi desenvolvido. A codificação foi relegada a um papel muito menor e a manutenção foi reconhecida como parte principal do ciclo, especialmente em termos de custos. a facilidade de manutenção  é determinada, em grande parte, pela legibilidade dos programas.
