@@ -6,23 +6,23 @@
 #### Por Matéria
 
 - Sinais
-  - [Noções de Sinais e Processamento por Computadores](#noções)
-  - [Questões relativas a propagação das ondas](#questões)
+  - [Noções de Sinais e Processamento por Computadores](#nocoes)
+  - [Questões relativas a propagação das ondas](#questoes)
 
 ----
 #### Por Aula
 
-- [Aula 1 - 20/03/2015](#aula-1)
-- [Aula 2 - 27/03/2015](#aula-2)
-- [Aula 3 - 10/04/2015](#aula-3)
+- [Aula 1 - 20/03/2015](#aula1)
+- [Aula 2 - 27/03/2015](#aula2)
+- [Aula 3 - 10/04/2015](#aula3)
 
 
 
 ----
-### Aula 1 - 20/03/2015
+###<a name="aula1"></a> Aula 1 - 20/03/2015
 ----
 
-### Noções de Sinais e Processamento por Computadores 
+###<a name="nocoes"></a> Noções de Sinais e Processamento por Computadores 
 
 Sinal é uma entidade física que descreve matematicamente a emissão de algum tipo de energia e como ela varia ao longo do tempo.
 > **Ex:** Sinal de áudio, sinal de voz, sinal de rádio, entre outros.
@@ -62,7 +62,7 @@ Certamente temos uma motivação maior para realizar processamento digital ao in
 
 ---
 
-### Aula 2 - 27/03/2015 
+###<a name="aula2"></a> Aula 2 - 27/03/2015 
 
 O teorema da amostragem, ou o teorema de Nyquist, é um resultado do qual podemos fazer uso para realizar um processamento digital de sinais, sendo que de acordo com ele, é necessário entregar ao processador, um número de pontos, isto é, amostras, que é pelo menos igual ao dobro da máxima frequência presente no sinal analógico respectivo.
 
@@ -88,8 +88,8 @@ Notamos que independentemente do processador que controla a amostragem, ele só 
 
 ----
 
-### Aula 3 - 10/04/2015
+###<a name="aula3"></a> Aula 3 - 10/04/2015
 
 ----
 
-### Questões relativas a propagação das ondas 
+###<a name="questoes"></a> Questões relativas a propagação das ondas 
