@@ -6,15 +6,15 @@
 #### Por Matéria
 
 - Sinais
-  - [Noções de Sinais e Processamento por Computadores](#Noções)
-  - [Questões relativas a propagação das ondas](#Questões)
+  - [Noções de Sinais e Processamento por Computadores](#noções)
+  - [Questões relativas a propagação das ondas](#questões)
 
 ----
 #### Por Aula
 
-- [Aula 1 - 20/03/2015](#Aula-1)
-- [Aula 2 - 27/03/2015](#Aula-2)
-- [Aula 3 - 10/04/2015](#Aula-3)
+- [Aula 1 - 20/03/2015](#aula-1)
+- [Aula 2 - 27/03/2015](#aula-2)
+- [Aula 3 - 10/04/2015](#aula-3)
 
 
 
