@@ -7,7 +7,7 @@
 
 - Sinais
   - [Noções de Sinais e Processamento por Computadores](#Noções de Sinais e Processamento por Computadores)
-  - [Questões relativas a propagação das ondas](#Questões relativas a propagação das ondas)
+  - [Questões relativas a propagação das ondas](#Questões-relativas-a-propagação-das-ondas)
 
 ----
 #### Por Aula
