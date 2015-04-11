@@ -1,8 +1,28 @@
 # Arquitetura de Computadores
 
 ----
+### Sumário
 
-### Noções de Sinais e Processamento por Computadores (Aula 1)
+#### Por Matéria
+
+- Sinais
+  - [Noções de Sinais e Processamento por Computadores](#Noções de Sinais e Processamento por Computadores)
+  - [Questões relativas a propagação das ondas](#Questões relativas a propagação das ondas)
+
+----
+#### Por Aula
+
+- [Aula 1 - 20/03/2015](#Aula 1 - 20/03/2015)
+- [Aula 2 - 27/03/2015](#Aula 2 - 27/03/2015)
+- [Aula 3 - 10/04/2015](#Aula 3 - 10/04/2015)
+
+
+
+----
+### Aula 1 - 20/03/2015
+----
+
+### Noções de Sinais e Processamento por Computadores 
 
 Sinal é uma entidade física que descreve matematicamente a emissão de algum tipo de energia e como ela varia ao longo do tempo.
 > **Ex:** Sinal de áudio, sinal de voz, sinal de rádio, entre outros.
@@ -65,6 +85,10 @@ Notamos que independentemente do processador que controla a amostragem, ele só 
 #### MINI PROVA 1 (PRÓXIMA AULA) 
 - ELABORAR UM TEXTO COM 2/3 PARÁGRAFOS CURTOS DISCUTINDO AS IMPLICAÇÕES, AS VANTAGENS E AS DESVANTAGENS DE REALIZAR PROCESSAMENTO DIGITAL DE SINAIS FRENTE A ABORDAGEM ANALÓGICA. 
 
----
+----
 
-### Questões relativas a propagação das ondas (Aula 3) - 10/04/2015
+### Aula 3 - 10/04/2015
+
+----
+
+### Questões relativas a propagação das ondas 
