@@ -28,3 +28,66 @@ int *x=new int[10]
 ``` 
 
 Sem que `c` tenha que ser caracterizada como `const`.
+
+>**OBS:** Os compiladores que reconhecem C++ ao invés de somente C, oferecem a possibilidade de utilizarmos um comando particular, um para entrada e um para saida de dados. Esses comandos, chamados `cout` e `cin`, não possuem, em princípio, uma ligação com conceitos de POO, tratando-se apenas de possibilidades adicionais que podem ser utilizadas.  A seguir, alguns exemplos da sintaxe para utiliza-los.
+>```c
+>cout<<"\nOi\t Boi\r Boa tarde";
+>```
+
+Qual é a saída de tela produzida pelo treixo de código a seguir:
+
+```c
+char c='a';
+cout<<"\n\n"<<c<<"\n\n";
+printf("%c\n\n",c);
+printf("\n\n%d\n\n",c);
+```
+
+Lembramos que `printf` assim como `scanf` é mais versátil para controlar a formatação da saída de tela. Adicionalmente, lembramos que a linguagem C/C++ é **tipada**, o que significa que distingue entre os tipos `char`,`int`, mas não é **fortemente tipada** pois, se assim fosse, não aceitaria declarações do tipo`char c=70`, que é perfeitamente válido em C/C++.
+
+
+
+-  Trexo de código que converta maiuscalas em minusculas, solicitando e lendo do teclado a string original, com no maximo 30 caracteres.
+
+``` c
+
+char string[31];
+int i=0;
+cout<<"Digite uma palavra(max 30 caracteres)\n";
+cin>>string;
+
+while(string[i] != '\0' && i<32)
+{
+    if(string[i] >= 65 && string[i] <= 90 )
+      string[i]+=32;
+    i++;
+}
+cout<<string;
+
+```
+
+### Operador condicional ternário em C e java
+
+Trata-se de um modo abreviado de escrever um comando `if` .. `else` que atribua valores diferentes a uma única variável. Exemplificando, os trechos a seguir são equivalentes:
+
+```c
+if(a>0)
+  x=5;
+else
+  x=10;
+  
+  // é equivalente a:
+  
+x=(a>0)?5:10  
+
+```
+
+
+
+
+
+
+
+
+
+
