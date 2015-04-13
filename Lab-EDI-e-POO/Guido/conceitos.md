@@ -87,6 +87,86 @@ x=(a>0)?5:10
 
 ```
 
+### Exercício:
+
+- Construir uma função que receba como parâmetro uma string e o seu tamanho, e não retorne nenhum valor. A string deve ser modificada de modo que depois da chamada da função ela passe a conter todos os caracteres maiusculos
+
+```c
+
+#include <iostream>
+#include <stdio.h>
+
+using std::cin;
+using std::cout;
+
+void toUpper(char *s, int t);
+
+int main()
+{
+//      char *s;
+        int t;
+        puts("Digite o números de caracteres na frase: ");
+        cin>>t;
+        char *s=new char[t+1];
+        s[0]='a';
+        cout<<"\nDigite a frase\n";
+
+//      cin>>s;
+        scanf("%[^\n]",s);
+
+        cout<<"\n----------------------------------\n";
+        cout<<"Antes: "<<s;
+        toUpper(s,t);
+        cout<<"\nDepois: "<<s<<"\n";
+        cout<<"\n----------------------------------\n";
+
+        return 0;
+}
+
+void toUpper(char *s,int t)
+{
+        int i;
+        for(i=0;i<t || s[i]=='\0' ;i++)
+                if( s[i] >= 97 && s[i] <= 122)
+                        s[i]-=32;
+
+
+
+}
+
+```
+
+> ** Observação**:  No código acima notamos que muito embora a função contruida para manipular a string receba-a como parâmetro com base na sintaxe de ponteiros, é perfeitamente possivel e tambem muito usual minipular este paramentro dentro da função usando a notação de vetores.
+
+> ** Observação 2 **: No momento da chamada da função no programa princial, a string pode ser passada como parâmetro, simplesmente mencionando o seu nome ou inserindo o `&` e o `[0]` respectivamente antes e depois de seu nome, isto é:`&s[0]` . Ambas as formas são equivalentes, sendo que a primeira é mais usual e a segunda é mais versátil, pois permite passar o vetor a partir de uma certa posição, de modo que é possivel por exemplo escrever` &s[15]`.
+
+### Idem anterior sendo que a função possui como parâmetro somente a string
+- **Solução** : procederiamos da mesma forma, mas dentro da função modifica encontrariamos o `\0` ou utilizariamos a função `strlen`
+
+### Suponha que desejamos fazer uma busca em um vetor de inteiros de modo a verificar quantos valores negativos existem nele. Nossa tarefa é construir apenas a função que recebe como parametro o vetor e seu tamanho.
+- **Solução** : Dentro da função fariamos a busta com um laço `for` controlado pelo tamanho do vetor, que foi recebido por parâmetro, retornando o valor desejado que é contabilizado com o auxilio de uma variavel inteira
+
+### Idem anterior mais assumindo que a função somente receba por parametro o vetor e não o seu tamanho.
+- **Solução** : 
+
+```c
+
+int analisa(int* v)
+{
+    int c=0;
+    int t=(int)(sizeof(v)/sizeof(int))
+    
+    for(int i=0;i<t;i++)
+        if(v[i] < 0)
+            c++;
+    return c;
+}
+
+```
+- **Observação** : facilmente podemos determinar, conforme foi feito no código acima, o tamanho de um vetor utilizando a função `sizeof`. Devemos notar que a função retorna o numero de bytes do vetor, portanto, o numero de elementos desse vetor é a razão entre o seu tamanho em bytes e o tamanho de seu tipo, em bytes.
+
+
+
 
 
 
