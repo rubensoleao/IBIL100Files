@@ -1,4 +1,4 @@
-### Revisando conceitos de C/C++ e orientação a objetos
+## Revisando conceitos de C/C++ e orientação a objetos
 
 Sabemos que a declaração `int x[10]` aloca estáticamente 10 posições inteiras para as quais a região de memória correspondente fica pré alocada, sem o risco de ser alocada por outra variavel.
 é possivel encontrarmos declarações tais como:
@@ -164,6 +164,10 @@ int analisa(int* v)
 
 ```
 - **Observação** : facilmente podemos determinar, conforme foi feito no código acima, o tamanho de um vetor utilizando a função `sizeof`. Devemos notar que a função retorna o numero de bytes do vetor, portanto, o numero de elementos desse vetor é a razão entre o seu tamanho em bytes e o tamanho de seu tipo, em bytes.
+
+- **Observação 2** : Notamos no código acima a possibilidade assim como a necessidade da conversão explicita de tipo, pois qualquer divisão, tal como `sizeof v / sizeof int ` resuta em um numero real, ainda que os operadores sejão multiplos, por isso, se vamos atribuir a uma variavel inteira o resultado de uma divisão é necessario converter esse resultado, que é um numero real em um inteiro. Essa convesão, tambem chamada de **casting** é realizada indicando na frente da operação de divisão o tipo a ser convertido entre parenteses, conforme segue: ` variavel=(int)(divisão)`.
+
+
 
 
 
