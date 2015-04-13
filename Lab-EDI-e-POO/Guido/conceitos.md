@@ -43,9 +43,9 @@ printf("%c\n\n",c);
 printf("\n\n%d\n\n",c);
 ```
 
-> a
-> a
-> 97
+a
+a
+97
 
 
 Lembramos que `printf` assim como `scanf` é mais versátil para controlar a formatação da saída de tela. Adicionalmente, lembramos que a linguagem C/C++ é **tipada**, o que significa que distingue entre os tipos `char`,`int`, mas não é **fortemente tipada** pois, se assim fosse, não aceitaria declarações do tipo`char c=70`, que é perfeitamente válido em C/C++.
@@ -136,9 +136,9 @@ void toUpper(char *s,int t)
 
 ```
 
-> ** Observação**:  No código acima notamos que muito embora a função contruida para manipular a string receba-a como parâmetro com base na sintaxe de ponteiros, é perfeitamente possivel e tambem muito usual minipular este paramentro dentro da função usando a notação de vetores.
+> **Observação** :  No código acima notamos que muito embora a função contruida para manipular a string receba-a como parâmetro com base na sintaxe de ponteiros, é perfeitamente possivel e tambem muito usual minipular este paramentro dentro da função usando a notação de vetores.
 
-> ** Observação 2 **: No momento da chamada da função no programa princial, a string pode ser passada como parâmetro, simplesmente mencionando o seu nome ou inserindo o `&` e o `[0]` respectivamente antes e depois de seu nome, isto é:`&s[0]` . Ambas as formas são equivalentes, sendo que a primeira é mais usual e a segunda é mais versátil, pois permite passar o vetor a partir de uma certa posição, de modo que é possivel por exemplo escrever` &s[15]`.
+> **Observação 2** : No momento da chamada da função no programa princial, a string pode ser passada como parâmetro, simplesmente mencionando o seu nome ou inserindo o `&` e o `[0]` respectivamente antes e depois de seu nome, isto é:`&s[0]` . Ambas as formas são equivalentes, sendo que a primeira é mais usual e a segunda é mais versátil, pois permite passar o vetor a partir de uma certa posição, de modo que é possivel por exemplo escrever` &s[15]`.
 
 ### Idem anterior sendo que a função possui como parâmetro somente a string
 - **Solução** : procederiamos da mesma forma, mas dentro da função modifica encontrariamos o `\0` ou utilizariamos a função `strlen`
