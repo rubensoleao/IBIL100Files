@@ -1,4 +1,4 @@
-### Revisando conceitos de c/c++ e orientação a objetos
+### Revisando conceitos de C/C++ e orientação a objetos
 
 Sabemos que a declaração `int x[10]` aloca estáticamente 10 posições inteiras para as quais a região de memória correspondente fica pré alocada, sem o risco de ser alocada por outra variavel.
 é possivel encontrarmos declarações tais como:
@@ -43,11 +43,16 @@ printf("%c\n\n",c);
 printf("\n\n%d\n\n",c);
 ```
 
+> a
+> a
+> 97
+
+
 Lembramos que `printf` assim como `scanf` é mais versátil para controlar a formatação da saída de tela. Adicionalmente, lembramos que a linguagem C/C++ é **tipada**, o que significa que distingue entre os tipos `char`,`int`, mas não é **fortemente tipada** pois, se assim fosse, não aceitaria declarações do tipo`char c=70`, que é perfeitamente válido em C/C++.
 
 
 
--  Trexo de código que converta maiuscalas em minusculas, solicitando e lendo do teclado a string original, com no maximo 30 caracteres.
+### Trexo de código que converta maiuscalas em minusculas, solicitando e lendo do teclado a string original, com no maximo 30 caracteres.
 
 ``` c
 
@@ -81,12 +86,6 @@ else
 x=(a>0)?5:10  
 
 ```
-
-
-
-
-
-
 
 
 
