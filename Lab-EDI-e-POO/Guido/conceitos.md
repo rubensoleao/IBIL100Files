@@ -1,3 +1,5 @@
+> 13 de Abril de 2015
+
 ## Revisando conceitos de C/C++ e orientação a objetos
 
 Sabemos que a declaração `int x[10]` aloca estáticamente 10 posições inteiras para as quais a região de memória correspondente fica pré alocada, sem o risco de ser alocada por outra variavel.
@@ -167,7 +169,9 @@ int analisa(int* v)
 
 - **Observação 2** : Notamos no código acima a possibilidade assim como a necessidade da conversão explicita de tipo, pois qualquer divisão, tal como `sizeof v / sizeof int ` resuta em um numero real, ainda que os operadores sejão multiplos, por isso, se vamos atribuir a uma variavel inteira o resultado de uma divisão é necessario converter esse resultado, que é um numero real em um inteiro. Essa convesão, tambem chamada de **casting** é realizada indicando na frente da operação de divisão o tipo a ser convertido entre parenteses, conforme segue: ` variavel=(int)(divisão)`.
 
+---
 
+---
 
 
 
