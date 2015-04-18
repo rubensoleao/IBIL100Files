@@ -10,7 +10,9 @@
   - [Questões relativas a propagação das ondas](#questoes)
   - [Tecnologias Emergentes de 5ª Geração](#tecnologias)
   
-- [Representação de dados nos computadores](#repres) 
+- [Representação de dados nos computadores](#repres)
+  - [REPRESENTAÇÃO DE TEXTO](#represT)
+  - [REPRESENTAÇÃO DE DADOS ORIUNDOS DE SINAIS 1D OU 2D POR INTEIROS](#represS)
 
 #### Por Aula
 
@@ -113,15 +115,15 @@ Com relação a capacitância, normalmente simbolizada com a letra `C`, temos um
 
 O indultor, por outro lado, apresenta um comportamento inverso ao do capacitor. Em um circuito elétrico de corrente contínua, o indultor oferece uma oposição a passagem da corrente quando ela é aplicada, até o ponto em que, após alguns instantes, dependendo do valor do indultor medido em Henrys, ele se satura, permitindo assim o fluxo integral da corrente elétrica.
 
-> **TODO**: Desenho das lâmpadas em cada tipo.
+![lamp](https://cloud.githubusercontent.com/assets/3441126/7215890/6ac2b590-e5c0-11e4-82d2-e5ac9f5dc2ef.jpg)
 
 Em vista dos comentários acima, e entendendo qualquer condutor possui as propriedades `R`, `L` e `C` intrínsecas, é fácil entender que quando transmitimos, por meio de um condutor, um sinal elétrico de um ponto ao outro, estamos sujeitos aos 3 elementos físicos retromencionados. Conforme podemos observar na figura abaixo o sinal contínuo transmitido é diferente do sinal recebido, enquanto a situação de `C` e de `L` não atinja estabilidade. Este intervalo de tempo é conhecido como **transiente**.
 
-> **TODO**: Gráfico continuo
+![grafCont](https://cloud.githubusercontent.com/assets/3441126/7215891/6acb1730-e5c0-11e4-8379-853ef7aac024.jpg)
 
 Tendo em vista o comportamento do condutor em corrente contínua, conforme o gráfico acima, que é conhecido como gráfico de resposta ao degrau, podemos facilmente compreender o comportamento do condutor em corrente alternada, conforme o gráfico a seguir.
 
-> **TODO**: Gráfico oscilando
+![grafOci](https://cloud.githubusercontent.com/assets/3441126/7215892/6acf652e-e5c0-11e4-98f7-09f06da6a5d1.jpg)
 
 Constatamos, pelo exame do gráfico acima, que a corrente alternada transmitida, representada na forma de uma onda retangular, é simplesmente um conjunto de degraus, isto é, transições entre 0 e 5 volts. Assim sendo, o sinal recebido, possui inúmeros períodos transientes em torno de cada degrau. Ocasionando a curva do sinal recebido no gráfico. Concluindo, podemos entender que a rigor, não existe transmissão efetiva de uma onda quadrada, pois ela contém sempre inúmeros transientes que correspondem a um conjunto de oscilações senoidais. O estudo mais aprofundado do tema mostra que uma onda quadrada ou retangular, assim como qualquer outra forma de onda não senoidal, é uma soma de infinitas senóides, cada uma com sua frequência e amplitude específica. Este estudo, tem os seus resultados assegurados por meio das **séries de Fourier**. Importante ainda é compreender que com base nas séries de Fourier, o fato do sinal recebido ser diferente do transmitido, ocorre porque as senóides de frequências mais altas não conseguem alcançar o ponto receptor do sinal devido as propriedades `L` e `C` do condutor. Em geral, cada condutor com seus tamanhos e demais particularidades é equivalente a um conjunto `R`, `L` e `C` que, na prática, não oferece alteração substancial no sinal transmitido desde que cada degrau não tenha um período de duração muito pequeno, isto é, uma frequência muito alta. A frequência limite das senóides que atravessam o condutor sem alteração substancial recebe o nome de **largura de banda**.
 
@@ -182,7 +184,7 @@ Em vista da versatilidade, normalmente as FPGAs possuem custo mais elevado do qu
 
 Conforme já discutimos anteriormente, **qualquer dado** constitui um conjunto de **números**, que pode descrever texto, sinais multimídia 1D e 2D. Particularmente, no caso de **texto**, a representação computacional é realizada por meio de **números inteiros**. Por outro lado, **sinais multimídias** podem utilizar **inteiros** ou **reais**, também chamados de **pontos flutuantes**.
 
-###<a name="represT"></a>	REPRESENTAÇÃO DE TEXTO:
+###<a name="represT"></a>REPRESENTAÇÃO DE TEXTO:
 
 A representação de texto em computadores digitais, baseada em valores **inteiros**, é regulada pelo **American Standard Code for Information Interchange (ASCII)**. O referido código, constitui um padrão internacional para simbolizar caracteres diversos que compõe um texto. Procurando na tabela ASCII, podemos conhecer o código designado para cada símbolo.
 Como exemplo temos os valores: 65, 66, 67, 97, 98 representando respectivamente `A`, `B`, `C`, `a`, `b`, de qualquer forma, **todos os caracteres do código ASCII são números que quando convertidos para a base 2, utilizam 8 bits**, isto é, são **valores inteiros na faixa de 0 a 255**. Mesmo que os caracteres de um texto possam eventualmente ser escritos na base 2 com menos do que 8 bits significativos, o padrão determina o uso dos 8, sendo q nesse caso os primeiros bits são 0.
@@ -203,19 +205,26 @@ Devemos notar que todas as linguagens de programação nos trazem a possiblidade
 	x = x&10;
 	...
 	// Após executar o código acima o resultado será: 
-	65  01000001
- 	10  00001010  
-	 X   00000000
+	65 -> 01000001
+ 	10 -> 00001010
+ 	\--------------
+	 X -> 00000000
 	 
 ```
-Como faríamos para, com base nos operadores acima, isolar, por exemplo, o bit menos significativo de ‘x’?
-	Basta fazer um E bit-a-bit com o 00000100 (4), pois as posições com 0 anularam as posições respectivas da variável ‘x’, restando somente o bit de interesse. Esse bit restante pode ainda ser rotacionado para esquerda ou para a direita com os operadores ‘<<’  e ‘ >>’.
-B)	REPRESENTAÇÃO DE DADOS ORIUNDOS DE SINAIS 1D OU 2D POR INTEIROS:
+- Como faríamos para, com base nos operadores acima, isolar, por exemplo, o bit menos significativo de `x`?
+Basta fazer um E bit-a-bit com o 00000100 (4), pois as posições com 0 anularam as posições respectivas da variável `x`, restando somente o bit de interesse. Esse bit restante pode ainda ser rotacionado para esquerda ou para a direita com os operadores `<<`  e `>>`.
 
-Considerável parte dos sinais manipulados nos computadores utilizam a representação por valores inteiros de modo a corresponder com a quantização adotada. Assim, se um sinal é quantizado em amplitude com ‘n’ bits, possui representação na qual 2^n possibilidades existentes, conforme já discutimos anteriormente. De modo geral, uma variável declarada como inteira, possui 2 ou 4 bytes, dependendo da linguagem e da arquitetura. De qualquer forma, se não há menção especifica na declaração, o primeiro bit é usado para representar o sinal e os demais para representa o número em módulo. Assim por exemplo temos 1111111111111111 representa o número 65.535 caso a variável que o carrega tenha sido declarada como um ‘unsigned int’. Caso a variável seja declarada somente como int, então ela possui sinal. Desse modo o seu valor em módulo não leva em conta o primeiro bit e no caso do exemplo acima, ele será -32768. Por padrão, quando a variável possui sinal e o primeiro bit é 1, ela é negativa, sendo positiva se o primeiro bit for 0. Estabelece-se desse modo a regra:
+###<a name="represS"></a>REPRESENTAÇÃO DE DADOS ORIUNDOS DE SINAIS 1D OU 2D POR INTEIROS:
 
- 
+Considerável parte dos sinais manipulados nos computadores utilizam a representação por valores inteiros de modo a corresponder com a quantização adotada. Assim, se um sinal é quantizado em amplitude com `n` bits, possui representação na qual 2^n possibilidades existentes, conforme já discutimos anteriormente. De modo geral, **uma variável declarada como inteira, possui 2 ou 4 bytes, dependendo da linguagem e da arquitetura**. De qualquer forma, se não há menção especifica na declaração, o primeiro bit é usado para representar o sinal e os demais para representa o número em módulo. Assim por exemplo temos `1111111111111111` representa o número `65.535` caso a variável que o carrega tenha sido declarada como um `unsigned int`. Caso a variável seja declarada somente como `int`, então ela possui sinal. Desse modo o seu valor em módulo não leva em conta o primeiro bit e no caso do exemplo acima, ele será `-32768`. Por padrão, quando a variável possui sinal e o primeiro bit é 1, ela é negativa, sendo positiva se o primeiro bit for 0. Estabelece-se desse modo a regra:
 
-O modelo acima para representação de inteiros é conhecido como modelo sinal-magnitude.
+![regraInt](https://cloud.githubusercontent.com/assets/3441126/7215894/6ae8a1ec-e5c0-11e4-9007-7d5f69a238d8.jpg)
 
-MINI PROVA 3 (PRÓXIMA AULA) – CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.
+- O modelo acima para representação de inteiros é conhecido como modelo sinal-magnitude.
+
+----
+
+#### MINI PROVA 3 (PRÓXIMA AULA)
+- CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.
+----
+
