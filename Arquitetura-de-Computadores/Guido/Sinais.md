@@ -207,7 +207,7 @@ Devemos notar que todas as linguagens de programação nos trazem a possiblidade
 	// Após executar o código acima o resultado será: 
 	65 -> 01000001
  	10 -> 00001010
- 	\--------------
+ 	--------------
 	 X -> 00000000
 	 
 ```
@@ -225,6 +225,7 @@ Considerável parte dos sinais manipulados nos computadores utilizam a represent
 ----
 
 #### MINI PROVA 3 (PRÓXIMA AULA)
+
 - CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.
 ----
 
