@@ -11,8 +11,8 @@
   - [Tecnologias Emergentes de 5ª Geração](#tecnologias)
   
 - [Representação de dados nos computadores](#repres)
-  - [REPRESENTAÇÃO DE TEXTO](#represT)
-  - [REPRESENTAÇÃO DE DADOS ORIUNDOS DE SINAIS 1D OU 2D POR INTEIROS](#represS)
+  - [Representação de Texto](#represT)
+  - [Representação de dados oriundos de sinais 1D ou 2D por inteiros](#represS)
 
 #### Por Aula
 
@@ -189,7 +189,7 @@ Conforme já discutimos anteriormente, **qualquer dado** constitui um conjunto d
 A representação de texto em computadores digitais, baseada em valores **inteiros**, é regulada pelo **American Standard Code for Information Interchange (ASCII)**. O referido código, constitui um padrão internacional para simbolizar caracteres diversos que compõe um texto. Procurando na tabela ASCII, podemos conhecer o código designado para cada símbolo.
 Como exemplo temos os valores: 65, 66, 67, 97, 98 representando respectivamente `A`, `B`, `C`, `a`, `b`, de qualquer forma, **todos os caracteres do código ASCII são números que quando convertidos para a base 2, utilizam 8 bits**, isto é, são **valores inteiros na faixa de 0 a 255**. Mesmo que os caracteres de um texto possam eventualmente ser escritos na base 2 com menos do que 8 bits significativos, o padrão determina o uso dos 8, sendo q nesse caso os primeiros bits são 0.
 
->**Exemplo**: representar a string ‘Eu amo chocolate’ para uso em um computador digital. Indique os valores na base 10.
+>**Exemplo**:representar a string "Eu amo chocolate" para uso em um computador digital. Indique os valores na base 10.
 >69-85-32-65-77-79-32-67-72-79-67-79-76-65-84-69
 
 Devemos notar que todas as linguagens de programação nos trazem a possiblidade de acessar **1 byte** de memória por meio do uso de variáveis do tipo `char`. Normalmente uma variável `char` portanto, ocupa **1 byte independentemente de características de hardware, tal como a arquitetura**.
@@ -227,5 +227,6 @@ Considerável parte dos sinais manipulados nos computadores utilizam a represent
 #### MINI PROVA 3 (PRÓXIMA AULA)
 
 - CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.
+
 ----
 
