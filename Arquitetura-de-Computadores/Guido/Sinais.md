@@ -184,12 +184,13 @@ Em vista da versatilidade, normalmente as FPGAs possuem custo mais elevado do qu
 
 Conforme já discutimos anteriormente, **qualquer dado** constitui um conjunto de **números**, que pode descrever texto, sinais multimídia 1D e 2D. Particularmente, no caso de **texto**, a representação computacional é realizada por meio de **números inteiros**. Por outro lado, **sinais multimídias** podem utilizar **inteiros** ou **reais**, também chamados de **pontos flutuantes**.
 
-###<a name="represT"></a>REPRESENTAÇÃO DE TEXTO:
+###<a name="represT"></a>Representação de Texto:
 
 A representação de texto em computadores digitais, baseada em valores **inteiros**, é regulada pelo **American Standard Code for Information Interchange (ASCII)**. O referido código, constitui um padrão internacional para simbolizar caracteres diversos que compõe um texto. Procurando na tabela ASCII, podemos conhecer o código designado para cada símbolo.
 Como exemplo temos os valores: 65, 66, 67, 97, 98 representando respectivamente `A`, `B`, `C`, `a`, `b`, de qualquer forma, **todos os caracteres do código ASCII são números que quando convertidos para a base 2, utilizam 8 bits**, isto é, são **valores inteiros na faixa de 0 a 255**. Mesmo que os caracteres de um texto possam eventualmente ser escritos na base 2 com menos do que 8 bits significativos, o padrão determina o uso dos 8, sendo q nesse caso os primeiros bits são 0.
 
->**Exemplo**:representar a string "Eu amo chocolate" para uso em um computador digital. Indique os valores na base 10.
+>**Exemplo**:
+>- representar a string "Eu amo chocolate" para uso em um computador digital. Indique os valores na base 10.
 >69-85-32-65-77-79-32-67-72-79-67-79-76-65-84-69
 
 Devemos notar que todas as linguagens de programação nos trazem a possiblidade de acessar **1 byte** de memória por meio do uso de variáveis do tipo `char`. Normalmente uma variável `char` portanto, ocupa **1 byte independentemente de características de hardware, tal como a arquitetura**.
@@ -214,7 +215,7 @@ Devemos notar que todas as linguagens de programação nos trazem a possiblidade
 - Como faríamos para, com base nos operadores acima, isolar, por exemplo, o bit menos significativo de `x`?
 Basta fazer um E bit-a-bit com o 00000100 (4), pois as posições com 0 anularam as posições respectivas da variável `x`, restando somente o bit de interesse. Esse bit restante pode ainda ser rotacionado para esquerda ou para a direita com os operadores `<<`  e `>>`.
 
-###<a name="represS"></a>REPRESENTAÇÃO DE DADOS ORIUNDOS DE SINAIS 1D OU 2D POR INTEIROS:
+###<a name="represS"></a>Representação de dados oriundos de sinais 1D ou 2D por inteiros:
 
 Considerável parte dos sinais manipulados nos computadores utilizam a representação por valores inteiros de modo a corresponder com a quantização adotada. Assim, se um sinal é quantizado em amplitude com `n` bits, possui representação na qual 2^n possibilidades existentes, conforme já discutimos anteriormente. De modo geral, **uma variável declarada como inteira, possui 2 ou 4 bytes, dependendo da linguagem e da arquitetura**. De qualquer forma, se não há menção especifica na declaração, o primeiro bit é usado para representar o sinal e os demais para representa o número em módulo. Assim por exemplo temos `1111111111111111` representa o número `65.535` caso a variável que o carrega tenha sido declarada como um `unsigned int`. Caso a variável seja declarada somente como `int`, então ela possui sinal. Desse modo o seu valor em módulo não leva em conta o primeiro bit e no caso do exemplo acima, ele será `-32768`. Por padrão, quando a variável possui sinal e o primeiro bit é 1, ela é negativa, sendo positiva se o primeiro bit for 0. Estabelece-se desse modo a regra:
 
