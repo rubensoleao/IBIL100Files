@@ -5,7 +5,7 @@
 
 #### Por Matéria
 
-- Sinais
+- [Sinais](#sinais)
   - [Noções de Sinais e Processamento por Computadores](#nocoes)
   - [Questões relativas a propagação das ondas](#questoes)
   - [Tecnologias Emergentes de 5ª Geração](#tecnologias)
@@ -13,6 +13,8 @@
 - [Representação de dados nos computadores](#repres)
   - [Representação de Texto](#represT)
   - [Representação de dados oriundos de sinais 1D ou 2D por inteiros](#represS)
+  - [Codificação e representação de conteúdo multimídia com valores inteiros](#codMult)
+  - [Representação computacional de valores reais](#represR)
 
 #### Por Aula
 
@@ -20,11 +22,15 @@
 - [Aula 2 - 27/03/2015](#aula2)
 - [Aula 3 - 10/04/2015](#aula3)
 - [Aula 4 - 17/04/2015](#aula4)
-- [Aula 5](#aula5)
+- [Aula 5 - 24/04/2015](#aula5)
+- [Aula 6]
 
 ----
-----
+
 ###<a name="aula1"></a> Aula 1 - 20/03/2015
+
+----
+##<a name="sinais"></a>  Sinais
 ----
 
 ###<a name="nocoes"></a> Noções de Sinais e Processamento por Computadores 
@@ -144,6 +150,8 @@ A atuação conjunta software-hardware, somada ao desenvolvimento técnico-mecâ
 
 ###<a name="aula4"></a> Aula 4
 
+----
+
 ###<a name="tecnologias"></a> Tecnologias Emergentes de 5ª Geração
 
 Conforme vimos anteriormente, a 5ª Geração de computadores engloba os dispositivos que possuem tecnologia de processamento digital com baixo consumo de energia e tamanho extremamente reduzido. Particularmente, podemos inserir em tal contexto alguns dispositivos para processamento dedicado, sendo que entre eles temos os **Digital Signal Processors (DSPs)** e também **Field Programmable Gate Array (FPGAs)**. Estes últimos podem ainda, conforme a finalidade especifica ter a denominação de **Control Programmable Logic Devices (CPLDs)**.
@@ -182,6 +190,8 @@ Em vista da versatilidade, normalmente as FPGAs possuem custo mais elevado do qu
 
 ##<a name="repres"></a> Representação de dados nos computadores
 
+----
+
 Conforme já discutimos anteriormente, **qualquer dado** constitui um conjunto de **números**, que pode descrever texto, sinais multimídia 1D e 2D. Particularmente, no caso de **texto**, a representação computacional é realizada por meio de **números inteiros**. Por outro lado, **sinais multimídias** podem utilizar **inteiros** ou **reais**, também chamados de **pontos flutuantes**.
 
 ###<a name="represT"></a>Representação de Texto:
@@ -191,7 +201,7 @@ Como exemplo temos os valores: 65, 66, 67, 97, 98 representando respectivamente 
 
 >**Exemplo**:
 >- representar a string "Eu amo chocolate" para uso em um computador digital. Indique os valores na base 10.
->69-85-32-65-77-79-32-67-72-79-67-79-76-65-84-69
+> 69-85-32-65-77-79-32-67-72-79-67-79-76-65-84-69
 
 Devemos notar que todas as linguagens de programação nos trazem a possiblidade de acessar **1 byte** de memória por meio do uso de variáveis do tipo `char`. Normalmente uma variável `char` portanto, ocupa **1 byte independentemente de características de hardware, tal como a arquitetura**.
 
@@ -221,7 +231,7 @@ Considerável parte dos sinais manipulados nos computadores utilizam a represent
 
 ![regraInt](https://cloud.githubusercontent.com/assets/3441126/7215894/6ae8a1ec-e5c0-11e4-9007-7d5f69a238d8.jpg)
 
-- O modelo acima para representação de inteiros é conhecido como modelo sinal-magnitude.
+- O modelo acima para representação de inteiros é conhecido como modelo **sinal-magnitude**.
 
 ----
 
@@ -231,3 +241,173 @@ Considerável parte dos sinais manipulados nos computadores utilizam a represent
 
 ----
 
+###<a name="aula5"></a> Aula 5
+
+----
+
+###<a name="codMult"></a> Codificação e representação de conteúdo multimídia com valores inteiros
+
+Do mesmo modo como trabalhamos anteriormente na codificação de texto, trabalharemos no padrão **sinal-magnitude** visando codificar sinais diversos, que possuem correspondentes analógicos, utilizando **amostragem** e **quantização**. Lembramos ainda que, embora esta definição não seja precisa, na prática podemos encarar um texto como sendo um sinal originalmente discreto e para o qual não existe correspondente analógico.
+
+#### Procedemos a seguir com a codificação de um sinal 1D.
+
+
+**Exemplo**: Codificar, utilizando valores inteiros no padrão sinal-magnitude, com taxa de amostragem de 20 mil amostras por segundo e com quantização de 16bits, o seguinte sinal acústico. Codifique, para facilitar, as 10 primeiras amostras do sinal.
+
+- **Solução**:
+
+Usaremos a função: f(t)=30000.sen(2pi.4000t). Onde 30000 é amplitude e não interfere no período.
+
+O sinal em questão possui o seguinte aspecto:
+
+` **TODO** gráfico senoide de -30k a 30k`
+
+
+> Observamos que o sinal em questão pode ser quantizado com 16bits pois possui valores variando de -30000 até 30000 e com 16bits podemos representar inteiros com sinal na faixa de -32768 até 32767.
+
+É importante também verificarmos se a taxa de **amostragem** proposta condiz com o sinal analógico lembramos que, de acordo com o **Teorema da Amostragem**, precisamos no mínimo de uma quantidade de pontos por segundo igual ao **dobro** da máxima frequência presente no sinal, sendo os pontos igualmente espaçados. Assim, considerando que `p` é o período do sinal acima, constatamos o que segue: 
+
+```
+			f(t+p) = f(t), logo
+			
+			sen(2pi4000(t+p)=sen(2pi4000t)
+			2pi4000(t+p) = 2pi4000t + 2kpi
+			Considerando K = 1.
+			2pi4000t + 2pi4000p = 2pi4000t + 2pi
+			2pi4000p = 2pi
+			4000p = 1
+			p = 1/4000 => F=1/p = 4000Hz ou 4Khz
+```
+
+Constatamos assim que a frequência do sinal é de 4000 Hertz e portanto a taxa de amostragem mínima é de 8000 amostras por segundo. Tendo em vista que solicitamos no enunciado 20000 amostras por segundo não teremos problemas.
+
+>**OBS**: Toda vez que um sinal analógico estiver no formato `f(t) = A.sen(2pi.F.t)`, então `F` é sua frequência.
+
+Para amostrarmos o sinal analógico conforme solicitado, fracionamos o tempo de 1 segundo em 20000 amostras, conforme o enunciado. Utilizando ainda, a variável `n` no lugar de `t` e colchetes no lugar de parênteses, visando manter a padronização indicativa de sinal digital, temos:
+
+![codecogseqn](https://cloud.githubusercontent.com/assets/3441126/7330891/7c4d3f7e-eacf-11e4-8e36-64e941997eda.png)
+
+```
+			f[1] = 28531,695
+			f[2] = 17633,557
+			f[3] = -17633,557
+			f[4] = -28531,695
+			f[5] = 0
+			f[6] = 28531,695
+			f[7] = 17633,557
+			f[8] = -17633,557
+			f[9] = -28531,695
+			f[10] = 0
+```
+
+- Lembrando que os valores devem ser representados como inteiros então a real representação é a seguinte: 
+
+```
+ 			f[1] = 28532
+			f[2] = 17634
+			f[3] = -17634 
+			f[4] = -28532
+			f[5] = 0
+			f[6] = 28532
+			f[7] = 17634
+			f[8] = -17634
+			f[9] = -28532
+			f[10] = 0
+```
+
+----
+
+**Exemplo2**: Idem anterior, quantizando o sinal com 8 bits no padrão sinal-magnitude e utilizando a menor taxa de amostragem possível para que não ocorra aliasing.
+
+![codecogseqn 1](https://cloud.githubusercontent.com/assets/3441126/7330910/6de06460-ead0-11e4-9d3d-109091469eab.png)
+
+- Solução:
+
+Começaremos "melhorando" a equação:
+
+![codecogseqn 2](https://cloud.githubusercontent.com/assets/3441126/7330913/aff68884-ead0-11e4-9344-3904b376c260.png)
+
+Após escrevermos o sinal no formato padrão (acima) vamos examinar a **quantização**.
+
+Verificamos que caso ambas as senóides atinjam ao mesmo tempo os seus valores extremos, podemos ter resultados variando -200 até 200 usando 8 bits, somente podemos representar valores de -128 à 127 de forma que a quantização proposta é **insuficiente**. Se forçamos a quantização com 8 bits teremos trecho do sinal que apresentarão **saturação**, isto é, ficarão limitados ao valor máximo possível de ser representado, conforme exemplificado a seguir.
+
+>**TODO** grafico "saturado"
+
+Aumentando a quantização para 9bits percebemos que o problema estará resolvido pois valores na faixa de -256 até 255 serão possíveis. Em computadores corriqueiros(tradicionais), o padrão é a existência de variáveis que implicam em representações numéricas com quantidade de bits múltipla de 8. Assim sendo, precisaríamos utilizar uma quantização de 16bits. Por outro lado, em placas dedicadas de processamento, tais como os DSPs, as FPGAs e as CPLDs, é possível planejar a quantização e acessar a memória com o número de bits variados, sendo comum por exemplo o uso de 4bits, 10bits, 12bits, 24bits e até 40bits. Assim sendo a opção pela quantização depende do conjunto Software-Hardware disponível. Prosseguiremos com o exemplo assumindo o uso de uma placa DSP que disponibiliza a quantização com 10bits, pela qual podemos ter valores inteiros na faixa de -512 até 511. Uma vez solucionado o problema da quantização vamos analisar o espectro do sinal, isto é, o seu conteúdo de frequências para que seja possível definir a taxa de amostragem.
+Os dois subsinais que compõe o sinal considerado possuem frequência de 1000Hz e 1200Hz. Assim, sendo 1200 a maior frequência, a taxa de amostragem mínima é de 1200x2 que é igual a 2400 amostras por segundo. Portanto a versão discreta do sinal é:
+
+![codecogseqn 3](https://cloud.githubusercontent.com/assets/3441126/7330924/92897b98-ead1-11e4-9734-3ebe48914c1a.png)
+
+- As dez primeiras amostras são:
+```
+			f[1] = 60
+			f[2] = -103,923
+			f[3] = 120
+			f[4] = -103,923
+			f[5] = 60
+			f[6] = 0
+			f[7] = -60
+			f[8] = 103,923
+			f[9] = -120
+			f[10] = 103,923
+```
+
+- Procedendo com a quantização os resultados são os seguintes:
+```
+			f[1] = 60
+			f[2] = -104
+			f[3] = 120
+			f[4] = -104
+			f[5] = 60
+			f[6] = 0
+			f[7] = -60
+			f[8] = 104
+			f[9] = -120
+			f[10] = 104
+```
+
+>**OBS**: Os exemplos acima constituíram modelos bem definidos, para os quais é possivel analisar e determinar a taxa de amostragem e a quantização necessárias. Por outro lado, para sinais oriundos do meio externo e que não possuam modelo bem definido, devemos analisar ao menos as suas essências ou tipos. Por exemplo, se o sinal é de áudio sabemos que 44100 amostras por segundo com 16bits de quantização basta. Para voz, 8000 amostras por segundo com 8 bits de quantização são o suficiente.
+
+----
+
+###<a name="represR"></a> Representação computacional de valores reais
+
+Visando registrar valores reais, também conhecidos como de ponto flutuante, oriundos tanto da digitalização de sinais do meio externo quanto de variáveis e cálculos existentes em Softwares diversos, podemos utilizar as representações adequadas para tais casos. Sabe-se que números reais podem ser representados genericamente na forma ![codecogseqn 4](https://cloud.githubusercontent.com/assets/3441126/7330970/c5293bb4-ead2-11e4-9f44-ae00dca14b65.png), sendo `M` a mantissa, isto é, a parte fracionária, `B` a base e `e` o expoente. Particularmente no caso dos computadores o padrão internacional IEEE754 implica que a representação de valores reais é realizada primeiramente normalizando a mantissa para que o expoente seja positivo e usando a base 2. Sendo assim, o modelo representacional fica sendo ![codecogseqn 5](https://cloud.githubusercontent.com/assets/3441126/7330977/feb10236-ead2-11e4-9320-b6dde2e4b769.png). Como exemplo, vamos representar o número 5.75 utilizando o referido padrão. Devemos, obviamente, converter o valor em questão para a base 2.
+Para realizar a conversão devemos trabalhar separadamente com as partes **inteira** e **fracionária**. A conversão da parte inteira implica em realizar divisões sucessivas por 2 até que o cociente se torne 0 e recuperar o resto inteiro das divisões em ordem contrária. Para a parte fracionaria, devemos multiplica-las sucessivamente por 2, usando a parte fracionaria da multiplicação anterior para realizar a próxima multiplicação, repetindo o processo até que a parte fracionária seja 0. Em seguida devemos recuperar as partes inteiras de cada multiplicação na ordem em que elas ocorreram. Finalmente concatenamos a parte inteira na base 2 com a parte fracionaria na base 2, usando o ponto decimal entre elas. O procedimento está resumido no diagrama a seguir:
+
+> **TODO** diagrama conversão de real para base 2
+
+O valor 101.11 é a representação correta, na base 2, do valor 5.75 entretanto para representa-lo no computador precisamos adequá-lo ao padrão IEEE. Para isso é necessário, conforme observamos acima, escrever valor na forma ![codecogseqn 5](https://cloud.githubusercontent.com/assets/3441126/7330977/feb10236-ead2-11e4-9320-b6dde2e4b769.png). Para isso aplicamos o processo de normalização que consiste em deslocar as casas decimais em número já na base 2 de modo que antes do ponto decimal tenhamos apenas um digito 0. Assim fazemos 101.11 = 0.10111x2^3 (usamos o 2 porque é a base, por exemplo 3,14 = 0.314x10^1 porque é na base 10).
+Após a normalização o número está pronto para ser representado em um computador digital. Para isso, escolhemos um dentro os dois formatos disponíveis na grande maioria dos conjunto Software-Hardware e acessíveis por meio das diversas linguagens de programação: 
+
+- Float:
+	- 1bit para o sinal: 0 = positivo e 1 = negativo
+	- 8bits para o expoente
+	- 23bits para a mantissa
+
+- Double
+	- 1bit para o sinal: 0 = positivo e 1 = negativo
+	- 11bits para o expoente
+	- 52bits para a mantissa
+
+Desse modo, variáveis declaradas como `float` ocupam 1+8+23 = 32bits(4bytes) e variáveis declaras como double ocupam 1+11+52 = 64bits(8bytes). No caso do nosso exemplo, isto é, 0.10111x2^3, a sua representação como float é a seguinte:
+
+> 0 para o sinal; expoente 3 então (11), logo 00000011; e 00000000000000000010111 para a mantissa;
+
+No caso de representarmos o nosso exemplo como um double, devemos fazer o mesmo acima, porem lembrando que é 11bits para o expoente e 52bits para mantissa.
+
+Concluímos desse modo que o nosso número em exemplo pode ser representado com folga por meio de um `float`, não requerendo o uso de um `double`. De modo genérico o padrão `IEEE754`, implica que computacionalmente temos a seguinte situação:
+
+>**TODO**: UNIVERSO DOS VALORES REAIS
+
+----
+
+#### MINI PROVA 4 (PRÓXIMA AULA)
+
+- REPRESENTAR O VALOR 2.718 NAS PRECISÕES FLOAT E DOUBLE NO PADRÃO IEEE754
+
+----
+
+###<a name="aula6"></a> Aula 6
+
+----
