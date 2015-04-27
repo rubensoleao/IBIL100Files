@@ -171,8 +171,48 @@ int analisa(int* v)
 
 ---
 
+> 27 de Abril de 2015
+
 ---
 
+## Declaração dinâmica de matrizes
+
+Do mesmo modo como declaramos vetores para os quais tamanho poderia vir a ser definido em termpo de execução, é possivel realizar o mesmo procedimento em duas dimensões. Desse modo, a declaração a seguir:
+
+```c
+int linhas=10;
+int colunas=20;
+int m[linhas][colunas]
+```
+
+É na maioria da vezes, possível de ser inclusa e aceita pelos compiladores, mas é **incorreta** para garantir alocação de memória. O procedimento indicado é na verdade o seguinte:
+
+```c
+int linhas=10;
+int colunas=20;
+int **m=new int*[linhas];
+for(int i=0;i<linhas;i++)
+    m[i]=new int[colunas]
+```
+Do mesmo modo, como fizemos em uma dimensão podemos tambem utilizar a estrutura de ponteiros para a passagem de parâmetros. Assim, considerando a matriz `m` do código acima podemos por exemplo passa-la como parâmetro da seguinte forma: `modifica(m,linhas,colunas);` Sendo que a construção da funcão modifica é tal que fazemos:
+
+```c
+void modifica(int** x,int l,int c)
+{
+..
+..
+..
+}
+```
+
+Do mesmo modo como realizado em uma dimensão, podemos passar como parâmetro tambem a matriz a partir de uma linha específica da seguinte forma:` modifica(&m[0],linhas,colunas)` trocando o `0` por qualquer outro valor válido.
+O exemplo a seguir exercita a prática com matrizes.
+
+- **Exemplo 1**: Construa um programa que solicite e leia do teclado uma matriz `A` para a qual o número de linhas e de colunas é definido pelo usuário. Solicite e leia tambem um vetor `B`, de dimensão compatível, de tal forma que, a matriz e o vetor representem matricialmente um sistema linear `Ax=B` para o qual o número de equaçoes e o número de incognitas correspondam as dimensões da matriz conforme definido pelo usuario. Apos a leitura de A e B, chame uma função que receba como parametros a matriz o vetor e as dimensões e escreva de dentro da função a matriz na tela.
+
+- **Exemplo 2**: Aproveitando o código anterior faça com que a função mencionada acima modifique `A` e `B` de tal forma que eles passem a representar um sistema linear equivalente na forma triangularizada, escrevendo no programa principal e apos a chamada da função o sistema escalonado na tela.
+
+- **Exemplo 3** Aproveitando o código anterior faça com que a função referenciada acima, alem de triangularizar o sistema, resolva-o, sendo que deve ser escrito na tela, após a chamada da função e dentro do programa princial a soçução do sistema.
 
 
 
