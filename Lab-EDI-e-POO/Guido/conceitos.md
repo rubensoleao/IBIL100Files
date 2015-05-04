@@ -229,9 +229,9 @@ int main()
 {
     int l,c,i,j;
  
-    puts("Digite o nΓΊmeros de equaΓ§Γµes: ");
+    puts("Digite o números de equações: ");
     scanf("%d",&l);
-    puts("\nDigite o nΓΊmeros de incΓ³gnitas: ");
+    puts("\nDigite o números de incógnitas: ");
     scanf("%d",&c);
  
     float **A=new float*[l];
@@ -386,15 +386,17 @@ Sendo que a matriz 4x3 é chamada de A, e o vetor com os termos independentes é
 (2 3 1 4 )  ( 2 3 5 ) (y)    (2 3 1 4 )  ( 8 )
 (3 5 1 2 )  ( 3 1 1 ) (z) =  (3 5 1 2 )  ( 10) 
     ^       ( 1 4 2 )            ^       ( 12)
-    At          ^                At
-                A
+    At          ^                At	   ^
+                A			   B
                
-               = 
+               
                 
                 
-(15 15 18) (x)   (60)           
-(15 30 30) (y) = (86)
-(18 30 39) (z)   (80) 
+			(15 15 18) (x)   (60)           
+	=		(15 30 30) (y) = (86)
+			(18 30 39) (z)   (80) 
+			    ^		  ^
+			   AtA		 AtB
 ```
 
 O ultimo sistema obtido é possivel e determinado, ou seja, o numero de equações é igual ao de icognitas. Desse modo, ele possui solução exata. A solução exata desse sistema é a solução que melhor aproxima o sistema incompatível original. Isso resume o método dos mínimos quadrados.
@@ -402,6 +404,222 @@ O ultimo sistema obtido é possivel e determinado, ou seja, o numero de equaçõ
 -----
 
 - **Exercício** Construa um programa que solicite e leia do teclado o número de equações e o número de incognitas de um sistema linear. Se o sistema for possível e determinado, leia-o na forma de 2 matrizes e obtenha a solução, chamando a função elaborada na aula anterior(MINI PROVA 1). Se o sistema for incompativel, leia-o matricialmente, encontre a transposta da matriz dos coeficientes dinâmicamente, faz as multiplicações que implementam o metodo dos minimos quadrados e resolva usando a função da aula passada, o novo sistema possivel e determinado obtido, apresentando na tela a sua solução, que corresponde a melhor aproximação para o sistema incompatível anterior.
+
+- **Solução**
+
+```c
+#include <iostream>
+#include <stdio.h>
+void mostraTudo(float**,float*,int,int);
+void escalona(float**,float*,int,int);
+void resolve(float**,float*,int,int);
+void ajusta(float**,float*,float**,float*,int,int);
+int main()
+{
+	int l,c,i,j;
+
+	puts("Digite o números de equações: ");
+	scanf("%d",&l);
+	puts("\nDigite o números de incógnitas: ");
+	scanf("%d",&c);
+
+	float **A=new float*[l];
+	
+	for(i=0;i<l;i++)
+		A[i]=new float[c];
+	
+	float *B=new float[l];
+
+	puts("\nDigite os elementos da matriz A");
+
+	for(i=0;i<l;i++)
+	{	for(j=0;j<c;j++)
+		{
+			printf("\nA[%d][%d]: ",i,j);
+			scanf("%f",&A[i][j]);
+		}
+	}
+
+	puts("\nDigite os elementos do vetor B");
+	
+	for(i=0;i<l;i++)
+	{
+		printf("\nB[%d]: ",i);
+		scanf("%f",&B[i]);
+	}
+
+	
+	if( l > c ) // 
+	{
+		float **ATA=new float*[c];
+		for(i=0;i<c;i++)ATA[i]= new float[l];
+
+		float *ATB=new float[c];
+	
+
+
+	puts("\n------------ Número de Equações maior do que incógnitas --------");
+	puts("---------------------------Sistema Digitado -------------------");
+	mostraTudo(A,B,l,c);
+	puts("\n-------------Utilizando método Minimos quadraticos-----------\n");
+
+		ajusta(A,B,ATA,ATB,l,c);
+
+
+	puts("--------------------Sistema Resultante -----------------------");
+	mostraTudo(ATA,ATB,c,c);		
+	escalona(ATA,ATB,c,c);
+	puts("\n----------------- Apos Escalonar ---------------------------");
+	mostraTudo(ATA,ATB,c,c);
+	puts("\n----------------------Solução ------------------------------\n");
+	resolve(ATA,ATB,c,c);
+
+
+
+
+	}
+	else if( l == c) // possivel determinado
+	{ 
+
+
+
+
+	puts("---------------------Sistema Digitado ---------------------");
+	mostraTudo(A,B,l,c);
+	escalona(A,B,l,c);
+	puts("\n-------------------- Apos Escalonar --------------------");
+	mostraTudo(A,B,l,c);
+	puts("\n------------------------Solução -----------------------\n");
+	resolve(A,B,l,c);
+
+	}
+
+
+	else //impossivel
+		puts("--------Sistema Indeterminado (equações < incognitas)----");
+
+
+	puts("\n-------------------------------------------------------\n");
+//	puts("teste ");
+//	printf("%f",A[1][1]);
+
+}
+
+void mostraTudo(float** A,float* B,int l,int c)
+{
+	int i,j;
+
+	for(i=0;i<l;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			printf("%.2f.X%d ",A[i][j],j);
+			if(j!=c-1)
+				if(A[i][j+1] >= 0)printf(" + ");
+				else printf("  ");
+		
+		}
+		
+		printf("= %.2f\n",B[i]);
+
+	}
+}
+void escalona(float** A,float* B,int l,int c)
+{
+	int i,j,k,g;
+
+	for(i=0,j=0;i<l && j<c;i++,j++)
+	{
+	//	printf("pivo: %.2f",A[i][j]);
+
+		//verificar atÃ© o ultimo
+		for(k=i+1;k < l;k++)
+		{
+		g=j;
+		
+			if(A[k][g] != 0) //verifica se ja esta escalonado
+			{
+				//definir op
+				float num=A[k][g] / A[i][g]; 	
+				for(;g<c;g++)
+				{
+					A[k][g]=(A[i][g]*num) - A[k][g];	
+
+				}
+				B[k] = (B[i]*num) - B[k];
+				
+			}
+		}
+
+	}
+}
+
+void resolve(float** A,float* B, int l,int c)
+{
+	int i,j,k,h;
+
+	float* R=new float[l];
+
+	
+
+	for(i=l-1;i>=0;i--)
+	{
+		float soma=0;
+
+		for(j=i+1;j<c;j++)soma+=A[i][j]*R[j];
+				
+		R[i]= (B[i]-soma)/A[i][i];
+	
+
+	}
+	
+	for(i=0;i<l;i++)
+		printf("X%d = %.2f\t   ",i,R[i]);
+}
+
+void ajusta(float** A,float* B,float** ATA,float* ATB,int l,int c){
+
+	int i,j,k;
+
+	float** AT=new float*[c];
+	for(i=0;i<c;i++)AT[i] = new float[l]; // cria a transposta
+
+
+	for(i=0;i<l;i++) // preenche a transposta
+		for(j=0;j<c;j++)
+			AT[j][i] = A[i][j];
+
+	
+
+	for(i=0;i<c;i++) // inicializa com 0 a ATA
+		for(j=0;j<c;j++)
+			ATA[i][j] = 0;
+
+	
+	for(i=0;i<c;i++) // preenche a ATA
+		for(j=0;j<c;j++)
+			for(k=0;k<l;k++)
+			{
+				ATA[i][j] += AT[i][k] * A[k][j];
+
+			}
+
+
+	for(i=0;i<c;i++) // inicializa com 0 ATB
+		ATB[i] = 0;
+
+	for(j=0;j<c;j++)// preenche a ATB
+		for(k=0;k<l;k++)
+			ATB[j] += AT[j][k] * B[k];
+
+
+}
+
+
+```
+
+- **
+
 
 
 
