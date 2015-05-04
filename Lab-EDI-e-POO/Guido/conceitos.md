@@ -618,7 +618,34 @@ void ajusta(float** A,float* B,float** ATA,float* ATB,int l,int c){
 
 ```
 
-- **
+A mesma técnica utilizada para solucionar sistemas lineares incompativeis é de interesse para as sub areas da computação mencionadas anteriormente, particularmente para fins de criação de equações de modelamento conforme o exemplo que segue:
+
+- Suponha que o problema seja determinar um modelo, isto é, uma equação que responda aos pontos da seguinte tabela:
+
+X | Y 
+---|---
+0|5
+1|10
+2|14
+2|22
+4|26
+
+Se traçarmos um gráfico perceberemos que os pontos estão quase coincidindo com uma reta. Sabemos que por um conjunto de `n` pontos existe um polinómio de grau de `n-1` que casa pontualmente com eles, entretando, polinómios de grau mais alto tornam normalmente a modelagem mais complicada. Desse modo a idéia é utilizar minimos quadrados para aproximar os pontos da tabela por uma reta
+
+- **Solução** A equação de reta é ` y=ax+b`. Para encontrar `a` e `b` para representar os pontos......
+
+```
+y=ax+b
+				A
+5 = a.0 + b		    ( 0 1 )		( 5)
+10 = a.1 + b		    ( 1 1 )  ( a )	(10)
+14 = a.2 + b          ->    ( 2 1 )  ( b )   =  (14)
+22 = a.3 + b		    ( 3 1 )		(22)
+26 = a.4 + b		    ( 4 1 )		(26)
+
+```
+
+Resolvendo-o de modo aproximado, usando minimos quadrados, encontramos uma reta média que passa por entre os pontos, aproximando-os. Basta então proceder com a implementação, solicitando e lendo do teclado o número de pontos e solicitando os seus valores para então executar as tecnicas do exemplo anterior.
 
 
 
