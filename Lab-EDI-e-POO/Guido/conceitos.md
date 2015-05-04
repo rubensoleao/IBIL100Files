@@ -214,6 +214,194 @@ O exemplo a seguir exercita a prática com matrizes.
 
 - **Exemplo 3** Aproveitando o código anterior faça com que a função referenciada acima, alem de triangularizar o sistema, resolva-o, sendo que deve ser escrito na tela, após a chamada da função e dentro do programa princial a soçução do sistema.
 
+- **Solução**
+
+```c
+
+	
+#include <iostream>
+#include <stdio.h>
+void mostraTudo(float**,float*,int,int);
+void escalona(float**,float*,int,int);
+void resolve(float**,float*,int,int);
+ 
+int main()
+{
+    int l,c,i,j;
+ 
+    puts("Digite o nΓΊmeros de equaΓ§Γµes: ");
+    scanf("%d",&l);
+    puts("\nDigite o nΓΊmeros de incΓ³gnitas: ");
+    scanf("%d",&c);
+ 
+    float **A=new float*[l];
+     
+    for(i=0;i<l;i++)
+        A[i]=new float[c];
+     
+    float *B=new float[l];
+ 
+    puts("\nDigite os elementos da matriz A");
+ 
+    for(i=0;i<l;i++)
+    {   for(j=0;j<c;j++)
+        {
+            printf("\nA[%d][%d]: ",i,j);
+            scanf("%f",&A[i][j]);
+        }
+    }
+ 
+    puts("\nDigite os elementos do vetor B");
+     
+    for(i=0;i<l;i++)
+    {
+        printf("\nB[%d]: ",i);
+        scanf("%f",&B[i]);
+    }
+ 
+    puts("---------------Sistema Digitado -------------------");
+    mostraTudo(A,B,l,c);
+    escalona(A,B,l,c);
+    puts("\n------------- Apos Escalonar --------------------");
+    mostraTudo(A,B,l,c);
+    puts("\n-----------------Solução -----------------------\n");
+    resolve(A,B,l,c);
+ 
+//  puts("teste ");
+//  printf("%f",A[1][1]);
+ 
+}
+ 
+void mostraTudo(float** A,float* B,int l,int c)
+{
+    int i,j;
+ 
+    for(i=0;i<l;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            printf("%.2f.X%d ",A[i][j],j);
+            if(j!=c-1)
+                if(A[i][j+1] >= 0)printf(" + ");
+         
+        }
+         
+        printf("= %.2f\n",B[i]);
+ 
+    }
+}
+void escalona(float** A,float* B,int l,int c)
+{
+    int i,j,k,g;
+ 
+    for(i=0,j=0;i<l && j<c;i++,j++)
+    {
+    //  printf("pivo: %.2f",A[i][j]);
+ 
+        //verificar atΓ© o ultimo
+        for(k=i+1;k < l;k++)
+        {
+        g=j;
+         
+            if(A[k][g] != 0) //verifica se ja esta escalonado
+            {
+                //definir op
+                float num=A[k][g] / A[i][g];    
+                for(;g<c;g++)
+                {
+                    A[k][g]=(A[i][g]*num) - A[k][g];    
+ 
+                }
+                B[k] = (B[i]*num) - B[k];
+                 
+            }
+        }
+ 
+    }
+}
+ 
+void resolve(float** A,float* B, int l,int c)
+{
+    int i,j,k,h;
+ 
+    float* R=new float[l];
+ 
+     
+ 
+    for(i=l-1;i>=0;i--)
+    {
+        float soma=0;
+ 
+        for(j=i+1;j<c;j++)soma+=A[i][j]*R[j];
+                 
+        R[i]= (B[i]-soma)/A[i][i];
+     
+ 
+    }
+     
+    for(i=0;i<l;i++)
+        printf("X%d = %.2f\t   ",i,R[i]);
+}
+
+
+
+
+```
+
+
+> 4 de maio de 2015
+
+### Alocação dinâmica de matrizes e solução de sistemas
+
+Nos exercícios anteriores contruimos um algorítmo para soluçao de sistemas lineares utilizando alocação dinâmica de memória seguida dos procedimentos de escalonamento e retrosubstituição de variaveis. Os sistemas resolvidos eram determinados, ou seja, a quantidade de equações e de variáveis era a mesma. Caso a quantidade de equações seja superior a de icoógnitas, sabemos que o sistema não possui solução exata pois não é possível atender a todas as equações. De qualquer forma, inúmeras situações existem em computação, principalmente envolvendo IA, redes neurais e análise de sinais e imagens, nas quais os problemas são modelados tendo por base sistemas lineares com mais equações do que icógnitas e para os quais necessitamoes pelo menos de soluções aproximadas. Desse modo, não encontraremos uma solução que atenda exatamente a todas as equações, mas é possivel encontrar soluções que atendam aproximadamente a todas as equações, normalmente objetivando minimizar o erro quadrático médio. A diciplina de calculo numérico fornecerá a base teórica para tal procedimento, entretanto é de nosso interesse apresentar a tecnica em questão do ponto de vista prático pois alem de envolver **alocação dinâmica** para fins de implementação, nos permite implementar algoritmos mais avançados que atuem em combinação com outras implementações baseadas em objetos e associadas com estruturas de dados particulares. Com relação ao aspecto teorico, o metodo recebe o nome de **minimos quadrados**.
+
+#### Exemplo prático para compreenção
+
+Suponha que desejamos a solução do seguinte sistema: 
+
+```
+1x + 2y + 3z = 2
+2x + 3y + 5z = 8
+3x + 1y + 1z = 10
+1x + 4y + 2z = 12
+```
+
+Conforme comentamos não há solução exata, mas, procederemos com uma solução aproximada utilizando minimos quadrados. Para isso expressamos o sistema incompativel matricialmente, isto é:
+
+```
+( 1 2 3 ) (x)   ( 2 )
+( 2 3 5 ) (y)   ( 8 )
+( 3 1 1 ) (z) = ( 10)
+( 1 4 2 )       ( 12)
+   ^              ^
+   A              B
+
+```
+
+Sendo que a matriz 4x3 é chamada de A, e o vetor com os termos independentes é chamado de B. Na prática a teoria de minimos quadrados consiste simplesmente em multiplicar ambos os lados do sistema incompatível expresso matricialmente pela transposta da matriz A, isto é:
+
+```
+
+(1 2 3 1 )  ( 1 2 3 ) (x)    (1 2 3 1 )  ( 2 ) 
+(2 3 1 4 )  ( 2 3 5 ) (y)    (2 3 1 4 )  ( 8 )
+(3 5 1 2 )  ( 3 1 1 ) (z) =  (3 5 1 2 )  ( 10) 
+    ^       ( 1 4 2 )            ^       ( 12)
+    At          ^                At
+                A
+               
+               = 
+                
+                
+(15 15 18) (x)   (60)           
+(15 30 30) (y) = (86)
+(18 30 39) (z)   (80) 
+```
+
+O ultimo sistema obtido é possivel e determinado, ou seja, o numero de equações é igual ao de icognitas. Desse modo, ele possui solução exata. A solução exata desse sistema é a solução que melhor aproxima o sistema incompatível original. Isso resume o método dos mínimos quadrados.
+
+-----
+
+- **Exercício** Construa um programa que solicite e leia do teclado o número de equações e o número de incognitas de um sistema linear. Se o sistema for possível e determinado, leia-o na forma de 2 matrizes e obtenha a solução, chamando a função elaborada na aula anterior(MINI PROVA 1). Se o sistema for incompativel, leia-o matricialmente, encontre a transposta da matriz dos coeficientes dinâmicamente, faz as multiplicações que implementam o metodo dos minimos quadrados e resolva usando a função da aula passada, o novo sistema possivel e determinado obtido, apresentando na tela a sua solução, que corresponde a melhor aproximação para o sistema incompatível anterior.
 
 
 
