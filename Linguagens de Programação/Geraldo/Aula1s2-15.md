@@ -1,8 +1,23 @@
 
+### Sumario
+
+#### Por Aula
+
+- [Aula 1 - 27/03/2015](#aula1)
+
+- [Aula 2 - 10/04/2015](#aula2)
+
+- [Aula 3 - 17/04/2015](#aula3)
+
+- [Aula 4 - 24/04/2015](#aula4)
+
+- Aula 5 Faltando
+
 ----
 
-> Aula de paradigmas 27/03/2015
+###<a name="aula1"></a> Aula 1 - 27/03/2015
 
+----
 ##Linguagens de programação
 
 É muito comum o questionamento sobre a real necessidade de se estudar **conceitos** de linguuagens de programação. Dessa maneira é importante elevar-se algumas justificativas.
@@ -69,9 +84,11 @@ Computadores tem sido aplicados a uma infinidade de áreas desde controlar usina
 
 ----
 
->Aula de paradígmas 10/04/2015
+### <a name="aula2"></a> Aula 2 - 10/04/2015
 
-**Criterios de Avaliação de Linguagens de Programação**
+----
+
+##Criterios de Avaliação de Linguagens de Programação
 
 Neste tópico serão examinados conceitos fundamentais das diversas Contruções e Capacidades das Linguagens de programção. esses recursos impactam diretamente no Desenvolvimento de Software, incluindo questões de manutenção.
 
@@ -141,7 +158,7 @@ A seguir são apresentados, em uma tabela o cruzamento dos principais criterios 
 </table>
 
 
-**LEGIBILIDADE**
+## Legibilidade
 
 Um dos critérios mais importantes para julgar uma linguagem de programação é a facilidade com a qual os programas podem ser lidos e entendidos.
 
@@ -151,11 +168,130 @@ A partir da década de 70, o conceito de ciclo de vida de um software foi desenv
 
 ----
 
-> **Falta uma aula aqui!*
+### <a name="aula3">Aula 3 - 17/04/2015 
+
+---
+
+
+## Simplicidade
+
+A simplicidade geral de uma linguagem de programação *afeta fortemente*
+sua legibilidade. Uma linguagem com muitas construções básicas é mais
+difícil de aprender do que uma com *poucas*.
+
+Problemas de legibilidade ocorrem sempre que o autor de um programa
+*aprender um subconjunto diferente* daquele com o qual o leitor está
+familiarizado.
+
+Outra característica de uma linguagem de programação que poder ser um
+complicador é a *multiplicidade de recursos*, ou seja, quando existe  *mais de uma*
+possibilidade de realizar uma operação. Por exemplo, em C um
+usuário pode incrementar uma variável inteira simples de quatro
+maneiras:
+
+```
+(1)Count=Count+1
+(2)Count+=1	
+(3)Count++
+(4)++Count
+```
+
+*Obs: Embora haja alguns problemas de significador entre elas dependendo do contexto.*
+  
+Um terceiro ponto a ser considerado é a *sobrecarga de operadores*, na
+qual um operador tem, mais de um significado. Embora isto seja uma
+estratégia útil, pode levar a uma redução da legibilidade se for
+permitido aos usuários criar as suas próprias sobrecargas e estes não o
+fizerem de maneira *sensata*. Como contra-exemplo, imagine que um usuário
+defina que o operador `+` entre dois operados do tipo vetor seja a
+*diferença* entre os primeiros elementos de cada vetor.
+
+Em contrapartida, a simplicidade extrema também pode levar a problemas
+de legibilidade, o que tornar, por exemplo, programas em *assembly* quase
+que *ininteligíveis*.
+
+### Ortogonalidade
+
+Ortogonalidade em uma linguagem de programação significa que um *conjunto pequeno*
+ de construções primitivas pode ser combinado a um número
+relativamente pequeno de formas para construir as estruturas de controle
+e de dados da linguagem.
+
+Suponha que uma linguem tenha quatro tipos primitivos de dados (inteiro,
+ponto flutuante, ponto flutuante de dupla precisão e caractere) e dois
+operadores de tipo, de os dois operadores de tipo puderem ser aplicados
+a eles mesmo e aos quatros tipos de dados primitivos, um grande número
+de estruturas de dados pode ser definido.
+
+A *Ortogonalidade* é fortemente relacionada à *Simplicidade*: quanto mais
+ortogonal o projeto de uma Linguagem, menor é o número necessário de
+*exceções* às regras da linguagem. Menos exceções significam maior grau de
+regularidade no projeto o que torna a linguagem mais fácil de *aprender, ler e entender.*
+
+Como um exemplo de falta de ortogonalidade em uma linguagem de alto
+nível, vamos consideram algumas exceções em Linguagem *C*: Embora *C* tenha
+dois tipos de dados estruturados, que são arranjos e os registros
+(structs), *os registros podem ser retornados* por funções, mas *os vetores*
+**não**.
+
+## Tipos de Dados
+
+A presença de mecanismos adequados para definir *tipos e estruturas* de
+dados é o outro auxílio significativo à legibilidade. Por exemplo,
+suponha que um tipo numérico seja usado como uma *flag* porque não existe
+nenhum tipo Booleano.
+
+`Timeout = 1` $\xrightarrow{Mais Legível}$ `Timeout=true`
+
+## Projeto de Sintaxe
+
+Este quesito tem um efeito significativo na legibilidade dos programas.
+Elementos que podem distorcer a legibilidade:
+
+-   *Formato dos identificadores:* Restringir os identificados a tamanhos
+    muito curtos piora a legibilidade (pouco intuitivos).
+
+-   *Palavras Especiais:* A aparência de um programa e sua legibilidade
+    são fortemente influenciadas pela forma das palavras especiais da
+    linguagem ( if, while, class). O método para formar sentenças
+    compostas, ou grupo de sentenças, é especialmente importante em
+    construções de controle. Outro ponto importante a ser elencado é se
+    as palavras especiais de uma linguagem podem ser usadas como nome de
+    variáveis. Se isso for verdade, os programas resultantes podem ser
+    bem confuso.
+
+-   *Forma e significado:* Projetar sentenças de maneira que sua aparência
+    ao menos indique parcialmente seu propósito é uma ajuda óbvia à
+    legibilidade.
+
+Ex: Static em C
+
+1.  Em uma variável dentro de uma função, indica que a variável é criada
+    em tempo de compilação
+
+2.  Em uma variável fora de todas as funções, significa que a variável é
+    visível apenas no arquivo no qual sua definição aparece (não é
+    exportada).
+
+## Facilidade de Escrita (writeability)
+
+A facilidade de escrita é a medida do quão facilmente a linguagem pode
+ser usada para criar programas para um domínio. A maioria das
+características que afetam a legibilidade também afeta a facilidade de
+escrita.
+
+A facilidade de escrita, assim como a legibilidade, deve ser considerada
+no contexto do domínio do problema alvo de uma linguagem. Não é razoável
+comparar a facilidade de escrita de uma linguagem de programação no
+contexto de uma aplicação em particular. Quando uma delas já foi
+projetada para tal aplicação e a outra não. Ex: C x Java.
 
 
 ----
->Aula 24/04/2015
+
+### <a name="aula4"></a>Aula 4 - 24/04/2015
+
+----
 
 ### B1) Simplicidade e ortoganilidade
 
