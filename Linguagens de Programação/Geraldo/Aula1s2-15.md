@@ -11,7 +11,7 @@
 
 - [Aula 4 - 24/04/2015](#aula4)
 
-- Aula 5 Faltando
+- [Aula 5 - 08/05/2015](#aula5)
 
 ----
 
@@ -170,7 +170,7 @@ A partir da década de 70, o conceito de ciclo de vida de um software foi desenv
 
 ### <a name="aula3">Aula 3 - 17/04/2015 
 
----
+----
 
 
 ## Simplicidade
@@ -345,3 +345,84 @@ O custo de uma linguagem de programação é fator que deve ser considerado e ob
  - Isto é parte da facilidade de escrita
  - Os esforços estão voltados para reduzir o custo de produção de um software
 
+----
+
+### <a name="aula5"></a> Aula 5 08/05/2015
+
+----
+
+O *terceiro* critério importante com relação ao custo diz respeito a questão da compilação de um programa. 
+Um grande impedimento é o custo alto da execução dos computadores da primeira geração.
+
+O *quarto* critério envolve o quesito do custo de executar programas escritos em uma linguaem cujo projeto
+desta linguagem é o grande influenciador. Uma linguagem que requer muitas verificações de tipos em 
+tempo de execução proibirá uma execução rápida do código compilado. Para promover um balanço ideal de
+otimização. Estas técnicas são coleções de recursos que os compiladores podem usar para diminuir o tamanho
+e/ou aumentar a velocidade do código que produzem. Considerando-se um ambiente de produção de software
+de grande porte, em que os programas compilados são executados muitas vezes apos o desenvolvimento é
+melhor pagar o custo extra de otimizar o código.
+
+O *quinto* fator é o custo do sistema de implementação da linguagem. Uma linguagem cujo sistema de 
+implementação é caro ou pode ser executado apenas em plataformas de hardware caras terão uma chance
+muito menor de se tornarem amplamente usadas. *Exemplo*: Plataforma de Java gratuita.
+
+O *sexto* fator é o custo de uma confiabilidade baixa. Se um aplicativo de software falha em um sistema
+crítico, a sua confiabilidade é altamente abalada.
+
+Como critérios finais sobre o custo de linguagens de programação temos:
+- *Mantimento dos programa*. Incluí tanto as correções quanto as modificações para adicionar novas 
+funcionalidades. A *legibilidade* influencia muito nesse quesito.
+- Não subestimar o *custo de manutenção* de um software. Para sistemas com tempos de vidas longos, os 
+custos de manutenção podem ser elevados. Por isso, é importante investir no desenvolvimento de software.
+- Considerações sobre a portabilidade devem ser levado em conta. A facilidade de portabilidade deve
+estar presente
+- A *generalidade* (aplicabilidade a uma ampla faixada de aplicações) e a falta de uma linguagem ser bem
+*definida* (Em relação a completude e a precisão do documento oficial que define a linguagem) são dois critérios importantes
+
+## E)*Influência* no projeto de linguagens.
+
+Além dos diversos fatores mencionados anteriormente a arquitetura de computadores e as metodologias de projeto de pjeto de programas são muito relevantes.
+
+### E1) Arquitetura
+
+A arquitetura básica dos computadores tem efeito profundo no projeto das linguagens. A maioria
+das linguagens dos últimos 50 anos tem sido projetadas considerando-se a arquitetura de Von
+Neumann. Nesta arquitetura, tanto os dados quanto os programas são armazenados na mesma memória.
+A UCP, que executa as instruções é separada da memória. As instruções e os dados são transmitidos 
+da memória para a UCP e devem ser retornados para a memória.
+
+Devido ao modelo de Von Newmmann, os recursos centrais das linguagens imperativas são as variáveis
+que modelam as células de memória; as sentenças de atribuição que são balanceadas nas operações
+de envio de dados e instruções e a forma iterativa de repetição nessa arquitetura. A iteração é
+rápida em computadores Von Newmann por que as instruções são armazenadas em células adjacentes
+de memória. Depois do programa compilado a sua execução do código de máquina denomina-se.
+O endereço da próxima iterações é mantida pelo contador do programa.
+
+Apesar do fato que as estruturas de linguagens de programação imperativas são modelada em uma arquitetura
+de máquina, em vez de modelada de acordo com as habilidades e inclinações do usuário, seu uso é mais natural
+do que uma linguagem funcional. Logo muitos acredita que mesmo que a programas funcionais fossem mais
+eficientes do que os imperativos, o uso das linguagens imperativas ainda seria dominante.
+
+### E2) Metodologia de projeto de programas
+
+O final da década de 60 e início da década de 70 foram anos cruciais para o desenvolvimento das linguagens.
+Uma razão importantes para esses desenvolvimento foi a mudança no custo maior da computação, de hardware pa
+software, a medida que os custos de hardware declinavam e os de programação aumentaram. 
+
+Com isso, as novas metodologias de desenvolvimento de software emergiram e auxiliaram no refinamento 
+dos passos de desenvolvimento. Alguns itens que afetavam as linguagens de programação eram as 
+incompletudes da verificação de tipos e a inadequação das sequências de controle.
+
+Enfatizou-se, nos anos seguintes, uma metodologia de modelagem de dados. Isto deu origem a utilização
+das metodologias **orientadas à objetos**.
+
+As metodologias orientadas à objetos começaram com a abstração de dados, que encapsula o processamento
+com os objetos de dados e controle o acesso aos dados, e também, adiciona mecanismos de *herança* e 
+vinculação dinâmica de métodos.
+
+A *herança* é um conceito poderoso que melhora o potencial de reuso de software existente, fornecendo
+a possibilidade de melhorias significativas na produtividade no contexto de desenvolvimento de software.
+Esses fato é preponderante para o aumento da popularidade das linguagens orientadas a objetos.
+
+Todos esses passos evolutivos em metodologias de desenvolvimentos de software levaram a novas construções
+de linguagens para suportá-las.
