@@ -12,7 +12,7 @@ Qualquer ajuda é sempre bem vinda!
 
 ## TODO (por ordem de prioridade!):
 
-- [ ] Adicionar aulas 3 e 5 do Geraldo de Linguagens
+- [x] Adicionar aulas 3 e 5 do Geraldo de Linguagens
 - [ ] Adicionar ultima aula do Guido
 - [ ] Adicionar a P1 do Geraldo/ED1, e as aulas faltando
 - [ ] Adicionar as aulas de POO (JONTEX)
