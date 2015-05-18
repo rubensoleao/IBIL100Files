@@ -16,6 +16,8 @@
   - [Codificação e representação de conteúdo multimídia com valores inteiros](#codMult)
   - [Representação computacional de valores reais](#represR)
 
+- [Modelos de Arquiteturas](#arq)
+
 #### Por Aula
 
 - [Aula 1 - 20/03/2015](#aula1)
@@ -23,7 +25,10 @@
 - [Aula 3 - 10/04/2015](#aula3)
 - [Aula 4 - 17/04/2015](#aula4)
 - [Aula 5 - 24/04/2015](#aula5)
-- [Aula 6]
+- [Aula 6 (missing) - 08/05/2015](#aula6)
+- [Aula 7 - 15/05/2015](#aula7)
+- **Prova** - 22/05/2015
+- [Aula 8]
 
 ----
 
@@ -409,5 +414,98 @@ Concluímos desse modo que o nosso número em exemplo pode ser representado com 
 ----
 
 ###<a name="aula6"></a> Aula 6
+
+----
+
+###<a name="aula7"></a> Aula 7
+
+----
+
+##<a name="arq"></a> Modelos de Arquiteturas
+
+Do ponto de vista comercial, excluindo modelos teóricos e/ou puramente acadêmicos, podemos considerar a existência de duas arquiteturas de computadores:
+
+- Arquitetura de Von Neumann.
+- Arquitetura Harvard.
+
+O modelo de **Von Neumann**, assim chamado por ter sido especificado pelo matemático húngaro John Von Neumann, constitui o esquema mais básico de processamento, pelo qual a área de memória é compartilhada para armazenar as instruções a serem executadas e os dados, ou seja, operandos, utilizados em conjunto com tais instruções. Existe, dessa forma, um único barramento, isto é, conjunto de vias elétricas por onde as informações transitam para conduzir dados e instruções. Podemos dizer que não há paralelismo nas tarefas e a sequência de processamento está sujeito a um gargalo, conhecido como gargalo de Von Neumann, que limita o desenvolvimento das atividades de processamento. Particularmente percebemos que o modelo de Von Neumann caracteriza as máquinas para as quais a taxonomia é do tipo **SISD**.
+Em contra partida, o modelo **Harvard** especificado por pesquisadores diversos na universidade Harvard, na década de 40, tem como princípio a existência de regiões de memória separadas para armazenar instruções e dados. Desse modo existe um barramento que interage com uma porção de memória para troca de instruções e outro barramento que interage com uma segunda região de memória visando trocar dados. Entende-se, assim que já existe a ideia de paralelismo pois enquanto transita uma instrução por um barramento, os respectivos dados ou operandos transitam por outro. Nota-se então que este modelo Harvard corresponde a proposta da taxonomia **SIMD**.
+
+Independentemente do modelo de arquitetura, temos sempre a figura da unidade central de processamento (Central Processing Unit – CPU), que contém basicamente duas subunidades:
+
+- Unidade de Controle (UC)
+- Unidade Lógica e Aritmética (ULA)
+
+A primeira subunidade, isto é **UC**, tem como função comandar a **sequência de processamento**, isto é, qual instrução será executada em qual momento; enquanto que a segunda subunidade, isto é **ULA**, realiza os **cálculos e as comparações lógicas**. Acrescentamos ainda à CPU uma porção de **memória**. Particularmente, pequenos blocos de memória, utilizados dentro do computador costumam possuir velocidade de escrita e leitura **superior** a memória RAM da máquina, sendo chamado de **registradores**. Em geral os registradores armazenam resultados imediatos ou intermediários das operações aritméticas e lógicas.
+
+![arqCpu](https://cloud.githubusercontent.com/assets/3441126/7672897/803fe032-fcdb-11e4-85c4-2d996122d030.jpeg)
+
+É de nosso conhecimento, que os processadores somente entendem uma linguagem chamada de **linguagem de máquina**, e que é definida e conhecida pelos engenheiros eletrônicos e de computação que projetaram o processador. Essa linguagem constitui um conjunto de sinais elétricos digitais que comandam a execução das tarefas no processador. Tendo em vista tratar-se de uma linguagem muito próxima ao hardware que seria inacessível muitas vezes até mesmo para os engenheiros, é sempre definida uma linguagem mais facilmente compreendida que é chamada de **linguagem Assembly**, havendo ainda um conversor, chamado montador, ou **Assembler**, que funciona como um **compilador** traduzindo os comandos Assembly para linguagem de máquina. Cada processador possui seus conjuntos de instruções, sendo que as versões melhorada de uma linha de processadores contém todas as instruções das versões anteriores adicionadas de algumas outras que são otimizadas para determinado fim. Por exemplo, o processador i7 reconhece todas as instruções do i5 e algumas outras. A linguagem Assembly dos processadores, que iremos estudar adiante, não é confortável para programar e desenvolver software no dia-a-dia. Assim sendo, foram criadas as linguagens de programação de alto nível, cada qual com seu compilador que traduz as instruções da linguagem para comandos Assembly. Na figura a seguir, temos um resumo deste procedimento.
+
+![assmaq](https://cloud.githubusercontent.com/assets/3441126/7672906/e566e424-fcdb-11e4-93c6-1e1073c02d7a.jpeg)
+
+
+Notamos que, cada processador tem o seu conjunto de comandos que são reconhecidos. Dependendo da quantidade e da função especifica do conjunto de comandos de um processador, podemos classificá-lo em um entre dois modelos:
+
+- Reduced Instruction Set Computer - **RISC**
+- Complex Instruction Set Computer - **CISC**
+
+Nas máquinas **RISC**, costumeiramente temos algumas dezenas de comandos para realizar operações mais elementares, sendo que as operações mais específicas são forçosamente implementadas a partir das mais elementares, como exemplo temos as instruções de soma e subtração entre dois operandos. Por outro lado, as máquinas **CISC** possuem instruções para realizar não somente as operações básicas, mas também as mais complexas ou elaboradas, definidas a partir das básicas, tal como por exemplo uma exponencial. Os processadores que utilizamos no dia-a-dia, tais como os da Intel e AMD, são do modelo CISC. De modo mais abrangente, a arquitetura de **Harvard** normalmente possuem processadores **RISC** enquanto que as máquinas de **Von Neumann** são normalmente **CISC**. Ainda com relação a uma visão geral, podemos exemplificar arquiteturas Harvard como os processadores 8086, 8088, assim como os PICs, por outro lado, processadores 8085, Z80 constituem os modelos CISC de Von Neumann. Cabe finalmente uma diferenciação entre microprocessador, comumente abreviador por processador e microcontrolador. Os nossos computadores do dia-a-dia possuem microprocessadores, que seguem 1 dos modelos estudados acima. Damos o nome de microcontrolador ao microprocessador que, além da estrutura básica descrita acima, possua também circuitos eletrônicos auxiliares, tais como conversor analógico digital, e conversor digital analógico. A linha PIC fabricada pela Microchip, constitui um conjunto de microcontroladores, enquanto os PIC constituem clássicos exemplos de microcontroladores de baixíssimo custo e que podem ser facilmente programados em linguagem de alto nível praticamente idênticas a linguagem C.
+
+- **Exercício**:
+
+Tomando como base uma função em linguagem C que recebe como parâmetros um vetor de Int que corresponde a um sinal digitalizado e o seu tamanho, aumente a amplitude do sinal até o máximo possível com a restrição de que os valores devem estar na faixa de -32768 até 32767.Discuta, com base na implementação realizada, qual seria a taxonomia mais propicia para executar o referido código.
+
+- **Solução**:
+
+![j7_gnujo](https://cloud.githubusercontent.com/assets/3441126/7672942/f547c772-fcdc-11e4-9ff4-71bc68f94e91.jpeg)
+
+
+
+No programa acima, temos dois trechos principais: **A** e **B**. O trecho A não se beneficia consideravelmente de uma execução paralela pois encontrar o maior valor do vetor implica uma comparação integral com os seus elementos. Por outro lado, o trecho B certamente se beneficia de uma execução paralela pois uma mesma instrução, a multiplicação, é realizada para cada elemento do vetor. Dessa forma, considerando A e B, podemos dizer que o programa todo, visto como uma entidade única, se beneficia do paralelismo, sendo que a taxonomia SIMD, de acordo com a classificação de Flynn é a ideal. Tal taxonomia corresponde normalmente à arquitetura Harvard e maquinas Harvard geralmente atuam com processadores RISC. Essas características são perfeitas pois disponibilizam o paralelismo desejado que não é degradado pelas instruções RISC pois multiplicação é uma instrução básica.
+
+----
+
+- **Exercício**:
+
+Considere o trecho de código a seguir que implementa a convolução de dois sinais discretos. Discuta a taxonomia ideal para tal.
+
+- **Solução**:
+
+O procedimento de convolução entre vetores discretos, tem o significado físico de filtragem, que objetiva remover frequências. Dessa forma, quando queremos remover determinada faixa de frequência de um sinal, devemos projetar um filtro, que nada mais é que um pequeno vetor de números e realizar a convolução do sinal a ser filtrado com o filtro. A convolução entre dois sinais produz um terceiro sinal que corresponde a um sinal filtrado, isto é sem as frequências indesejadas. Considerando que o sinal a ser filtrado é o vetor `f` e o filtro é `h` então a convolução de `f` com `h` é:
+
+![gif latex](https://cloud.githubusercontent.com/assets/3441126/7672994/0de58f56-fcdf-11e4-87f7-5cfe04154ddd.gif)
+
+
+Na pratica implementamos a convolução, seguindo um procedimento muito simples, conforme segue:
+
+
+![wmgewrc4](https://cloud.githubusercontent.com/assets/3441126/7673043/96757e16-fce0-11e4-99ef-58c9e7e56595.jpeg)
+
+
+O vetor resultante da convolução de `f` com `h` que chamaremos de `y`, possui tamanho tal que 
+![gif latex2](https://cloud.githubusercontent.com/assets/3441126/7673024/0df3bf4e-fce0-11e4-8c53-73ee5db77171.gif)
+. Desse modo, determinar `y` implica em preencher um vetor com a referida função. Cada um desses elementos de `y` corresponde a uma soma de outros elementos produzidos pelo processo de cálculo da convolação.
+A estrutura geral da implementação dos dois laços for conforme o rascunho que segue:
+
+
+```c
+	for(i....
+		for(j....
+			y[i] = .....
+
+```
+
+
+Claramente observamos que o algoritmo se beneficia de uma implementação paralela. Chegamos assim a uma situação similar à do exemplos anterior isto é, SIMD é a melhor taxonomia, implicando possivelmente numa arquitetura Harvard com processador RISC. De modo geral, grande parte das operações envolvendo vetores, matrizes e analises relacionadas com processamentos de sinais diversos se beneficiam da referida estrutura de Hardware
+
+----
+
+#### MINI PROVA 6
+- DESCREVA COMO DEVE SER OU IMPLEMENTE UM PEQUENO PROGRAMA PARA TRIANGULARIZAR UMA MATRIZ QUADRADA NXN, REALIZANDO O PIVOTEAMENTO DE GAULS. DISCUTA AS MELHORES CARACTERÍSTICAS DE HARDWARE PARA EXECUTAR ESSE ALGORITMO.
+
+----
+
+### <a name="aula8"></a> Aula 8
 
 ----
