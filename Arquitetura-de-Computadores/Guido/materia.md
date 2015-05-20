@@ -15,7 +15,7 @@
   - [Representação de dados oriundos de sinais 1D ou 2D por inteiros](#represS)
   - [Codificação e representação de conteúdo multimídia com valores inteiros](#codMult)
   - [Representação computacional de valores reais](#represR)
-  - 
+
 - [Taxonomias](#tax)
 - [Modelos de Arquiteturas](#arq)
 
