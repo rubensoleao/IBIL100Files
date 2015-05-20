@@ -15,7 +15,8 @@
   - [Representação de dados oriundos de sinais 1D ou 2D por inteiros](#represS)
   - [Codificação e representação de conteúdo multimídia com valores inteiros](#codMult)
   - [Representação computacional de valores reais](#represR)
-
+  - 
+- [Taxonomias](#tax)
 - [Modelos de Arquiteturas](#arq)
 
 #### Por Aula
@@ -25,7 +26,7 @@
 - [Aula 3 - 10/04/2015](#aula3)
 - [Aula 4 - 17/04/2015](#aula4)
 - [Aula 5 - 24/04/2015](#aula5)
-- [Aula 6 (missing) - 08/05/2015](#aula6)
+- [Aula 6 - 08/05/2015](#aula6)
 - [Aula 7 - 15/05/2015](#aula7)
 - **Prova** - 22/05/2015
 - [Aula 8]
@@ -414,6 +415,79 @@ Concluímos desse modo que o nosso número em exemplo pode ser representado com 
 ----
 
 ###<a name="aula6"></a> Aula 6
+
+----
+
+##<a name="tax"></a> TAXONOMIA
+Uma vez que completamos os estudos focados na representação de valores `int`, `float`, `double` passamos a dar atenção ao conceito de **taxonomia** que implica na topologia(interligação dos elementos processados e memoria) para posteriormente estudarmos os processadores internamente diversas classificações existemem ambiente academico sendo que nenhum é considerado ideal , de qualquer forma a classificação taxonomica mais utilizada foi a publicada por michael flynn em 1986 ficando conhecida como taxonomia de flynn. Essa taxonomia divide em 4 tipos as possibilidades de ligação entre processadore, com a função basica de realizar calculos e memória com a função basica de armazenar dados e instruções. particularmente temos :
+
+ - **single instruction single data (SISD)**: 
+
+Trata-se do modelo mais simples e utiizado na grande maioria dos computadore pessoais. pode ser representado como segue, sendo P o simbolo para processador e M o simbolo para memória,
+
+P![image03](https://cloud.githubusercontent.com/assets/3441126/7724278/bb732190-fec6-11e4-8fc1-c91df3c7ae39.png)M
+
+A simbologia acima significa que computador e memoria e o processador requisita a proxima instrução a ser executada buscando-a na memoria. em seguida a intrução é enviada da memoria para o processador, o processador requisita ainda os dados, isto é os operandos envolvidos com a instrução a ser executada, esses dados são então enviados da memoria para o processador. O processador requisita ainda os dados, isto é, os operandos envolvidos com a instrução a ser executada. Esses dados são então enviados da memória para o processador, que por fim, executa a instrução possivelmente devolvendo o resultado para a memória. As intruções normalmente são de calculos, de comparações, ou de desvio conforme estudaremos adiante posteriormente as comparações e os calculos são feitos com base em valores numéricos, isto é os dados obtidos na memoria, esssa conversa entre um unico processador e um unico bloco de memoria constitui o modelo mais simples de taxonomia
+
+- **Single Instruction Multipple Data(SIMD)**: 
+
+Constitue um modelo um pouco mais aprimorado sendo representado da seguinte forma:
+
+![image00](https://cloud.githubusercontent.com/assets/3441126/7724452/1313e424-fec8-11e4-972b-fbb4d5f7c2d2.jpg)
+
+Neste modelo tradicionalmente utilizado nas Graphics Processing Units (GPUs) a porção de memoria disponivel é dividida em duas partes sendo quue uma somente armazena instruções e outra que por sua vez é subdivida em blocos armazena dados.. tem-se ainda um processador dedicado a recolher da memoria de intruções cada instrução a ser executada e distribui-as aos demais processadores a medida que estiverem livres. cada um desses processadores conversa com o seu bloco de memoria de dados, buscando operandos e enviando resultados. caracteriza-se deste modo um principio de paralelismo pois em uma mesma janela de tempo os processadores P1,P2,P3 etc estão cada qual executando determinadas instruções fica, assim clara a aplicabilidade deste modelo no processamento gráfico em que imagens precisam ser sintetizadas com consideravel velocidade.
+
+- **Multiple Instruction Single Data (MISD)**:
+
+Neste modelo, representado a seguir, temos vários blocos de memoria destinados ao armazenamento de instruções mas somente um bloco destinado ao armazenamento de dados. para cada bloco de memoria de instruções existe um processador correspondente. neste modelo o foco é o processamento divesificadode um mesmo dado em paralelo.
+
+![image02](https://cloud.githubusercontent.com/assets/3441126/7724472/402794f6-fec8-11e4-95e1-7ccbae3b5cea.jpg)
+
+Este modelo é na verdade uma concepção teoria para o qual té o presente momento não existe implementação comercial, havendo somente poucas implementações em nivel de teste industrial e academico.
+
+- **Multiple Instruction Multiple Data (MIMD)**:
+
+Ai na frente coloca o seguinte, trata-se de uma taxonomia na qual os diversos processadores existentes possuem cada qual o seu bloco de memoria que servem para armazenar dados e instruções, alem disso os processadores conversam, entre aspas ne, entre si para a distribução das tarefas. o diagrama a seguir exemplifica esta taxonomia para um caso de 4 elementos de processamentos:
+
+![image01](https://cloud.githubusercontent.com/assets/3441126/7724503/77944628-fec8-11e4-9aac-4f395cd25cff.jpg)
+
+----
+
+os modelos mais simples e mais completos de taxonomias, isto é, SISD e MIMD foram concebidos para finalidadfes genericas de processamento, sendo obviamente versoes nao paralela e massivamente paralelano caso do modelo SIMD, a aplicação mais propicia é aquela para a qual temos a necessidade de processamentos do tipo
+
+```c
+for(inti=0;i<100;i++)
+
+{
+
+                g[i]=sqrt(x[i]);
+
+}
+```
+
+ou seja uma mesma instrução é aplicada em operandos diferentes, por outro lado no modelo MISD a ideia é aplicar diversas instruções em um unico dado ou par de dados, na pratica teriamos então um modelo de taxonomia particularmente util para situações oriundas de códigos tais como:
+
+```c
+
+y=sqrt(x);
+
+y2=cos(x);
+
+y3=sin(x);
+
+y4=exp(x);
+
+```
+
+é possivel observar facilmente o motivo pelo qual o modelo MISD não é implementado comercialmente, ja que beneficiaria que otimizaria sequencias de codigos que estatisticamente são incomuns ou pouco encontrados.
+
+----
+
+- **MINIPROVA 5**: codifique, isto é apresente o resultado da digitalização tanto em decimal quanto em binário no padrão float IEEE, as 5 primeiras amostras do sinal unidimensional
+
+`f(t)=120sin(2*pi*175t)`
+
+utilizando uma taxa de amostragem igual a 3 vezes e meio a máxima frequencia do sinal(175*3,5).
 
 ----
 
