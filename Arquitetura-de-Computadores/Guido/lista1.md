@@ -13,9 +13,10 @@ em sala, apontando características de cada uma delas.
 
 3.  Codifique, no padrao IEEE, as 10 primeiras amostras do sinai a seguir, utilizando 
 *floats* 6 taxa de 6000 amostras/segundo. 
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7758430/0bb3805e-ffe0-11e4-9073-5dc54a15cf09.gif">
+</p>
 
-  $$f(x) = 843 cos(2 z 1525 x) $$
-  
 4. Descreva as 4 classificações existentes para a taxonomia de Flynn, explicando 
 textualmente e com o auxilio de figuras, as caracteristicas de cada uma delas. 
 
