@@ -1,9 +1,9 @@
--> UNIVERSIDADE ESTADUAL PAULISTA <-
--> INSTITUTO DE BIOCIENCIAS, LETRAS E CIENCIAS EXATAS <-
+#####UNIVERSIDADE ESTADUAL PAULISTA
+#####INSTITUTO DE BIOCIENCIAS, LETRAS E CIENCIAS EXATAS
 ######Arqutteturas de Computadores 
--> 1 /2015 <- 
+#####1 /2015
 
--> Lista de exercicicios 1 : **Entrega: 22/05/15** <-
+######Lista de exercicicios 1 : **Entrega: 22/05/15**
 
 1.  Comente sobre as modalidades de processamentos de sinais: analógica e digital, 
 apresentando características, vantagens e desvantagens. 
