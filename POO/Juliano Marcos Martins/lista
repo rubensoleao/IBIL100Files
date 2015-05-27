@@ -1,0 +1,31 @@
+
+
+1----------------------------------------------------------------------------------------------------------
+Criar um diagrama de classes para o setor de RH de uma empresa que tem os seguintes tipos de funcionarios:
+
+-Presidente;
+-Diretor;
+-Gerente;
+-Programador;
+-Analista;
+-Estagiário;
+
+Em comum os funcionarios tem: Nome, Salario, Carga horaria.
+
+O Gerente, o programador, o analista e o estagiario tem um diretor!
+O Programador tem um projeto!
+Analista tem vários projetos!O estagiário tem um projeto!
+
+2------------------------------------------------------------------------------------------------------------
+
+Escreva um programa em java que permita ao usuário cadastrar todos os tipos de funcionarios.
+OBS: 
+
+	2.1 A empresa só devera ter um presidente!
+	2.2 Um Gerente/ Programador/ Analista/ Estagiário deverá ter um Diretor obrigatoriamente, não é permitido cadastrar um deles sem diretor!!
+
+3------------------------------------------------------------------------------------------------------------
+
+3.1 Liste todos os funcionarios da empresa, no caso de ter diretor, listar o nome do diretor!
+3.2 Liste todos os projetos da empresa e seus respectivos recursos 
+3.3 liste o nome e o salario de todos os funcionários
