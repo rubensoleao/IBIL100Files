@@ -142,3 +142,35 @@ main()
 }
 
 ```
+- Obs: O uso de classes em c++ permite a aplicação de templates, pelos quais passamos como parâmetros os tipos de determinadas variaveis. Utilizaremos em seguida esse conceito na construção de tipos abstratos de dados que definam e implementam estruturas de dados.
+
+-------
+
+#### Repetir o exercicio do analizador de expreções matemátias com a implementação corrente da pilha
+```c
+//Rafael Stefanini Carreira
+//Mini Prova 5
+
+#include "pilha.c"
+#include <stdio.h>
+main()
+{
+char* ex=new char[50];
+puts("Digite a Expressão: ");
+scanf("%s",ex);
+pilha<char> p;
+while(*ex)
+{
+	if(*ex=='(' ||*ex=='{' ||*ex=='[')
+		p.push(*ex);
+	else if(*ex==')' && p.top()=='(' || *ex=='}' && p.top()=='{' || *ex==']' && p.top()=='[')
+		p.pop();
+	ex++;
+}
+if(p.lenght())puts("expressão inválida");
+else puts("ok");
+}	
+
+```
+
+
