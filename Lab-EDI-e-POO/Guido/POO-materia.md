@@ -173,4 +173,47 @@ else puts("ok");
 
 ```
 
+-------
+### Aula 08/06/2015
+
+### Tipo abstrato de dados - Fila
+
+Do mesmo modo como utilizamos classes para implementar o TAD Pilha, definiremos( .h), implementaremos(.c) e experimentaremos (.cpp) o TAD Fila utilizando classes e os conceitos de orientação a objetos.
+
+- Ex: Defina o TAD Fila utilizando classes
+- Solução:
+
+### ------------ Fila.h ------------------
+
+```c
+
+template <class type> class nofila
+{
+private:
+	type info;
+	nofila<type>* prox;
+public:
+	nofila(type,nofila<type>*);
+friend class fila<type>;
+};
+
+template <class type> class fila
+{
+private:
+	int tam;
+	nofila<type>* inicio;
+	nofila<type>* fim;
+public:
+	void insert(type);
+	void remove();
+	type front();
+	int empty();
+	int lenght();
+	fila();
+	~fila();
+};
+
+```
+
+
 
