@@ -285,6 +285,30 @@ template<class type> fila<type>::~fila()
 		remove();
 }
 
+```
+
+--------
+- Teste do TAD Fila
+### ----------------- Fila.cpp -------------------
+```cpp
+
+#include "Fila.c"
+#include <stdio.h>
+
+main()
+{
+	fila<int> f;
+	f.insert(32);
+	f.insert(5);
+	f.remove();
+	printf("\n o valor é %d \n",f.front());
+}
+
+```
+
+-----
+
+- Ex usando o TAD Fila, simule uma fila bancária com caixa único fazendo com que ocora chegada de clientes e tambem atendimentos. O sistema deve fazer com que os clientes cheguem e sejam atendidos automaticamente com base em valorem ramdomicos sorteados pelo próprio programa. A sugestão é que valores positivos provoquem uma inserção enquanto que os negativos ocoram atendimentos. Permita que o programe execute por 1 minuto verificando ao final qual é o numero de clientes na fila. Execute o algoritmo 10 vezes e calcule o número médio de clientes na fila. Repita o processo para 30 execuções.
 
 
 
