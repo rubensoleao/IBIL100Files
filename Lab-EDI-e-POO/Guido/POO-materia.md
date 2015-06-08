@@ -185,7 +185,7 @@ Do mesmo modo como utilizamos classes para implementar o TAD Pilha, definiremos(
 
 ### ------------ Fila.h ------------------
 
-```c
+```cpp
 
 template <class type> class nofila
 {
@@ -214,6 +214,79 @@ public:
 };
 
 ```
+
+--------
+- Implementação do TAD Fila
+### ----------------- Fila.c -------------------
+```cpp
+
+#include "Fila.h"
+
+template<class type> nofila<type>::nofila(type item,nofila<type>* lig)
+{
+	info=item;
+	prox=lig;
+}
+
+template<class type> fila <type>::fila()
+{
+	inicio=0; //NULL
+	fim=0;	  //NULL
+	tam=0;
+}
+
+template<class type> void fila<type>::insert(type item)
+{
+	nofila<type>* f=new nofila<type>(item,0);
+	if(tam==0)
+	{
+		inicio=f;
+		fim=f;
+	}
+	else
+	{
+		fim->prox = f;
+		fim=f;
+	}
+	tam++;
+}
+
+template<class type> void fila<type>::remove()
+{
+	if(tam>0)
+	{
+		nofila<type>* f=inicio;
+		inicio=inicio->prox;
+		delete(f);
+		tam--;
+	}
+}
+
+template<class type> type fila<type>::front()
+{
+	if(tam>0)
+		return(inicio->info);
+	return(0);
+}
+
+template<class type> int fila<type>::empty()
+{
+	return( (tam==0)?1:0 );
+}
+
+template<class type> int fila<type>::lenght()
+{
+	return(tam);
+}
+
+template<class type> fila<type>::~fila()
+{
+	while(!empty())
+		remove();
+}
+
+
+
 
 
 
