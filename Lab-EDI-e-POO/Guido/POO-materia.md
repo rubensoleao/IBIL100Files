@@ -399,7 +399,7 @@ template<class type> nobintree<type>* nobintree<type>::right()
 template<class type> void nobintree<type>::right(type item)
 {
 	if(pright == NULL)
-		pleft=new nobintree<type>(item,NULL,NULL);
+		pright=new nobintree<type>(item,NULL,NULL);
 }
 
 template<class type> type nobintree<type>::content()
@@ -443,7 +443,7 @@ template <class type> void bintree<type>::preordem(nobintree<type>* p)
 {
 	if(p!= NULL)
 	{
-		cout<<"\n"<<p-content();
+		std::cout<<"\n"<<p->content();
 		preordem(p->left());
 		preordem(p->right());
 	}
@@ -453,8 +453,8 @@ template <class type> void bintree<type>::emordem(nobintree<type>* p)
 {
 	if(p!= NULL)
 	{
-		cout<<"\n"<<p-content();
 		emordem(p->left());
+		std::cout<<"\n"<<p->content();
 		emordem(p->right());
 	}
 }
@@ -463,18 +463,47 @@ template <class type> void bintree<type>::posordem(nobintree<type>* p)
 {
 	if(p!= NULL)
 	{
-		cout<<"\n"<<p-content();
 		posordem(p->left());
 		posordem(p->right());
+		std::cout<<"\n"<<p->content();
 	}
 }
 
-template<class type> type nobintree<type>* bintree<type>::root()
+template<class type> nobintree<type>* bintree<type>::root()
 {
 	return(raiz);
 }
 
 ```
+
+
+### ---------------------- arvore.cpp ---------------------
+
+```cpp
+#include "arvore.c"
+
+main()
+{
+	bintree<int> p;
+	p.insert(5);
+	//...
+	//...
+	p.posordem(p.root());
+}
+
+
+```
+
+-----------------------------
+
+### Exercicios:
+- Crie métodos e/ou modifique os existentes para:
+   - Apagar uma arvore
+   - Contar o número de nos de uma arvore que são folhas
+   - Comparar se 2 sub arvores origirárias de um mesmo nó são ou não identicas
+   - Encontrar o nível de uma arvore
+ 
+
 
 
 
