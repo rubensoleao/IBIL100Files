@@ -311,6 +311,171 @@ main()
 - Ex usando o TAD Fila, simule uma fila bancária com caixa único fazendo com que ocora chegada de clientes e tambem atendimentos. O sistema deve fazer com que os clientes cheguem e sejam atendidos automaticamente com base em valorem ramdomicos sorteados pelo próprio programa. A sugestão é que valores positivos provoquem uma inserção enquanto que os negativos ocoram atendimentos. Permita que o programe execute por 1 minuto verificando ao final qual é o numero de clientes na fila. Execute o algoritmo 10 vezes e calcule o número médio de clientes na fila. Repita o processo para 30 execuções.
 
 
+-----------
+
+### aula 15/06
+
+
+### Arvores de Busca Binaria
+
+são estruturas de dados não lineares para as quais a partir de um determinado nó podemos ter referencia para até 2 outros nós. A inserção de elementos deve ser realizada conforme já foi discutido na teoria, procurando, a partir do primeiro nó, chamado raiz, a posição ideal para que o novo elemento seja inserido, posicionado-o à esquerda ou à direita de cada nó caso o seu valor seja menos ou mais respectivamente.
+Com relação à busca das informações na arvore, temos 3 modos diferentes de realiza-la:
+
+- Busca em Ordem
+- Busca em Pré-Ordem
+- Busca em Pós-Ordem
+
+#### Exemplo:
+
+- Realize a inserção dos seguintes valores em uma arvore de busca binaria: 5, 8, 7, 2, 10, 1, 0 e 20. Em seguida recupere as informações inseridas pelas 3 técnicas de busca.
+
+- Implementação do TAD arvore binaria em C++
+
+### ----------- arvore.h ---------------------
+
+```cpp
+template<class type> class nobintree
+{
+private:
+	type info;
+	nobintree<type>* pleft;
+	nobintree<type>* pright;
+public:
+	nobintree(type,nobintree<type>*,nobintree<type>*);
+	nobintree<type>* left(); //retorna a referencia do elemento à esquerda do nó corrente  
+	nobintree<type>* right(); //retorna a referencia do elemento à direita do nó corrente 
+	void left(type); // inserção a esquerda
+	void right(type); //inserção a direita
+	type content(); //retorna o conteudo do nó corrente
+friend class bintree<type>;
+};
+
+template<class type> class bintree
+{
+private:
+	nobintree<type>* raiz;
+	int tam;
+public:
+	bintree();
+	void insert(type);
+	nobintree<type>* root();
+	void posordem(nobintree<type>*);
+	void emordem(nobintree<type>*);
+	void preordem(nobintree<type>*);
+};
+
+```
+
+### ------------------------- arvore.c ----------------------
+
+```cpp
+#include "arvore.h"
+#include <iostream>
+
+template<class type> nobintree<type>* nobintree<type>::left()
+{
+	return(pleft);
+}
+
+template<class type> void nobintree<type>::left(type item)
+{
+	if(pleft == NULL)
+		pleft=new nobintree<type>(item,NULL,NULL);
+}
+
+template<class type> nobintree<type>::nobintree(type i,nobintree<type>* e,nobintree<type>* d)
+{
+	info=i;
+	pleft=e;
+	pright=d;
+}
+
+
+template<class type> nobintree<type>* nobintree<type>::right()
+{
+	return(pright);
+}
+
+template<class type> void nobintree<type>::right(type item)
+{
+	if(pright == NULL)
+		pleft=new nobintree<type>(item,NULL,NULL);
+}
+
+template<class type> type nobintree<type>::content()
+{
+	return(info);
+}
+
+template<class type> bintree<type>::bintree()
+{
+	raiz=NULL;
+	tam=0;
+}
+
+template<class type> void bintree<type>::insert(type item)
+{
+	if(raiz==NULL)
+		raiz=new nobintree<type>(item,NULL,NULL);
+	else
+	{
+		nobintree<type>* p;
+		nobintree<type>* q;
+		p=q=raiz;
+		while(q != NULL)
+		{
+			p=q;
+			if(item < q->content())
+				q=q->left();
+			else
+				q=q->right();
+		}
+		if(item < p->content())
+			p->left(item);
+		else
+			p->right(item);
+	}
+	
+	tam++;
+}
+
+template <class type> void bintree<type>::preordem(nobintree<type>* p)
+{
+	if(p!= NULL)
+	{
+		cout<<"\n"<<p-content();
+		preordem(p->left());
+		preordem(p->right());
+	}
+}
+
+template <class type> void bintree<type>::emordem(nobintree<type>* p)
+{
+	if(p!= NULL)
+	{
+		cout<<"\n"<<p-content();
+		emordem(p->left());
+		emordem(p->right());
+	}
+}
+
+template <class type> void bintree<type>::posordem(nobintree<type>* p)
+{
+	if(p!= NULL)
+	{
+		cout<<"\n"<<p-content();
+		posordem(p->left());
+		posordem(p->right());
+	}
+}
+
+template<class type> type nobintree<type>* bintree<type>::root()
+{
+	return(raiz);
+}
+
+```
+
 
 
 
