@@ -31,6 +31,20 @@
 - **Prova** - 22/05/2015
 - [Aula 8]
 
+### Mini-Provas
+- [M.P.1](#mp1)
+- [M.P.2](#mp2)
+- [M.P.3](#mp3)
+- [M.P.4](#mp4)
+- [M.P.5](#mp5)
+- [M.P.6](#mp6)
+- [M.P.7](#mp7)
+- [M.P.8](#mp8)
+- [M.P.9](#mp9)
+
+### Artigos (Trabalho)
+- [Artigo 1](#artigo1)
+- [Artigo 2](#artigo1)
 ----
 
 ###<a name="aula1"></a> Aula 1 - 20/03/2015
@@ -48,7 +62,7 @@ Os sinais estão divididos basicamente em dois grupos:
 - Unidimensionais (1D)
 - Bidimensionais (2D)
 
-No primeiro caso existe uma variação de energia em função de uma variável, que normalmente é o tempo. No segundo caso, por outro lado, a quantidade de energia é função de 2 variáveis, tais como coordenada horizontal e coordenada vertical. Na prática, sinais 1D contemplam áudio, voz, emissão de rádio, emissões biomédicas e neuronais, entre outros. Já sinais 2D correspondem imagens.
+No primeiro caso existe uma variação de energia em função de uma variável, que normalmente é o tempo. No segundo caso, por outro lamdo, a quantidade de energia é função de 2 variáveis, tais como coordenada horizontal e coordenada vertical. Na prática, sinais 1D contemplam áudio, voz, emissão de rádio, emissões biomédicas e neuronais, entre outros. Já sinais 2D correspondem imagens.
 
 Importante também é definir o termo **processamento**, que constitui qualquer tipo de manipulação, análise, modificação e até mesmo síntese, isto é, fabricação de algo. Desse modo, o processamento de sinal consiste em analisá-lo, modifica-lo, etc.
 
@@ -100,7 +114,7 @@ A percepção errônea corresponde a uma frequência fantasma que, formalmente r
 
 Notamos que independentemente do processador que controla a amostragem, ele só pode trabalhar com os dados já digitalizados, e portanto a amostragem e a quantização necessitam adicionalmente ao processador um circuito eletrônico conhecido como **Conversor Analógico-Digital (AD)**. No caso de desejarmos algum processamento ou modificação dos dados digitalizados, o respectivo software será executado no processador principal da máquina de modo que a comunicação entre os componentes eletrônicos envolvidos é dada por um conjuntos de vias de comunicação elétrica chamada de **barramento**, conforme estudaremos a diante.
 
-#### MINI PROVA 1 (PRÓXIMA AULA) 
+#### MINI PROVA 1 <a name="mp1"></a>
 - ELABORAR UM TEXTO COM 2/3 PARÁGRAFOS CURTOS DISCUTINDO AS IMPLICAÇÕES, AS VANTAGENS E AS DESVANTAGENS DE REALIZAR PROCESSAMENTO DIGITAL DE SINAIS FRENTE A ABORDAGEM ANALÓGICA. 
 
 ----
@@ -149,7 +163,7 @@ Com o advento da tecnologia mecânica, a indústria passou a ser capaz de manipu
 
 A atuação conjunta software-hardware, somada ao desenvolvimento técnico-mecânico de fabricação dos circuitos integrados fez com que as máquinas de baixa potência ou descartáveis estivessem disseminadas em toda a indústria eletrônica, passando então a compor os mais diversos aparelhos, tais como, geladeiras, máquinas de lavar, brinquedos, relógios, entre outros. Desenvolveu-se inclusive uma linha de pesquisa para tratar particularmente desse tema de pesquisa que é conhecida como computação **ubíqua** ou **pervasiva**.
 
-#### MINI PROVA 2 (PRÓXIMA AULA)
+#### MINI PROVA 2 <a name="mp2"></a>
 - ELABORE UM PEQUENO TEXTO RESUMINDO E DISCUTINDO OS CONCEITOS DE CADA UMA DAS 5 GERAÇÕES DE COMPUTADORES.
 
 ----
@@ -174,7 +188,7 @@ Em vista da versatilidade, normalmente as FPGAs possuem custo mais elevado do qu
 
 ----
 
-#### Artigo 1
+#### Artigo 1 <a name="aula1"></a>
 - Elaborar um artigo cientifico de 3 ou 4 páginas em inglês discutindo vantagens, desvantagens e aplicações das FPGAs.
 - O Artigo deve seguir a seguinte formatação.
   - TITULO
@@ -241,7 +255,7 @@ Considerável parte dos sinais manipulados nos computadores utilizam a represent
 
 ----
 
-#### MINI PROVA 3 (PRÓXIMA AULA)
+#### MINI PROVA 3 <a name="mp3"></a>
 
 - CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.
 
@@ -408,7 +422,7 @@ Concluímos desse modo que o nosso número em exemplo pode ser representado com 
 
 ----
 
-#### MINI PROVA 4 (PRÓXIMA AULA)
+#### MINI PROVA 4 <a name="mp4"></a>
 
 - REPRESENTAR O VALOR 2.718 NAS PRECISÕES FLOAT E DOUBLE NO PADRÃO IEEE754
 
@@ -483,7 +497,8 @@ y4=exp(x);
 
 ----
 
-- **MINIPROVA 5**: codifique, isto é apresente o resultado da digitalização tanto em decimal quanto em binário no padrão float IEEE, as 5 primeiras amostras do sinal unidimensional
+####MINIPROVA 5 <a name="mp5"></a>
+- codifique, isto é apresente o resultado da digitalização tanto em decimal quanto em binário no padrão float IEEE, as 5 primeiras amostras do sinal unidimensional
 
 `f(t)=120sin(2*pi*175t)`
 
@@ -575,7 +590,7 @@ Claramente observamos que o algoritmo se beneficia de uma implementação parale
 
 ----
 
-#### MINI PROVA 6
+#### MINI PROVA 6 <a name="mp6"></a>
 - DESCREVA COMO DEVE SER OU IMPLEMENTE UM PEQUENO PROGRAMA PARA TRIANGULARIZAR UMA MATRIZ QUADRADA NXN, REALIZANDO O PIVOTEAMENTO DE GAULS. DISCUTA AS MELHORES CARACTERÍSTICAS DE HARDWARE PARA EXECUTAR ESSE ALGORITMO.
 
 ----
