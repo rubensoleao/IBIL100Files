@@ -13,6 +13,8 @@
 
 - [Aula 5 - 08/05/2015](#aula5)
 
+- [MATERIA DA PROVA!!!!!](#prov)
+
 ----
 
 ###<a name="aula1"></a> Aula 1 - 27/03/2015
@@ -426,3 +428,133 @@ Esses fato é preponderante para o aumento da popularidade das linguagens orient
 
 Todos esses passos evolutivos em metodologias de desenvolvimentos de software levaram a novas construções
 de linguagens para suportá-las.
+
+----------
+
+##<a name="prov"></a> MATERIA DA PROVAAAA!!!1!
+
+#### F) Categorias de Linguagens
+
+As linguagens de programação são dividas em 4 categorias:
+- Imperativas
+- Funcionais
+- Lógicas
+- Orientadas a Objetos.
+
+As linguagens mais populares que suportam a **orientação objetos** cresceram a partir das **linguagens imperativas**.
+
+#### G) Trade-off no Projeto de Linguagens
+
+Dois critérios conflitantes são a: **Confiabilidade** e o **custo de execução**.
+Por exemplo, a linguagem Java exige que **todas as referências** aos elementos de um vetor sejam **verificadas** para garantir que os índices estejam em suas faixas legais. Esse passo adiciona muito ao **custo** de execução de programas Java que contenham um grande número de referências a elementos de vetores. C, por exemplo, **não requer a verificação** da faixa de índices, dessa forma, os programas em C **executam mais rápido** do que programas semanticamentes equivalentes em **Java**, apesar destes serem mais **confiáveis**. Os projetistas de Java trocaram **eficiência de execução** por **Confiabilidade**.
+
+#### H) Implementação
+
+Um sistema de implementação de linguagem não pode ser o único aplicativo de software em um computador. Também é necessária uma grande **coleção de programas**, chamada de **Sistema Operacional**, a qual fornece primitivos de mais alto nível do que aquelas pela linguagem de máquina.
+
+#### H1) Compilação
+As linguagens de programação podem ser implementadas por um de três métodos gerais. Em extremo, os programas podem ser traduzidos para linguagem de máquina. A qual pode ser executada diretamente no computador. Esse método é chamado de implementação baseada em **compilação** com a vantagem de ter execução de programa **muito mais rápido**, uma vez que o processo de tradução esiver completo.
+
+A seguir, encontra-se um fluxograma do processo de compilação:
+> **se alguem tiver, me manda"
+
+#### H2) Interpretação Pura
+A interpretação pura reside no **oposto** à **compilação**. Com essa abordagem, os programas são **interpretados** por outro (programa) chamado **interpretador**, sem tradução o interpretador atua como uma **simulação** de software de uma máquina cujo ciclo de objenção-execução trata de **setenças de programas** de alto nível em vez de instruções de máquina. A interpretação pura tem a vantagem de permitir uma **fácil implementação** de muitas operações de depuração em código fonte, pois todas as mensagens de erro em **tempo de execução** podem referenciar unidades de código fonte.
+
+>**(Insira o fluxograma 2 aqui)**
+
+#### H3) Sistemas Híbridos
+Alguns sistemas de implementação de linguagem são um **meio termo** entre os **compiladores** e os **interpretadores** puros. Eles **traduzem** os programas em linguagem de alto nível para uma **linguagem intermediária** projetada para facilitar a **interpretação**.
+As primeiras implementações em **Java** eram todas híbridas. Seu formato intermediário, chamado de **bytecode**, fornece **portabilidade** para qualquer máquina que tenha um interpretador de bytecode e um sistema de execução associadas. A este conjunto denomina-se **Máquina Virtual Java (JVM)**.
+
+>**(Insira o fluxograma 3 aqui)**
+
+### Programação Orientada à Objetos
+
+O conceito nasceu no **Simula 67**, mas não foi muito desenvolvido ate a evolução do **Smalltalk** em **1980**.
+Uma linguagem orientada à objetos deve fornecer suporte para três recursos chave da linguagem:
+
+- Tipos de Dados Abstratos
+- Herança
+- Vinculação Dinâmica de Chamadas a métodos.
+
+#### 1) Tipos de Dados Abstratos
+
+Uma abstração é uma visão ou representação de uma entidade que inclui apenas os atributos mais significativos. Sintaticamente,  um tipo de dado abstrato é um invólucro que inclui apenas **representação** de dados de um tipo de dado específico e os subprogramas que fornecem as operações para esse tipo. Um exemplar de um tipo de dado abstrato é chamado de **objeto**.
+A programação orientada à objetos é uma melhoria do uso de abstração de dados em desenvolvimento de software, e a **abstração de dados** é um de seus componentes mais importantes.
+
+
+#### A) Herança
+Há muito tempo existe uma pressão sobre os desenvolvedores de software para aumentarem sua produtividade. Essa pressão tem sido intensificada pela contínua redução de custo do hardware de computadores. A partir dos anos 80, para aumento da produtividade adotou-se o **reuso de software**.
+
+O problema com o reuso de tipos abstratos é que praticamente todos os casos, recursos e capacidade do tipo existente, não são exatamente os necessários para o novo uso.
+Um segundo problema com a programção com tipos abstratos é que as **definições de tipos** são **independentes** e no mesmo nível. Trata-se complexo problema de **hierarquia**.
+A herança oferece uma solução tanto para o problema de modificição oriundo do reuso de tipos abstratos de dados, quanto para o problema de organização de programas.
+Uma **classe** que é definida por meio de herança de outra classe é chamada de **classe derivada** ou **subclasse**. Uma classe da qual a nova classe é derivada é sua **classe pai** ou **superclasse**.
+
+Existem diversas maneiras pelas quais uma classe derivada pode diferir de sua classe pai:
+- A classe pai pode definir alguns de seus membros como tendo acesso **privado**, fazendo com que esses métodos **não sejam visíveis** na subclasse.
+- A subclasse pode **adicionar** membros àquelas herdados da classe pai.
+- A subclasse pode **modificar** o comportamento de um ou mais métodos herdados.
+
+Se uma nova classe é uma **subclasse** de uma **única** classe pai, o processo de derivações é chamado de **Herança Simples**.
+Se uma classe tem **mais de uma classe pai** o processo é chamado de **Herança Múltipla**.
+
+Uma desvantagem da herança como forma de aumentar a possibilidade de reuso, é que ela cria **dependência** entre classes em uma hierarquia.
+
+
+#### B) Vinculação Dinâmica
+
+A terceira característica (além dos tipos de dados abstratos e de herança) das linguagens de programação orientadas à objeto é um tipo de **Polimorfismo** fornecida pela vinculação dinâmica de mensagens às definições de métodos.
+
+Considere a seguinte situação: uma classe base A, que define um método que realiza uma operação em objetos da classe base. Uma segunda classe, B, é definida com subclasse de A. Objetos dessa nova classe precisam de uma operação parecida com a fornecida por A, mas com algumas diferenças visto que elas são **diferentes**. Então, a subclasse **subscreve** o método herdado.
+Se um cliente de A e B tem uma referência ou um ponteiro para obejtos de classe A, essa referência ou ponteiro também podem apontar para objetos de classe B, tornando-a uma referência ou um ponteiro polimórfico. Se o método definido em ambas as classes, é chamado pela referência ou pelo ponteiro polimórfico, o sistema de tempo de execução deve determinar, **durante a execução** qual método deve ser chamado, o de A ou o de B, determinando qual o tipo de objeto atualmente referenciado pelo ponteiro ou pela referência.
+
+
+#### C) Questões de Projeto
+
+No projeto de uma linguagem, diversas questões devem ser consideradas, especialmente para suportar **herança** e **vinculação dinâmica**.
+
+
+#### 1) Objetos
+
+Um projetista deve estar comprometido com o modelo de **objetos** que absorva todos os conceitos de tipagem. A vantagem de visualizar tudo como obejto é a **elegância** e a **uniformidade** da linguagem. A desvantagem é a frequência de **passagem** de **mensagens** que ocorre, provocando atrasos no sistema.
+
+####	2) Classes como Subtipos
+
+Em um nível menos abstrato, um relacionamento garante que uma variável de classe derivada possa aparecer em qualquer lugar que uma variável da classe pai fosse esperada, sem causar erros de tipos.
+	
+####	3) Verificação de Tipos
+
+O polimorfismo em POO é definido como o uso de ponteiros ou referências polimórficas. A variável polimórfica pode referenciar objetos da classe base e das classes descendentes, mas nem sempre pode ser estática, portanto, há problemas de verificação de tipos dessa vinculação.
+
+Duas formas de verificação:
+
+- Os tipos de parâmetros da mensagem devem ser verificados em relação aos parâmetros formais de método.
+- O tipo de retorno do método deve ser verificado em relação ao tipo esperado da mensagem.
+
+
+#### 4) Classes Aninhadas
+
+Uma das motivações para as classes aninhadas é o **ocultamento** de informações. Se uma nova classe é necessária apenas para uma classe, não existe razão para definí-la de forma que seja vista por outras.
+
+#### 5) Inicialização de Objetos
+
+Objetos são inicializados para valores a serem criados:
+
+- Inicializar manualmente ou por mecanismos implícitos
+- Objetos de subclasse criado inicializar-se implícita ou explicitamente
+
+
+
+
+
+
+
+
+
+
+
+
+
+
