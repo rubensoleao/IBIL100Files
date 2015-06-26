@@ -547,14 +547,184 @@ Objetos são inicializados para valores a serem criados:
 
 
 
+##Linguagem de Programação Funcional
 
+Até agora vimos diversos conceitos, especialmente sobre linguagens
+*imperativas* e *orientadas à objetos*.
 
+O alto grau de similaridade entre as linguagens imperativas surge em
+parte de uma das bases comuns de seu projeto: *Arquitetura de Von Newmann*
 
+O paradigma de *programação funcional*, baseada em funções matemáticas, é
+a base de projeto para um dos estilos de linguagem *não imperativas* mais
+importantes. Esse estilo de programação é suportado por linguagens de
+programação funcional.
 
+As linguagens de programação funcionais tomam por base o conceito de
+**funções matemáticas** que serão vistos na sequência.
 
+ 
 
+###A) Funções Matemáticas
 
+Uma função matemática é um mapeamento de membros de um conjuto, conjunto
+domínio, para outro, chamado de conjunto imagem.
 
+Uma das características fundamentais das funções matemáticas é que a
+ordem de avaliações de suas expressões de mapeamento é controlada por
+recursão e expressões condicionais, e não por sequência e repetição
+iterativas, comuns nas linguagens de programação imperativas.
 
+Outra característica importante das funções matemáticas é que sempre
+definem o mesmo valor quando fornecido o mesmo conjunto de argumentos.
+De modo comparativo, funções matemáticas definem valores, enquanto que
+funções de linguagens de programação produzem valores.
 
+ 
 
+####A1) Funções Simples
+
+ Definições de funções são geralmente escritas como um nome de função,
+seguido de uma lista de parâmetros entre parênteses, seguidos pela
+expressão de mapeamento. Por exemplo, cubo(x) = x\*x\*x, em que x é um
+número real.
+
+#### A2) Formas Funcionais
+
+Uma função de ordem superior, ou forma funcional, recebe funções como
+parênteses ou que leva a uma função como resultado. Um tipo comum de
+forma funcional é a composição de funções.
+
+###B) Fundamentos das Linguagens de Programação Funcionais
+
+O objetivo do projeto de uma linguagem de programação funcional é
+mimetizar funções matemáticas ao máximo possível. Esse objetivo resulta
+em uma abordage para a solução de problemas fundamentalmente diferente
+de abordagens usadas com linguagens imperativas. Em uma linguagem
+imperativa, uma expressão é avaliada e o resultado é armazenado em uma
+posição de memória, representado como uma variável ou um programa.
+
+Uma linguagem de programação puramente funcional não usa variáveis, nem
+sentenças de atribuição, liberando o programador de problemas
+relacionadas às células de memória do computador no qual o programa é
+executado. Sem variáveis, as construções de iteração não são possíveis,
+já que elas são controladas por variáveis. As repetições devem ser
+especificadas com recursão em vez de estruturas de repetição. Os
+programas são definições de funções e especificações de aplicações de
+funções, e as execuções consistem em avaliar a aplicação de funções.
+
+A execução de uma função sempre produz o mesmo resultado quando
+fornecidos os mesmos parâmetros. Esse recurso é chamado de transparência
+referencial.
+
+Uma linguagem funcional fornece um conjunto de funções primitivas, um
+conjunto de formas funcionais para construir funções complexas a partir
+de funções primitivas, uma operação de aplicações de função e algumas
+estruturas para os dados. Uma linguagem funcional bem definida requer
+apenas um número pequeno de funções primitivas.
+
+Pelo fato das linguagens serem geralmente interpretadas, seus programas
+geralmente são mais lentos. Além disso, o uso de recursividade e outro
+faor que degrada o desempenho de um programa, quando comparado com seu
+equivalente iterativo. A sobrecarga da ligação das chamadas e retornos é
+parte do custo.
+
+Linguagens imperativas normalmente fornecem apenas suporte limitado para
+programação funcional. A desvantagem mais séria do uso de um linguagem
+imperativa para fazer programação funcional é que funções em linguagens
+imperativas tem restrições acerca dos tipos de valores que podem ser
+retornados. Linguagens imperativas normalmente não podem retornar uma
+função.
+
+ 
+
+###C) LISP
+
+Diversas linguagens de programação funcionais foram desenvolvidas no
+decorrer dos anos. A mais antiga e a mais utilizada é a LISP
+
+####C1) Tipos de Dados e Estruturas
+
+Existiam apenas 2 tipos de objetos de dados em LISP: Átomos e Listas.
+Eles não são tipos no mesmo sentido das linguagens imperativas. Na
+verdade, a LISP original era um linguagem desprovida de tipos. Átomos
+são símbolos na forma de identificadores, ou literais numéricos.
+
+LISP originalmente usava listas como sua estrutura de daos porque se
+pensava que seriam essenciais para o processamento de listas. Na medida
+que a linguagem se desenvolveu, entretanto, viu-se que em LISP raramente
+eram necessárias operações de listas gerais de inserção e remoção.
+
+As listas são especificadas em LISP ao delimitar-mos seus elementos
+dentro de parênteses. Os elementos de listas simples são restritos aos
+átomos, como em: (A B C D)
+
+Existem também as listas aninhadas:
+
+(A(B C)D(E(F G))), esta lista indica que o primeiro elemento é o átomo
+A, o segundo é a sublista (B C), o terceiro é o átomo D, o quarto é a
+sublista (E(F G)) que possui como segundo elemento (F G).
+
+####C2) Interpretador LISP
+
+O objetivo original do projeto de LISP era ter uma notação para
+programar o mais próximo possível de FORTRAN, com adições quando
+necessário. Essa notação cria chamada de notação-m. Deveria existir um
+compilador que traduzisse escritos em notação-m para programar em código
+de máquina.
+
+No início do desenvolvimento de LISP, decidiu-se por um processamento de
+listas como uma abordagem para processamento simbólico. Achou-se que
+processamento de listas simbólicas era um modelo mais natural de
+computação do que as máquinas de Turing, que operavam em símbolos
+escritos em fitas. No caso do modelo da máquina de Turing alguém pode
+construir uma máquina de Turing universal capaz de minimizar as
+operações de qualquer outra máquina de Turing. A partir desse conceito,
+veio uma notação que permitisse qye as funções de serem expressas da
+mesma maneira que os dados. Então, decidiu-se inventar convenções para
+definições de funções chamadas de funções que também poderiam ser
+expressas em notação de lista. As chamadas funções eram especificadas em
+uma forma de lista pré-fixada:
+
+(nome\_da\_função argumentação...)
+
+Por exemplo, se + é uma função que recebe dois parâmetros, teriamos (+85)
+-\> cuja avaliação é 13.
+
+A vinculação de nome era especificada por uma lista consistida no nome
+da função e uma lista contendo uma expressão como em:
+
+(nome\_da\_função(LAMBDA(arg1.... argN) expressão)
+
+As funções em LISP especificadas com essa notação foram batizadas de
+expressões-s. Uma aplicação da linguagem LISP é no campo da Inteligência
+Artificial, especialmente na Representação de Conhecimento, Aprendizagem
+de Máquina, Sistema de Treinamento Inteligente e Modelagem de Fala.
+
+ 
+##Linguagens de Programação Lógica
+
+A programação que usa uma forma de lógica simbólica como linguagem de
+programação é geralmente chamada de Programação Lógica. As linguagens
+baseadas em lógica simbólica são chamadas de linguagens da Programação
+Lógica, ou Linguagens Declarativas.
+
+###A) Cálculo de Predicados
+
+Antes de discurtimos Programação Lógica, vamos investigar a sua base,
+que é a Lógica Formal.
+
+Uma proposição que pode ser vista como uma sentença lógica que pode ou
+não ser verdadeira. Ela consiste em objetos e relacionamentos de objetos
+uns com os outros. A Lógica Formal foi desenvolvida para fornecer um
+método para descrever proposições com objetivo de permitir que essas
+proposições formalmente descritas pudessem ser verificadas em relação a
+sua validade.
+
+A lógica simbólica pode ser usada para as 3 necessidades básicas da
+Lógica Formal: expressar proposições, expressar relacionamentos entre
+preposições e descrever como novas proposições podem ser inferidas a
+partir de outras proposições que se assume verdadeiras.
+
+A forma particular de lógica simbólica usada para a  programação lógica
+é chamada de Cálculo de Predicados de Primeira Ordem.
