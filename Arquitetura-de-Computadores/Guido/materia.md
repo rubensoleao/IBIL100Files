@@ -598,3 +598,244 @@ Claramente observamos que o algoritmo se beneficia de uma implementação parale
 ### <a name="aula8"></a> Aula 8
 
 ----
+
+## <a name="assembly"></a> Programação Assembly
+
+Conforme já discutimos anteriormente, a linguagem Assembly constitui o nível mais baixo de linguagem computacional em que podemos programar diretamente. Para fins didáticos e visando não utilizar um processador demasiadamente complexo, utilizaremos um processador 8085 como base para os nossos estudos que permitirão analisar as particularidades do Assembly e o trabalho considerável dos compiladores das linguagens de alto nível para realizar traduções.
+
+O microprocessador 8085 começou a ser fabricado em 1974 pela Intel, passando posteriormente a ser fabricado por outras empresas, tal como a Siemens e a Philips em razão do seu considerável sucesso comercial. Trata-se de um microprocessador para o qual os dados possuem 8 bits e os endereços de memória possuem 16 bits. O microprocessador que contem aproximadamente 6 mil transistores possui um conjunto de instruções do tipo CISC com a arquitetura Von Neumann. Em Anexo listamos um conjunto de instruções pertencente a ele.
+
+É importante ainda notar que existiram pequenas porções de memória processadas assim como é comum em todas os demais conhecidos como **registradores**, os quais são consideravelmente mais velozes para a escrita e leitura de dados, embora possuam custo superior. O 8085 possui os seguintes registradores, assim nomeados:
+
+- **A** : É conhecido como registrador acumulador, sendo utilizado para armazenar operandos ou resultados de operações. Trata-se de um registrador de 8 bits.
+- **B** e **C** : São registradores de 8 bits de uso geral e que podem, mediante instruções, constituir um único registrador de 16 bits.
+- **D** e **E** : Idem anterior
+- **H** e **L** : Idem anterior, lembrando que são frequentemente utilizados para armazenar endereços de memória. Quando utilizados em conjunto são normalmente referenciados pelo símbolo **M**.
+- **F** : Trata-se do registrador **flag**, isto é, bandeira, possuindo a função de indicar ocorrências com as operações logicas até aritméticas de forma que seu conteúdo, quando é alterado, é sempre em função de tais operações, não sendo modificada diretamente pelo programador. Possui 5 bits dos quais 3 são denominados Z, S e CY que significam respectivamente zero, signal e carry. O primeiro assume o valor lógico 1 quando a última operação realizada resultar no valor 0. O segundo bit assume o valor 1 quando a ultima operação resulta em um valor negativo. Finalmente, o terceiro bit assume o valor 1 quando a ultima operação implicou em excesso, ou seja, “vai 1”.
+
+
+- **Exemplo 1**:
+```
+MVI C,01h # valor 01h inserido no Reg C
+volta: DCR C # decrementamos o valor contido em C
+MOV A,B # movemos (copiamos) o valor em B para A (acumulados)
+JNZ volta # se a ultima operação não resultor em 0 retorna ao label volta
+HLT # fim do programa
+```
+
+
+- **Exemplo 2**:
+```
+MVI C,10h ->  C<-10h
+volta: DCR C -> C- -
+JZ fim -> Caso a última operação resulte em 0, desvie para a lable fim
+MOV A,B -> A<-B
+JMP volta -> desvie incondicionalmente para o lable volta
+fim:HLT ->fim do programa
+```
+
+>**obs**: Instruções como JZ e JNZ consultam o bit Z do registrador F para decidir como atuar. Lembramos que a principio o programador não insere valores no registrador F. Ao contrário, somente o próprio processador é que altera os valores de F. Particularmente, algumas instruções modificam os bits de F e algumas outras consultam o seu valor, dizemos então que instruções tais como DCR são instruções que alteram flags. Por outro lado, instruções tais como MVI, que simplesmente movimentam dados são instruções que não alteram flags.
+
+
+- **Exemplo 3**: Com base no código de alto nível a seguir escreva uma possível versão correspondente no Assembly do 8085
+```c
+Int a = 5
+While(a>0)
+	a--;
+```
+
+- **Solução**:
+```
+MVI C,05h
+while: JZ fim
+DCR C
+JMP while
+fim: HLT
+```
+
+- **Exemplo 4**: Idem anterior para o seguinte trecho de código:
+```c
+Int x = 3
+For(int i=0;i<0;i++)
+	x- -;
+```
+
+- **Solução**
+```
+MVI A,03h
+MVI C,0Ah
+volta: DCR A
+DCR C
+JNZ volta
+HLT
+```
+
+>**Obs**: No código acima os comando DCR A e DCR C não poderiam estar trocados pois se assim fosse, a flag Z teria o valor modificado com base na variável errada, correspondente ao código de alto nível.
+
+- **Exemplo 5**: A multiplicação de 2 valores é também um caso interessante de ser observado. Em alto nível o calculo é obvio tal como:
+
+```c
+Int a =3;
+Int b =4;
+Int c=a*b;
+```
+
+Devemos entretanto lembrar que a multiplicação é a na verdade uma soma repetitiva de forma que mesmo em alto nível podemos implementar o trecho acima da seguinte forma:
+
+```c
+Int c=0;
+Int a=4;
+For(int i=0 ; i<4 ; i++)
+	c=c+a;
+```
+
+Em baixo nível, ambos os códigos acima podem ser escritos da seguinte forma
+
+```
+MVI A,00h -> A=0
+MVI C,03h -> C=3
+volta ADI 04h -> A=A+4
+DCR C -> C - -
+JNZ volta -> if C!= 0 volta
+HLT -> fim
+```
+
+Na implementação destacamos a instrução ADI a qual não faz referencia a registrador que esta sendo incrementado pois ela opera diretamente no acumulador. Outra opção para realizar o mesmo procedimento é
+
+```
+MVI A,00h -> A=0
+MVI B,04h -> B=4
+MVI C,03h -> C=3
+volta: ADD B -> A=A+B
+DCR C -> C- -
+JNZ volta
+HLT
+```
+
+>**Obs**: Mais uma vez utilizamos uma instrução, que é  ADD, que opera no acumulador sem que ele seja explicitamente mencionado. No caso da instrução DCR C, sabemos que não há relação com o acumulador, poir “decrementar C” é um comando completo por si só, ou seja, nenhum outro valor se faz necessário para cumprir ordem, por outro lado, “adicionar B” não faz sentido sem que exista outro operando, pois estaríamos adicionando o valor de B em qual registrador? Tendo em vista que esse outro registrador não foi mencionado, sabemos que ele é o acumulador.
+
+- A seguir, implementamos novamente a multiplicação de 4 por 3 utilizando uma sub-rotina em Assembly, que também é comum inclusive nas traduções automatizadas dos compiladores
+```
+MVI A,00h
+MVI B,04h
+MVI C,03h
+CALL soma
+HLT
+soma: ADD B
+DCR C
+JNZ soma
+RET
+```
+
+No código acima observamos o uso da instrução CALL para chamar a sub-rotina, que possui o comportamento de uma função mas linguagens, entretanto, não existe aqui passagem de parâmetros. Notamos ainda que o nome da função, no caso soma, é na verdade um lable que é referenciado dentro dela própria, existindo ainda a necessidade de termina-la pela palavra reservada RET que faz com que o fluxo retorne para a instrução seguinte a chamada.
+
+-----
+
+#### MINIPROVA 7 
+- Construa um programa no Assembly 8085 para dividir 15 por 5, sendo que o resultado, ao final deve estar no acumulador
+
+----
+
+### <a name="assembly2"></a> PROGRAMANDO COM CODIGO ASSEMBLY
+
+- **Exemplo 1**:
+```
+LDA 2000h -> Insere no acumulador o conteúdo da posição de memória 2000h
+MOV B,A
+LDA 4000h
+STA 2000h -> insere no endereço 2000h o que esta em A
+MOV A,B
+STA 4000h
+HLT
+```
+
+- O procedimento acima trocou os conteúdos das posições de memória 2000h e 4000h entre si.
+
+Em alto nível, o código acima corresponde a troca de entre duas variáveis tal como:
+```c
+Troca=a;
+A=b;
+B=troca;
+```
+
+- **Exemplo 2**:
+LXI H,4000h -> apontando o par de registradores(H,L) para o endereço de memória 4000h que possuindo 16 bits requer um par de registradores de 8 bits
+MOV A,M -> M representa o conteúdo do endereço apontado por H,L que está sendo inserido no acumulador
+INX H -> incrementa o par H,L visto como um único valor de 16 bits. Desse modo o par H,L passa a apontar para o endereço de memória 4001h
+ADD M ->A=A+M
+INX H -> H,L passa apontar para 4002h
+MOV M,A -> copia o conteúdo do acumulador para o endereço de memória apontado por H,L (4002h)
+HLT
+Resumindo: o programa soma os conteúdos das memórias de endereço 4000h e 4001h colocando o resultado em 4002h
+Exemplo 3: 
+LXI D,4500h -> aponta o par D,E para o endereço de memória 4500h
+LXI H,4100h -> aponta o par H,L para o endereço de memória 4100h
+MOV C,M -> coloca o conteúdo apontado por H,L(4100h) no registrador C
+Loop: INX H ->incrementa o par H,L que passa a apontar para 4101h
+MOV A,M -> move o conteúdo de 4101h para o acumulador
+STAX D -> armazena o valor do acumulador em D (4500h)
+INX D -> incrementa o par D,E(4501h)
+DCR C -> decrementa C
+JNZ Loop
+HLT
+Assuma que no endereço 4100h esteja o valor 04h
+O código acima, após ler o valor 04h que estava no endereço 4100h, copia o bloco de memória de 4 posições que inicia em 4101h para o bloco de memória que inicia em 4500h, ou seja
+(4500h)+(4101h)
+(4501h)+(4102h)
+(4502h)+(4103h)
+(4503h)+(4104h)
+
+Exemplo 4:
+LXI H,4200h
+MOV C,M
+DCR C
+Rep: MOV C , M
+LXI H,4201h
+Loop: MOV A,M
+INX H
+CMP M
+JC Skip
+MOV B,M
+MOV M,A
+DCX H
+MOV M,B
+INX H
+Loop: DCR D
+JNZ Loop
+DCR C
+JNZ Rep
+HLT
+Considere que em 4200h existe o valor 05h e em 4201h a 4205h temos respectivamente os valores 5h, 4h, 3h, 2h e 1h. O valor em 4200h representa o comprimento de um bloco de memória, isto é, um vetor, sendo que este vetor está nas posições de 4201h a 4205h.
+Função em alto nível equivalente
+Void f(int * v,int t){
+	Int troca;
+	Int ht;
+	Do{
+		Ht=0;
+		For(int i=0;i<t-1;i++){
+			If(v[i]>v[i+1]){
+				Troca=v[i];
+				V[i]=v[i+1];
+				V[i+1]=troca;
+				Ht=1;
+			}
+		}
+	}while(ht);
+O código acima representa a implementação do bubble sort, destaca-se aqui o trabalho automático do compilador na transcrição do código em auto nível para Assembly.
+MINIPROVA 8
+Explique o que o código Assembly a seguir faz
+	LXI H,4500h
+	MVI A,M
+	MVI B,A
+	MVI D,00h
+	MOV C,A
+	MOV A,D
+Go: ADD B
+JNC adiante
+INR D
+Adiante: DCR C
+JNZ go
+STA 4100h
+MOV A,D
+STA 4101h
+HLT
