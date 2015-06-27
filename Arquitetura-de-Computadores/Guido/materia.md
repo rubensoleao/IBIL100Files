@@ -18,8 +18,11 @@
 
 - [Taxonomias](#tax)
 - [Modelos de Arquiteturas](#arq)
+
 - [Programação Assembly](#assembly)
 - [Programação Assembly 2](#assembly2)
+
+- [Processos de comunicação interna e de entrada/saída](#com-io)
 
 #### Por Aula
 
@@ -625,6 +628,7 @@ JNZ volta # se a ultima operação não resultor em 0 retorna ao label volta
 HLT # fim do programa
 ```
 
+----
 
 - **Exemplo 2**:
 ```
@@ -638,6 +642,7 @@ fim:HLT ->fim do programa
 
 >**obs**: Instruções como JZ e JNZ consultam o bit Z do registrador F para decidir como atuar. Lembramos que a principio o programador não insere valores no registrador F. Ao contrário, somente o próprio processador é que altera os valores de F. Particularmente, algumas instruções modificam os bits de F e algumas outras consultam o seu valor, dizemos então que instruções tais como DCR são instruções que alteram flags. Por outro lado, instruções tais como MVI, que simplesmente movimentam dados são instruções que não alteram flags.
 
+-----
 
 - **Exemplo 3**: Com base no código de alto nível a seguir escreva uma possível versão correspondente no Assembly do 8085
 ```c
@@ -654,6 +659,8 @@ DCR C
 JMP while
 fim: HLT
 ```
+
+-----
 
 - **Exemplo 4**: Idem anterior para o seguinte trecho de código:
 ```c
@@ -673,6 +680,8 @@ HLT
 ```
 
 >**Obs**: No código acima os comando DCR A e DCR C não poderiam estar trocados pois se assim fosse, a flag Z teria o valor modificado com base na variável errada, correspondente ao código de alto nível.
+
+-----
 
 - **Exemplo 5**: A multiplicação de 2 valores é também um caso interessante de ser observado. Em alto nível o calculo é obvio tal como:
 
@@ -760,7 +769,10 @@ A=b;
 B=troca;
 ```
 
+-----
+
 - **Exemplo 2**:
+```
 LXI H,4000h -> apontando o par de registradores(H,L) para o endereço de memória 4000h que possuindo 16 bits requer um par de registradores de 8 bits
 MOV A,M -> M representa o conteúdo do endereço apontado por H,L que está sendo inserido no acumulador
 INX H -> incrementa o par H,L visto como um único valor de 16 bits. Desse modo o par H,L passa a apontar para o endereço de memória 4001h
@@ -768,8 +780,14 @@ ADD M ->A=A+M
 INX H -> H,L passa apontar para 4002h
 MOV M,A -> copia o conteúdo do acumulador para o endereço de memória apontado por H,L (4002h)
 HLT
+```
+
 Resumindo: o programa soma os conteúdos das memórias de endereço 4000h e 4001h colocando o resultado em 4002h
-Exemplo 3: 
+
+-----
+
+- **Exemplo 3**:
+```
 LXI D,4500h -> aponta o par D,E para o endereço de memória 4500h
 LXI H,4100h -> aponta o par H,L para o endereço de memória 4100h
 MOV C,M -> coloca o conteúdo apontado por H,L(4100h) no registrador C
@@ -780,14 +798,21 @@ INX D -> incrementa o par D,E(4501h)
 DCR C -> decrementa C
 JNZ Loop
 HLT
+```
+
 Assuma que no endereço 4100h esteja o valor 04h
+
 O código acima, após ler o valor 04h que estava no endereço 4100h, copia o bloco de memória de 4 posições que inicia em 4101h para o bloco de memória que inicia em 4500h, ou seja
+
 (4500h)+(4101h)
 (4501h)+(4102h)
 (4502h)+(4103h)
 (4503h)+(4104h)
 
-Exemplo 4:
+-----
+
+- **Exemplo 4**:
+```
 LXI H,4200h
 MOV C,M
 DCR C
@@ -807,9 +832,13 @@ JNZ Loop
 DCR C
 JNZ Rep
 HLT
+```
+
 Considere que em 4200h existe o valor 05h e em 4201h a 4205h temos respectivamente os valores 5h, 4h, 3h, 2h e 1h. O valor em 4200h representa o comprimento de um bloco de memória, isto é, um vetor, sendo que este vetor está nas posições de 4201h a 4205h.
+
 Função em alto nível equivalente
-Void f(int * v,int t){
+```c
+void f(int * v,int t){
 	Int troca;
 	Int ht;
 	Do{
@@ -823,21 +852,196 @@ Void f(int * v,int t){
 			}
 		}
 	}while(ht);
-O código acima representa a implementação do bubble sort, destaca-se aqui o trabalho automático do compilador na transcrição do código em auto nível para Assembly.
-MINIPROVA 8
-Explique o que o código Assembly a seguir faz
+```
+
+O código acima representa a implementação do **bubble sort**, destaca-se aqui o trabalho automático do compilador na transcrição do código em auto nível para Assembly.
+
+-----
+
+#### MINIPROVA 8
+- Explique o que o código Assembly a seguir faz
+```
 	LXI H,4500h
 	MVI A,M
 	MVI B,A
 	MVI D,00h
 	MOV C,A
 	MOV A,D
-Go: ADD B
-JNC adiante
-INR D
-Adiante: DCR C
-JNZ go
-STA 4100h
-MOV A,D
-STA 4101h
-HLT
+Go	ADD B
+	JN adiante
+	INR D
+Adiante:DCR C
+	JNZ go
+	STA 4100h
+	MOV A,D
+	STA 4101h
+	HLT
+```
+
+-----
+
+###<a name="com-io"></a> Processos de comunicação interna e de entrada/saída
+
+Basicamente o processo de comunicação interna à maquina ou de entrada e saída com o meio externo pode ser **serial** ou **paralelo**. No primeiro caso, o protocolo de comunicação implica no envio de 1 bit após o outro, **sequencialmente** por uma **única via de transmissão**, que pode ser uma fibra ótica ou um par de cabos elétricos ou até mesmo via rádio frequência. No segundo caso, por outro lado, temos **mais de uma via de comunicação serial**, pois **paralelamente**, sequencias de bits são enviadas por cada via. Comparando os modelos podemos dizer que no caso da comunicação serial o tempo para transmitir um conjunto de bits é maior do que o modelo paralelo, pois temos somente uma via. Por outro lado o modelo paralelo exige recursos físicos, isto é, quantidade de vias de transmissão maiores, ampliando custos e requerendo maior espaço.
+Consideramos inicialmente a transmissão serial. Neste caso, temos alguns detalhes a considerar, notamos duas possibilidades para este modelo de comunicação que é muito utilizado para teclados, mouses, pen drives: **comunicação serial síncrono** e **comunicação serial assíncrona**.
+No primeiro caso, além da via principal para a transmissão de dados, temos uma **via adicional** para efetuar a **sincronia de tempo** entre o objeto transmitido e o objeto receptor. Desse modo, o receptor sabe o instante de tempo no qual a transmissão efetivamente começa. Normalmente esse inicio é sinalizada pela transição 1->0 ou 0->1, ou até mesmo por mais de uma transição. Tais transições são expressas por meio dos bits conhecidos como **start bit**, podendo também haver **stop bits** que indicam o **fim de uma transmissão**.
+No segundo caso, isto é, o **modelo serial assíncrono**, existe de fato uma **única via de transmissão**, sendo estão necessário os bits indicadores de inicio e fim. Cada um dos modos, síncrono e assíncrono devem obedecer a velocidades padrão de transmissão. Um exemplo básico é o caso das portas seriais de comunicação que, atualmente, já estão em desuso. Neste aspecto o principal padrão de comunicação que é o que ainda é usada em algumas situações é conhecida como RS-232C. Esta padrão possui conectores normalmente de 9 pinos que tem as seguintes funções:
+
+![rs-232c](https://cloud.githubusercontent.com/assets/3441126/8392381/aed21344-1cbf-11e5-9523-c68c6ef872d6.png)
+
+**1 – Detecção de portadora**
+
+**2 – Recepção de dados**
+
+**3 – Transmissão de dados**
+
+**4 – Terminal de saída de dados**
+
+**5 – Terra (negativo de alimentação)**
+
+**6 – Conjunto de dados pronto**
+
+**7 – Solicitação de transmissão**
+
+**8 – Pronto para transmitir**
+
+**9 – Indicador de chamada**
+
+Podemos ainda subdividir a comunicação serial, síncrona e assíncrona em 3 submodelos: **simplex**, **half duplex** e **full duplex**.
+
+No primeiro caso a comunicação ocorre em um **único sentido**, no segundo caso, ocorre em **ambos os sentidos**, isto é, A envia para B e B envia para A, **mas não ao mesmo tempo**. Popularmente utilizam 2 vias de comunicação neste caso, podendo ainda utilizar-se uma única via tal como os sinais transmitidos por rádio. Finalmente, no terceiro caso, a comunicação também é **bilateral**, podendo ocorrer ao mesmo tempo. Neste caso fundamentalmente existem duas vias de transmissão.
+Os circuitos integrados que contém a eletrônica para gerenciar toda essa sistemática comunicação serial são conhecidos como **UART** e **USART**.
+O primeiro corresponde **Universal Asynchronous Receiver/Trasmitter** e o segundo a **Universal Synchronous/Asynchronous Receiver/Transmitter**.
+
+O seguinte trecho de código permite a comunicação utilizando a interface serial entre 2 maquinas ou dispositivos. Em termos de hardware fazemos as ligações com os pinos 2,3 e 5 somente.
+
+```c
+#include <bios.h>
+#define C7 0x02 // 7 bits
+#define C8 0x03 // 8 bits
+#define S1 0x00 // 1 stop bit
+#define S2 0x00 // 2 stop bits
+#define T110 0x00 // 0bps
+#define T150 0x20
+#define T300 0x40
+#define T600 0x60
+#define T1200 0x80
+#define T2400 0xA0
+#define T2800 0xC0
+#define T9600 0xE0
+#define COM1 0
+#define COM2 1
+#define PORTA COM1
+#define COMUNICA (T300/S1/C8)
+Main(){
+	Int recebido;
+	Char enviado;
+	bioscom(0,COMUNICA,PORTA);
+	do{
+		recebido = bioscom(3,0,PORTA);
+		if(recebido &0x100){
+			recebido=bioscom(2,0,PORTA) & 0x7F;
+			putch(recebido);
+		}
+		If(kbhit())
+			Bioscom(1,getch(),PORTA);
+	}while(1);
+}
+```
+
+----
+
+Com relação a comunicação **paralela**, ela  pode ocorrer com base nas portas paralelas de 25 pinos, utilizadas no passado para conexões com impressoras, assim como nos sistemas de barramentos internos aos computadores. Com relação a porta paralela as especificações são as seguintes:
+
+![paralelo](https://cloud.githubusercontent.com/assets/3441126/8392421/129bc4aa-1cc1-11e5-9c39-bb2b608b68d2.png)
+
+**Pino 1 – Receptor bit 0**
+
+**Pino 2 – Transmissor bit 0**
+
+**Pino 3 – Transmissor bit 1**
+
+**Pino 4 – Transmissor bit 2**
+
+**Pino 5 – Transmissor bit 3**
+
+**Pino 6 – Transmissor bit 4**
+
+**Pino 7 – Transmissor bit 5**
+
+**Pino 8 – Transmissor bit 6**
+
+**Pino 9 – Transmissor bit 7**
+
+**Pino 10 – Receptor bit 6**
+
+**Pino 11 – Receptor bit 7**
+
+**Pino 12 – Receptor bit 5**
+
+**Pino 13 – Receptor bit 4**
+
+**Pino 14 – Receptor bit 1**
+
+**Pino 15 – Receptor bit 3**
+
+**Pino 16 – Receptor bit 2**
+
+**Pino 17 – **
+
+**Pinos 18 a 25 - Terra**
+
+```c
+#include <dos.h>
+#include <sys/io.h>
+Define PORT 0x378
+Main(){
+	Ioperm(PORT 3,1);
+	While(!kbhit()){
+		Outb(~inb(PORT),PORT);
+		Delay(1000);
+	}
+}
+```
+
+Notamos que a leitura de dados, que no exemplo é realizada pela função `inb()` requer apenas um endereço como parâmetro. Por outro lado, escrever implica que a escrota de determinado dado ocorrerá em determinado endereço, portanto a função `outb()` utiliza dois parâmetros.
+
+De modo similar a porta paralela, temos alguns dos barramentos mais modestos, tais como o **ISA** e o **PCI**. Em termos de comunicação serial, temos ainda a interface **USB** e barramentos como o **SATA**. Descreveremos brevemente alguns deles.
+
+### Padrão USB (Universal Serial Bus)
+
+Trata-se de um padrão de comunicação que se tornou comercial na versão 0.7 no ano de 1994, chegando a versão 3.1 em 2013. Caracteriza-se por um protocolo avançado de comunicação serial assíncrono que permite endereçar até 127 dispositivos estendidos fisicamente até o limite teórico de cerca de 5 metros, assumindo ainda o padrão hot-swappable, isto é, não se faz necessário desligar a máquina para conectar o dispositivo. Este conceito, combinado com o devido tratamento via software realizado pelo sistema operacional caracteriza o que chamamos de plug and play. Até a versão 2.0 a sistemática de comunicação era half-duplex, entretanto, a partir da versão 3.0 a comunicação é full-duplex com até 10gbps.
+
+Alguns outros detalhes do protocolo podem ser encontrados nos respectivos RFC (Request For Comment). O conector USB é constituído de 4 pinos e existem no modelo tipo A e tipo B, nas versão mini, micro e tradicional.
+
+![usba](https://cloud.githubusercontent.com/assets/3441126/8392447/9f5df39a-1cc1-11e5-865a-d28f92d27ed5.png)
+
+**1 - +5 volts**
+
+**2 – Recepção**
+
+**3 – Transmissão**
+
+**4 – 0 Volts (Terra)**
+
+Notamos que o padrão USB foi especificado para possibilitar alimentar, com 5 volts, o dispositivo que a ele se conecta, provendo até 0,9 amperes de corrente.
+
+### Padrão ISA (Industry Standart Architecture)
+
+Trata-se de um dos primeiros barramentos comerciais especificado com 8 bits de dados e 10 bits de endereço, havendo ainda a possibilidade do uso de 16 bits de dados e 10 bits de endereço no padrão E-ISA (extended ISA), o qual possui velocidade de até 8mbps. O ISA e o E-ISA são padrões já em desuso, mas de fácil manipulação até mesmo para fins didáticos. Em termos de hardware, ISA e E-ISA, são caracterizados respectivamente por conectores de 62 pinos e 62+36 pinos, os quais proveem linhas de dados, linhas de endereço, alimentação de 5 a 12 volts entre outros sinais disponíveis na máquina.
+
+O barramento ISA permite o acesso a dados e a endereços, inclusive facilmente acessível na linguagem C com as mesmas funções já vistas.
+
+```c
+	Inb(endereço)
+	Outb(dado de 8 ou 16 bits,endereço)
+```
+
+Destacamos que o barramento da máquina seja ele paralelo, tal como ISA e E-ISA, ou serial, permite o acesso a todos os dados que nele transitam. Desse modo tudo possui um endereço. Assim, por exemplo, a placa de áudio, mesmo que on-board, está conectada ao barramento, mas só é acessível pelo seu endereço. Inumeras placas e componentes permanecem conectados ao barramento, mas, para acumula-los, escrevemos nos seus respectivos endereços.
+
+Os vários dispositivos que ligam nos barramentos possuem, em geral, um decodificador de endereço especifico, que faz com que a placa passe a funcionar ou não. Desse modo, embora as várias placas e componentes estejam conectadas ao barramento, apenas uma delas estará operando por vez.
+
+#### MINIPROVA 9
+- Comente, com base em uma pequena e rápida pesquisa, quais são os 3 tipos de prioridades existentes para transmissão de dados seriais pela interface USB.
+
+-----------
