@@ -18,6 +18,8 @@
 
 - [Taxonomias](#tax)
 - [Modelos de Arquiteturas](#arq)
+- [Programação Assembly](#assembly)
+- [Programação Assembly 2](#assembly2)
 
 #### Por Aula
 
