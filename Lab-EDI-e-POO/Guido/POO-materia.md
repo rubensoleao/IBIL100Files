@@ -663,10 +663,13 @@ main()
 -----
 
 - Ex: Definir e implementar um metodo para imprimir a lista
+- Ex:Faz um negocio que conta, apatir do inicio ou do corrente
 
 
+### Matrizes esparças
 
+Existem inumeros casos, principalmente na area de processamento de imagens, em que, apos a aplicação de determinada tecnica de filtragem ou de procura de um padrão, a matriz utilizado para armazenar os dados em questão passa a conter um número consideravelmente grande de posições cntendo o valor 0 ou até mesmo um outro valor pré-definido. Assim, por exemplo em uma matriz de 100 por 100, se  9500 dentre os 10000 elementos são iguais a 0, estamos tendo desperdicio no armazenamento, esse tipo de matriz é conhecido como esparça. Uma alternativa interessante para armazenar a matriz é não ocupar espaço em memória com os zeros, sendo que desse modo uma outra estrutura de dados deve ser utilizado. Tradicionalmente, utilizamos uma lista que contem não somente um, mais sim 3 campos de informação em cado nó: o numero da linha, o numero da coluna e o valor em questão.
 
-
+-Ex: modifique o TAD lista trocando inclusive o seu nome, de forma a definir e implementar o TAD matrizEsparça. Em seguida teste-o para uma matriz 10x10 solicitada e lida do teclado **(miniprova)**
 
 
