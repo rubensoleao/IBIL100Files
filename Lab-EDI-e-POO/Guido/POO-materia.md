@@ -503,6 +503,168 @@ main()
    - Comparar se 2 sub arvores origirárias de um mesmo nó são ou não identicas
    - Encontrar o nível de uma arvore
  
+--------------
+
+
+
+
+### TAD Lista
+
+### -------------------   .h   ----------------------
+
+```cpp
+template<class type> class nolista
+{
+	private:
+			type info;
+			nolista<type> *prox;
+	private:
+			nolista(type, nolista<type>*);
+	friend class lista<type>;
+};
+
+template<class type>class lista
+{
+	private:
+			nolista<type>* inicio;
+			nolista<type>* corrente;
+			int tamanho;
+	public:
+			void insert(type);
+			void remove();
+			type front();
+			type current();
+			int empty();
+			int lenght();
+			lista();
+			~lista();
+			int find(type);
+};
+
+```
+
+### ----------------  .c ------------------
+
+```cpp
+#include"lista.h"
+template<class type> nolista<type>::nolista(type item,nolista<type>* p)
+{
+	info=item;
+	prox=p;
+}
+
+template<class type> lista<type>::lista()
+{
+	inicio=corrente=NULL;
+	tamanho=0;
+}
+
+template<class type> void lista<type>::insert(type item)
+{
+	nolista<type> *p=new nolista<type>(item,NULL);
+	if(inicio==NULL)
+		inicio=corrente=p;
+	else
+	{
+		p->prox=corrente->prox;
+		corrente->prox=p;
+	}
+	tamanho++;
+}
+
+template<class type> type lista<type>::front()
+{
+	if(!empty())
+		return(inicio->info);
+	return(NULL);
+}
+
+template<class type> void lista<type>::remove()
+{
+	if(!empty())
+	{
+		nolista<type> *p=inicio;
+		if(tamanho==1)
+		{
+			delete(p);
+			inicio=corrente=NULL;
+		}
+		else if(corrente==inicio)
+		{
+			inicio=inicio->prox;
+			delete(corrente);
+			corrente=inicio;
+		}
+		else
+		{
+			while(p->prox!=corrente)
+				p=p->prox;
+			p->prox=corrente->prox;
+			delete(corrente);
+			corrente=p->prox;
+		}
+		tamanho--;
+	}
+}
+
+template<class type> int lista<type>::empty()
+{
+	return((tamanho==0)?1:0);
+}
+
+template<class type> type lista<type>::current()
+{
+	if(corrente!=NULL)
+		return(corrente->info);
+	return(NULL);
+}
+
+template<class type> int lista<type>::lenght()
+{
+	return(tamanho);
+}
+
+template<class type> lista<type>::~lista()
+{
+	while(!empty())
+	remove();
+}
+
+template<class type> int lista<type>::find(type item)
+{
+	if(!empty())
+	{
+		nolista<type> *p=inicio;
+		while(p!=NULL && p->info!=item)
+			p=p->prox;
+		if(p->info==item)
+		{
+			corrente=p;
+			return(1);
+		}
+	}
+	return(0);
+	
+}
+```
+
+### ------------------------ .cpp -------------------
+```cpp
+#include"lista.c"
+main()
+{
+	lista<int> l;
+	l.insert(5);
+	l.insert(6);
+	
+}
+```
+
+-----
+
+- Ex: Definir e implementar um metodo para imprimir a lista
+
+
 
 
 
