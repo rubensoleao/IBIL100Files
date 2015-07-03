@@ -1045,3 +1045,30 @@ Os vários dispositivos que ligam nos barramentos possuem, em geral, um decodifi
 - Comente, com base em uma pequena e rápida pesquisa, quais são os 3 tipos de prioridades existentes para transmissão de dados seriais pela interface USB.
 
 -----------
+
+**Falta parte, vou inserir nesse fds, to no posto agora paciencia**
+
+Mantendo a construção do circuito acima. Alinhado também pelo barramento ISA
+
+####EX II
+
+Idem anterior, fazzendo com que a placa projetada interprete os dados caso o endereço esteja na faixa 0x318
+até 0x31c. A placa deve agir normalmente para qualquer endereço dessa faixa com realação aos dados . A idéia
+é apagar e acender todos os *LED*s simultaneamente com intervalo de 1/2 segundo.
+
+####EX III
+
+Em ambos os exemplos anteriores o computador, via software, esta escrevendo no barramento e a placa projetada
+por nós esta lendo o que foi escrito e executando determinada tarefa em hardware. No presente exemplo faremos
+o contrário, isto é, nossa placa produzirá dados, escrevendo-os no barramento, e o computador lerá esses dados
+via software.Seja então o seguinte problema**:**
+
+Projetar uma placa com 8 elementos de interface mangética acionados por imãs (**reed switches**), para o projeto,  estão 
+disponíveis oito imãs para acionar isoladamente cada um dos *reed switches*. Essa placa deverá escrever no 
+barramento de dados o códgio binário correspondente ao conjunto de *reed switches* no endereçco 0x318.
+
+Via software leia o valor corerspondente do barramento de dados.
+
+#####Solução:
+
+
