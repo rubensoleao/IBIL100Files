@@ -1135,3 +1135,4 @@ pedras preciosas que utilizava em seus dentes. Este rei unificou
 após muita luta a Dinamarca e a Noruega. A idéia foi unificar dispositivos
 em um único padrão que ganhou o nome em homenagem ao rei.
 
+![ Foto autentica de Harold Bluetooth]("http://www.sitedecuriosidades.com/im/g/4835D.jpg")
