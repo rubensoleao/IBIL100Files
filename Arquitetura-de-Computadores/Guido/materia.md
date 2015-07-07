@@ -1046,17 +1046,25 @@ Os vários dispositivos que ligam nos barramentos possuem, em geral, um decodifi
 
 -----------
 
-**Falta parte, vou inserir nesse fds, to no posto agora paciencia**
+####Exercício I
+
+Projetar uma placa para ser conectada ao barramento ISA, respondendo no endereço 0x318, de modo que exista uma interface luminosa de 8 bits que vai contar, em binário, de 0 a 255 com intervalo de 1 segundo entre cada valor.
+
+Solução: Sabemos que o barramento ISA, assim como outros barramentos que mencionaremos a seguir, possui (além de sinais de controle), uma sub divisão em 2 partes. Conforme vimos, toda placa ou periférico conectado ao barramento deve solucionar em um endereço específico. Em nosso exemplo, o endereçamento solicitado é o 0x318. Assim, nossa placa requer um decodificador para este endereço. Na parte de dados, devemos disponibilizar indicadores luminosos sendo, os LEDs os mais comuns. O restante deverá ser controlado via software. Lembrando finalmente que no barramento ISA temos 10 vias de endereços e 8 de dados (16 no caso do E ISA), nosso circuito será o seguinte
 
 Mantendo a construção do circuito acima. Alinhado também pelo barramento ISA
 
-####EX II
+####Exercício II
 
 Idem anterior, fazzendo com que a placa projetada interprete os dados caso o endereço esteja na faixa 0x318
 até 0x31c. A placa deve agir normalmente para qualquer endereço dessa faixa com realação aos dados . A idéia
 é apagar e acender todos os *LED*s simultaneamente com intervalo de 1/2 segundo.
 
-####EX III
+####Solução:
+
+**Gráfiico**
+
+####Exercício III
 
 Em ambos os exemplos anteriores o computador, via software, esta escrevendo no barramento e a placa projetada
 por nós esta lendo o que foi escrito e executando determinada tarefa em hardware. No presente exemplo faremos
@@ -1071,4 +1079,59 @@ Via software leia o valor corerspondente do barramento de dados.
 
 #####Solução:
 
+Escrever dados em um endereço implica em escrever a informação de interesse
+no barramento de dados e escrever também, em paralelo, um valor que 
+corresponde ao endereçco pré-definido da placa no barramento de endereços.
+
+
+**(Precisa-se de adicionar foto!! Ou diagrama)**
+
+'''
+#include<bios.h>
+
+main(){
+	while(1)
+		printf("\nValor lido: %d", inb(0x318));
+}
+
+'''
+
+####Exercício IV
+
+Idém anterior, lendo dados do endereçco 0x3FF. Os dados podem ser 0x00
+ou 0xFF, respectivamente, se o único *reed switch* existente estiver
+ligado ou desligado
+
+#####Solução:
+
+*(Gráfico)*
+
+**OBS:** O barramento *ISA* é bastante utilizado para fins didáticos
+, mas comercialmente destacamos a existencia de outros modelos de 
+barramentos, tais como, o **PCI** (*Peripheral component Interconnect*),
+que possui 64 bits de dados na sua versao extendida e 32 bits na
+versão inferior, permitindo um transito de dados superior a 220mb/s,
+conforme especificado pela intel.
+
+Destaca se ainda o barramento **AMR** (*Audio Modem Riser*), o **CNR**
+(*Communications and Network Riser*) e o **ACR** (*Advanced Comunications
+Riser*), sendo os dois primeiros padronizados pela intel, e o terceiro pela
+AMD. Estes três padrões são classificados como dispositivos HSP(*Hot Signal
+Processing*)  que enfatiza tarefas dedicadas tais como interfaces de 
+audio e rede. 
+
+Notamos ainda a existencia dos padrões **SATA**, com velocidade de até
+3GB/s no modo assincrono , o padrão *firewire* especificado especidicao 
+pelo padrão IEEE 1394 que permite endereçar até 63 dispositivos com velocidade
+de comunicação de até 400MB/s. O padrão thunderbolt foi criado pela Intel
+e é inspirado em PCI mas permite comunicações a uma velocidade de 10GB/s
+finalmente o padrão de comunicaçcão sem fio **bluetooth**,  é considerado
+um barramento assyncrono por rádio frequencia definido pela Ericson em
+1994.
+
+O nome *bluetooths* foi dado em homenagem ao rei dinamarques, Harald
+Bluetooth, que era conhecido como Harald dos dentes azuis, em virtude das
+pedras preciosas que utilizava em seus dentes. Este rei unificou
+após muita luta a Dinamarca e a Noruega. A idéia foi unificar dispositivos
+em um único padrão que ganhou o nome em homenagem ao rei.
 
