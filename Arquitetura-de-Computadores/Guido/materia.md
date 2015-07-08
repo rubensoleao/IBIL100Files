@@ -1137,3 +1137,7 @@ em um único padrão que ganhou o nome em homenagem ao rei.
 
 ![](http://www.sitedecuriosidades.com/im/g/4835D.jpg)
 *Foto autentica de Harald Bluetooth*
+
+####Miniprova 10
+
+Construa software e hardware para apresentar ao meio externo 4 sinais luminosos, que correspondem a números inteiros entre 0 e 15, em binário, solicitando e lendo do teclado, a interface de hardware no endereçco 0x234
