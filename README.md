@@ -4,7 +4,7 @@ Repositório que reúne material de apoio e material das matérias dadas no curs
 Abaixo estão as coisas que ainda precisamos fazer! Esse é um projeto coletivo em que todos podem ajudar! Se você  também quiser contribuir (Tem uma aula digitalizada que ainda não colocamos, vê algum erro ortográfico, consegue aprimorar o texto com imagens, gráficos ou colocar um material suplementar de autoria sua) você pode:
 - Mandar um e-mail ou face para algum moderador (escrito abaixo).
 - Para erros ortográficos é só apertar o botão de editar (O lápis no topo do documento) e editar o erro!
-- Ou (se você sabe usar git), dar um fork e um pull request no repositório!
+- Ou (se você sabe usar git), dar um fork no repositório!
 
 Se tiver uma sugestão ou dúvida pode mandar, e-mail ou face para algum moderador.
 Qualquer ajuda é sempre bem vinda!
