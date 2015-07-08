@@ -1086,7 +1086,7 @@ corresponde ao endereçco pré-definido da placa no barramento de endereços.
 
 **(Precisa-se de adicionar foto!! Ou diagrama)**
 
-'''
+```C
 #include<bios.h>
 
 main(){
@@ -1094,7 +1094,7 @@ main(){
 		printf("\nValor lido: %d", inb(0x318));
 }
 
-'''
+```
 
 ####Exercício IV
 
@@ -1129,9 +1129,11 @@ finalmente o padrão de comunicaçcão sem fio **bluetooth**,  é considerado
 um barramento assyncrono por rádio frequencia definido pela Ericson em
 1994.
 
-O nome *bluetooths* foi dado em homenagem ao rei dinamarques, Harald
+O nome *bluetooth* foi dado em homenagem ao rei dinamarques, Harald
 Bluetooth, que era conhecido como Harald dos dentes azuis, em virtude das
 pedras preciosas que utilizava em seus dentes. Este rei unificou
 após muita luta a Dinamarca e a Noruega. A idéia foi unificar dispositivos
 em um único padrão que ganhou o nome em homenagem ao rei.
 
+![](http://www.sitedecuriosidades.com/im/g/4835D.jpg)
+*Foto autentica de Harald Bluetooth*
