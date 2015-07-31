@@ -23,5 +23,5 @@ Qualquer ajuda é sempre bem vinda!
 - [ ] Definir se vamos adicionar os arquivos do dropbox aqui.
 
 ## Moderadores:
- - R. Carreira
+ - teffa rafel747@gmail.com
  - Jontex rubensoleao@gmail.com
