@@ -18,7 +18,11 @@ Qualquer ajuda é sempre bem vinda!
 - [ ] Adicionar as aulas de POO (jontex)
 
 - [ ] Adicionar suporte a mathjax
-- [ ] Inserir um tutorial ensinando a usar git. (para windows/linux)
+- [X] Inserir um tutorial ensinando a usar git. (para windows/linux)
+   - http://rogerdudler.github.com/git-guide/ (no terminal)
+- [X] Inserir um tutorial ensinando a usar markdown.
+   - https://guides.github.com/features/mastering-markdown/
+
 - [ ] Definir um padrão de nomenclatura e fazer a documentação dele.
 - [ ] Definir se vamos adicionar os arquivos do dropbox aqui.
 
