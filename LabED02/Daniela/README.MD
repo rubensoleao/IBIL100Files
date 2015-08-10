@@ -26,7 +26,7 @@ ______________________________________
 
 ## Criterios de Avaliacao
 
-# 3 avaliacoes escritas, sendo
+## 3 avaliacoes escritas, sendo
 
 - P1 (peso 2): 16/09
 - P2 (peso 2): 04/11
