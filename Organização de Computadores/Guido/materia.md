@@ -57,7 +57,7 @@ De acordo com os três elementos definidos acima, caracterizamos o termo conheci
 
 Além das caracterizações das impedância realizadas acima, os conceitos fisicos pertinentes explicam que `Zl` e `Zc` atuam de modos opostos um ao outro. Desta forma, qualquer circuito elétrico básico, isto é, contendo `R`, `L` e `C` deve ser estudado de modo vetorial utilizando-se a seguinte representação gráfica:
 
-<p align="center">![gss](https://cloud.githubusercontent.com/assets/3441126/9205016/36a13748-4036-11e5-9a87-2158c2ff6c83.png) </p>
+![gss](https://cloud.githubusercontent.com/assets/3441126/9205016/36a13748-4036-11e5-9a87-2158c2ff6c83.png)
 **<p align="center">L = recebe o valor de ω.L</p>**
 **<p align="center">C = recebe o valor de 1/ ω.C</p>**
 **<p align="center">R = recebe o valor da resistência total</p>**
