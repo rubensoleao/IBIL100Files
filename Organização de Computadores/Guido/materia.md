@@ -59,5 +59,9 @@ Além das caracterizações das impedância realizadas acima, os conceitos fisic
 
 <p align="center">![gss](https://cloud.githubusercontent.com/assets/3441126/9205016/36a13748-4036-11e5-9a87-2158c2ff6c83.png) </p>
 **<p align="center">L = recebe o valor de ω.L</p>**
+**<p align="center">C = recebe o valor de 1/ ω.C</p>**
+**<p align="center">R = recebe o valor da resistência total</p>**
 
+![index](https://cloud.githubusercontent.com/assets/3441126/9205022/38e593dc-4036-11e5-8caf-1c11c2553365.jpeg)
+![index2](https://cloud.githubusercontent.com/assets/3441126/9205024/39f34422-4036-11e5-9320-4a666d20e13f.jpeg)
 
