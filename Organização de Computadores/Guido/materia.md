@@ -20,7 +20,7 @@ Passamos agora a recordar e caracterizar eletricamente os principais componentes
 De acordo com os três elementos definidos acima, caracterizamos o termo conhecido como **impedância**, medida em ohms, como a soma de três forças contrárias à passagem da corrente elétrica: **resistência**, **indutância** e **capacitância**. A primeira, normalmente obtida utilizando-se pistas de carvão litografadas em um sólido, a segunda espiras de fio condutor em torno de um núcleo em que gera um campo magnético na tentativa de impedir variações da corrente elétrica e a terceira operando de modo semelhante por meio de duas placas condutoras separadas por um material isolante que forma um campo elétrico entre suas placas. Concluindo, denotamos por `Z` a impedância total, com suas partes resistiva, indutiva e capacitiva.
 
 
-<p align="center"> Z = Zr + Zl + Zc </p>
+**<p align="center"> Z = Zr + Zl + Zc </p>**
 
 -------------------------------------------
 
@@ -56,3 +56,8 @@ De acordo com os três elementos definidos acima, caracterizamos o termo conheci
 
 
 Além das caracterizações das impedância realizadas acima, os conceitos fisicos pertinentes explicam que `Zl` e `Zc` atuam de modos opostos um ao outro. Desta forma, qualquer circuito elétrico básico, isto é, contendo `R`, `L` e `C` deve ser estudado de modo vetorial utilizando-se a seguinte representação gráfica:
+
+<p align="center">![gss](https://cloud.githubusercontent.com/assets/3441126/9205016/36a13748-4036-11e5-9a87-2158c2ff6c83.png) </p>
+**<p align="center">L = recebe o valor de ω.L</p>**
+
+
