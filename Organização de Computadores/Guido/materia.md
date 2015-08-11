@@ -1,4 +1,4 @@
-ORGANIZAÇÃO DE COMPUTADORES
+#ORGANIZAÇÃO DE COMPUTADORES
 _____________________________
 
 
@@ -20,21 +20,21 @@ Passamos agora a recordar e caracterizar eletricamente os principais componentes
 De acordo com os três elementos definidos acima, caracterizamos o termo conhecido como **impedância**, medida em ohms, como a soma de três forças contrárias à passagem da corrente elétrica: **resistência**, **indutância** e **capacitância**. A primeira, normalmente obtida utilizando-se pistas de carvão litografadas em um sólido, a segunda espiras de fio condutor em torno de um núcleo em que gera um campo magnético na tentativa de impedir variações da corrente elétrica e a terceira operando de modo semelhante por meio de duas placas condutoras separadas por um material isolante que forma um campo elétrico entre suas placas. Concluindo, denotamos por `Z` a impedância total, com suas partes resistiva, indutiva e capacitiva.
 
 
-<p align="center"> **Z = Zr + Zl + Zc** </p>
+<p align="center"> Z = Zr + Zl + Zc </p>
 
 -------------------------------------------
 
- - Exemplos:
+# Exemplos:
 
-# 1. Caracterize a impedância resistiva de um resistor de 100ohms quando ele é atravessado por um sinal senoidal de amplitude +-1V com frequência de 10Hz.
+### 1. Caracterize a impedância resistiva de um resistor de 100ohms quando ele é atravessado por um sinal senoidal de amplitude +-1V com frequência de 10Hz.
 
-# Solução:
+### Solução:
 
 >	Z = 100ohms, pois resistencia não é reativa e assim frequencias e amplitudes dos sinais que atravessam em nada alteram a oposição que o componente oferece.
 
-# 2. Caracterize a impedância indutiva de uma bubina de ½ Henry, quando percorrida por um sinal elétrico de 100Hz, senoidal, com amplitudes +-5V.
+### 2. Caracterize a impedância indutiva de uma bubina de ½ Henry, quando percorrida por um sinal elétrico de 100Hz, senoidal, com amplitudes +-5V.
 
-# Solução:
+### Solução:
 
 >		Zl = ω.L
 >		Zl = 2.pi.f.L
@@ -42,9 +42,9 @@ De acordo com os três elementos definidos acima, caracterizamos o termo conheci
 
 >Obs: a amplitude do sinal que atravessa o indutor não,de +-5V no caso, não é utilizada nos calculos, pois o que interessa é a frequência deste sinal.
 
-# 3. Idem exemplo anterior assumindo que o componente é agora um capacitor de 2 Farads
+### 3. Idem exemplo anterior assumindo que o componente é agora um capacitor de 2 Farads
 
-# Solução:
+### Solução:
 
 >			Zc = 1/ ω.C
 >			Zc = ½.3,14.100.2
