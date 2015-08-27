@@ -12,10 +12,12 @@ Qualquer ajuda é sempre bem vinda!
 
 ## TODO (por ordem de prioridade!):
 
+- [ ] Definir metas/objetivos para o segundo semestre de 2015
+
 - [ ] Fechar o semestre (Organizar o semestre e preparar pasta pro outro semestre)
 - [ ] Adicionar ultima aula do Guido
 - [ ] Adicionar a P1 e P2 do geraldo (Nao sei se ele libera)
-- [ ] Adicionar as aulas de POO (jontex)
+- [ ] Adicionar as aulas de POO
 
 - [ ] Adicionar suporte a mathjax
 - [ ] Inserir um tutorial ensinando a usar git. (para windows/linux)

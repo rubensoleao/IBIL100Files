@@ -1,0 +1,813 @@
+<h1 id="arquitetura-de-computadores">Arquitetura de Computadores</h1>
+<table>
+<colgroup>
+<col width="5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">### Sumário</td>
+</tr>
+<tr class="even">
+<td align="left">#### Por Matéria</td>
+</tr>
+<tr class="odd">
+<td align="left">- <a href="#sinais">Sinais</a> - <a href="#nocoes">Noções de Sinais e Processamento por Computadores</a> - <a href="#questoes">Questões relativas a propagação das ondas</a> - <a href="#tecnologias">Tecnologias Emergentes de 5ª Geração</a></td>
+</tr>
+<tr class="even">
+<td align="left">- <a href="#repres">Representação de dados nos computadores</a> - <a href="#represT">Representação de Texto</a> - <a href="#represS">Representação de dados oriundos de sinais 1D ou 2D por inteiros</a> - <a href="#codMult">Codificação e representação de conteúdo multimídia com valores inteiros</a> - <a href="#represR">Representação computacional de valores reais</a></td>
+</tr>
+<tr class="odd">
+<td align="left">- <a href="#tax">Taxonomias</a> - <a href="#arq">Modelos de Arquiteturas</a></td>
+</tr>
+<tr class="even">
+<td align="left">- <a href="#assembly">Programação Assembly</a> - <a href="#assembly2">Programação Assembly 2</a></td>
+</tr>
+<tr class="odd">
+<td align="left">- <a href="#com-io">Processos de comunicação interna e de entrada/saída</a></td>
+</tr>
+<tr class="even">
+<td align="left">#### Por Aula</td>
+</tr>
+<tr class="odd">
+<td align="left">- <a href="#aula1">Aula 1 - 20/03/2015</a> - <a href="#aula2">Aula 2 - 27/03/2015</a> - <a href="#aula3">Aula 3 - 10/04/2015</a> - <a href="#aula4">Aula 4 - 17/04/2015</a> - <a href="#aula5">Aula 5 - 24/04/2015</a> - <a href="#aula6">Aula 6 - 08/05/2015</a> - <a href="#aula7">Aula 7 - 15/05/2015</a> - <strong>Prova</strong> - 22/05/2015 - [Aula 8]</td>
+</tr>
+<tr class="even">
+<td align="left">### Mini-Provas - <a href="#mp1">M.P.1</a> - <a href="#mp2">M.P.2</a> - <a href="#mp3">M.P.3</a> - <a href="#mp4">M.P.4</a> - <a href="#mp5">M.P.5</a> - <a href="#mp6">M.P.6</a> - <a href="#mp7">M.P.7</a> - <a href="#mp8">M.P.8</a> - <a href="#mp9">M.P.9</a></td>
+</tr>
+<tr class="odd">
+<td align="left">### Artigos (Trabalho) - <a href="#artigo1">Artigo 1</a> - <a href="#artigo1">Artigo 2</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="aula-1---20032015"><a name="aula1"></a> Aula 1 - 20/03/2015</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">##<a name="sinais"></a> Sinais</td>
+</tr>
+</tbody>
+</table>
+<h3 id="noções-de-sinais-e-processamento-por-computadores"><a name="nocoes"></a> Noções de Sinais e Processamento por Computadores</h3>
+<p>Sinal é uma entidade física que descreve matematicamente a emissão de algum tipo de energia e como ela varia ao longo do tempo. &gt; <strong>Ex:</strong> Sinal de áudio, sinal de voz, sinal de rádio, entre outros.</p>
+<p>Os sinais estão divididos basicamente em dois grupos: - Unidimensionais (1D) - Bidimensionais (2D)</p>
+<p>No primeiro caso existe uma variação de energia em função de uma variável, que normalmente é o tempo. No segundo caso, por outro lamdo, a quantidade de energia é função de 2 variáveis, tais como coordenada horizontal e coordenada vertical. Na prática, sinais 1D contemplam áudio, voz, emissão de rádio, emissões biomédicas e neuronais, entre outros. Já sinais 2D correspondem imagens.</p>
+<p>Importante também é definir o termo <strong>processamento</strong>, que constitui qualquer tipo de manipulação, análise, modificação e até mesmo síntese, isto é, fabricação de algo. Desse modo, o processamento de sinal consiste em analisá-lo, modifica-lo, etc.</p>
+<p>Existe basicamente duas formas para realizar processamento de sinais:</p>
+<ul>
+<li>Processamento Analógico</li>
+<li>Processamento Digital</li>
+</ul>
+<p>Na primeira modalidade são empregados circuitos eletrônicos que utilizam resistores, capacitores, transistores, indutores, entre outros, <strong>mas não há processador</strong>.</p>
+<p>Na segunda modalidade, circuitos eletrônicos também são utilizados, mas <strong>o componente base é o processador</strong>.</p>
+<p>Isso faz com que ambas as modalidades possuam características distintas. No primeiro caso, isto é, analógico, todo sinal é processado continuamente, sem perdas. Enquanto no segundo caso, isto é, digital, somente pontos específicos são processados, pois o processador trabalha somente com valores pontuais, e não tem capacidade para processar infinitos valores.</p>
+<p>Lembramos ainda que circuitos eletrônicos analógicos, são construídos com finalidade específica, como por ex. amplificar a voz, robotizar a voz, e assim por diante. Qualquer modificação no propósito do processamento implica na construção de um novo circuito eletrônico, demandando tempo e custo. Por outro lado, a modificação de propósito no processamento digital implica simplesmente em alterar o software correspondente.</p>
+<h4 id="em-suma-temos-a-seguinte-situação">Em suma, temos a seguinte situação:</h4>
+<p><strong>Processamento Analógico</strong> - Vantagem: Trabalha com todo o sinal. - Desvantagem: Mudança de objetivo significa construir um novo circuito.</p>
+<p><strong>Processamento Digital</strong> - Vantagem: Mudança de propósito = mudança no software - Desvantagem: Não é possível tratar os infinitos pontos do sinal</p>
+<p>Certamente temos uma motivação maior para realizar processamento digital ao invés do analógico. Para isso precisamos definir qual é a quantidade de pontos, isto é, valores, que temos de processar em meio aos infinitos valores existentes em um sinal qualquer. Para isso utilizamos uma teoria de fundamental importância, e que possibilitou o processamento digital de sinais não textuais, que é conhecida como Teorema da Amostragem, ou <strong>Teorema de Nyquist</strong>.</p>
+<hr />
+<h3 id="aula-2---27032015"><a name="aula2"></a> Aula 2 - 27/03/2015</h3>
+<p>O teorema da amostragem, ou o teorema de Nyquist, é um resultado do qual podemos fazer uso para realizar um processamento digital de sinais, sendo que de acordo com ele, é necessário entregar ao processador, um número de pontos, isto é, amostras, que é pelo menos igual ao dobro da máxima frequência presente no sinal analógico respectivo.</p>
+<p>Em se tratando de sinais de áudio, por exemplo, que constituem os sinais multimídia mais elementares, existe outro resultado experimental garantindo que o ouvido humano não é capaz de perceber frequências acima de 22050 Hz. Desse modo, com base em ambos os resultados é possível concluir que a taxa de amostragem de 22050 x 2 = 44100 am/seg é suficiente para manipular de modo digital os sinais de áudio, lembrando ainda que as amostras devem ser igualmente espaçadas. O processo de amostragem, faz com que o sinal originalmente contínuo seja caracterizado como sinal discreto.</p>
+<p>A questão da discretização realizada no eixo horizontal também é necessária no eixo vertical. Este procedimento, que é chamado <strong>quantização</strong> implica em dividir o eixo das amplitudes (vertical) em uma quantidade finita de pontos e utilizar apenas um deles para cada amostra capturada. Assim, por exemplo, se temos amplitudes, no modo contínuo, variando de -5 até 5 e optamos por uma quantização de 1 em 1, então o valor da amostra que no mundo real é &quot;2.74512&quot; será armazenado na versão discreta como o número 3, pois é o valor de amplitude mais próximo existente no mundo digital.</p>
+<p>A quantização, diferentemente da amostragem que é regulada genericamente para qualquer sinal, não é expressa para sinais quaisquer de um modo único. Ao contrário, cada tipo de sinal possui uma quantização ideal. De qualquer forma dizemos que a quantização é de ‘X’ bits, sendo ‘X’ obtido experimentalmente de acordo com o tipo de sinal. Quantizações tradicionais são, por exemplo, 8 bits para voz, 16 bits para áudio e música em geral, 24 bits para sinais biomédicos, o que equivale respectivamente a 2^8 = 256, 2^16 = 65.536, 2^24 = 16.777.216</p>
+<p>Normalmente, a não ser em casos específicos, os valores são os inteiros correspondentes, admitindo-se que um dos bits seja utilizado para representar o sinal positivo ou negativo. Desse modo, utilizando 8 bits temos valores inteiros que estão na faixa <code>-128 ~ 127</code>, utilizando 16 bits <code>-32.768 ~ 32.767</code>, e utilizando 24 bits <code>-8.388.608 ~ 8.388.607</code>. Assim sendo, um sinal musical armazenado no computador, por exemplo, é na verdade um vetor de 44.100 pontos a cada segundo, para o qual cada posição do vetor é um valor inteiro na faixa de <code>-32.768 ~ 32.767</code>.</p>
+<p>Quando convertemos o sinal contínuo em sinal discreto, com base no teorema da amostragem, dizemos que o sinal foi <strong>discretizado</strong>. Por outro lado, quando aplicamos os arredondamentos necessários no eixo das amplitudes, dizemos que o sinal foi <strong>quantizado</strong>. Após a aplicação de ambos os processos, dizemos que o sinal, que era originalmente analógico, passou a ser <strong>digital</strong>.</p>
+<blockquote>
+<p><strong>Demonstração</strong>: Existe um fenômeno natural que, embora não constitua uma demonstração teórica é suficiente para exemplificar na prática o teorema da amostragem, trata-se do fenômeno que nos dá a falsa impressão de que as rodas de um veículo em movimento estão girando em sentido contrário ao do veículo. Tendo em vista que o olho humano não é um sistema contínuo de detecção de movimento, assume-se uma situação na qual ocorre amostragem, isto é, somos somente capazes de ver e de codificar um número finito de quadros ao longo do tempo, normalmente cerca de 15 ou 20 imagens por segundo. Assim sendo, quando as rodas do veículo giram em uma taxa baixa as amostras capturadas pelo olho na sequência bastam para perceber o movimento no sentido correto. Por outro lado, quando a velocidade é tal que entre cada amostra as rodas giram mais do que meia volta passamos a ter a percepção errada, que volta a ficar correta caso, entre cada amostra elas girem pouco mais de uma volta e assim por diante. Notamos ainda o caso no qual a taxa de amostragem no olho coincide com exatamente ‘N’ voltas da roda, sendo N = 1,2, 3, ..., ∞; que implica em perceber erroneamente a roda parada. A solução que conduz a percepção correta requer que entre cada ciclo seja possível amostrar pelo menos mais uma vez, o que implica que a taxa de amostragem, para percepção correta, deve ser pelo menos o dobro do número de ciclos, isto é, da máxima frequência.</p>
+</blockquote>
+<p>A percepção errônea corresponde a uma frequência fantasma que, formalmente recebe o nome de <strong>Aliasing</strong>. É muito importante notar que o circuito eletrônico responsável por amostrar e quantizar sinais do meio externo deve ter uma precisão extrema. Isso significa que no momento exato de capturar cada amostra o circuito não pode falhar, ou demorar, pois caso contrário outro valor de amplitude será capturado, confundindo o momento ideal com outro produzindo a distorção do sinal, possível aliasing entre outros efeitos danosos que inviabilizam por completo o processamento digital do sinal. Desse modo, é necessário que exista um dispositivo, que normalmente é um <strong>processador dedicado</strong>, para realizar a amostragem. Este processador está, no caso de um sinal de áudio por exemplo, na placa de áudio. No caso de uma câmera digital este dispositivo está na respectiva placa de captura de imagens, e assim por diante. De qualquer forma não devemos tentar utilizar o processador principal da máquina para controlar a amostragem, pois certamente o sistema operacional suspenderia o processo que cuida da amostragem para atender, de tempos em tempos, outros processos, tais como os que cuidam da rede, de entrada e saída no teclado e mouse, entre outros.</p>
+<p>Notamos que independentemente do processador que controla a amostragem, ele só pode trabalhar com os dados já digitalizados, e portanto a amostragem e a quantização necessitam adicionalmente ao processador um circuito eletrônico conhecido como <strong>Conversor Analógico-Digital (AD)</strong>. No caso de desejarmos algum processamento ou modificação dos dados digitalizados, o respectivo software será executado no processador principal da máquina de modo que a comunicação entre os componentes eletrônicos envolvidos é dada por um conjuntos de vias de comunicação elétrica chamada de <strong>barramento</strong>, conforme estudaremos a diante.</p>
+<h4 id="mini-prova-1">MINI PROVA 1 <a name="mp1"></a></h4>
+<ul>
+<li>ELABORAR UM TEXTO COM 2/3 PARÁGRAFOS CURTOS DISCUTINDO AS IMPLICAÇÕES, AS VANTAGENS E AS DESVANTAGENS DE REALIZAR PROCESSAMENTO DIGITAL DE SINAIS FRENTE A ABORDAGEM ANALÓGICA.</li>
+</ul>
+<hr />
+<h3 id="aula-3---10042015"><a name="aula3"></a> Aula 3 - 10/04/2015</h3>
+<hr />
+<h3 id="questões-relativas-a-propagação-das-ondas"><a name="questoes"></a> Questões relativas a propagação das ondas</h3>
+<h4 id="fundamentos-de-comunicação-de-dados">Fundamentos de comunicação de dados</h4>
+<p>Em arquitetura de computadores estudaremos as interligações e as diversas disposições dos componentes eletrônicos que formam um computador. Esses componentes estão interligados e portanto se comunicam por meio de sinais elétricos, mesmo que a distância entre eles seja mínima. Esta comunicação é também alvo do nosso estudo pois normalmente impõe barreiras no que se refere a distância e aos locais de conexão dos componentes diversos. Os mesmos conceitos aqui discutidos servem de base para o entendimento da comunicação entre computadores e outros aparelhos. Inicialmente é importante lembrar que qualquer condutor de eletricidade, tal como cobre, a prata, o ouro, entre outros, possui o seu comportamento modelado em função de 3 elementos, isto é, 3 grandezas físicas:</p>
+<ul>
+<li>Resistência: <code>R</code></li>
+<li>Capacitância: <code>C</code></li>
+<li>Indutância: <code>L</code></li>
+</ul>
+<p>A resistência, também chamada de resistência ôhmica interfere de modo a fazer uma força contrária a da passagem da corrente elétrica, independentemente do sinal que atravessa o condutor, ser contínuo, alternado, com alta ou baixa amplitude, entre outros fatores. Desse modo, a atenuação causada pela resistência ôhmica é a mesma para qualquer situação, fazendo com que ela seja uma característica não reativa. Usualmente representamos a resistência ôhmica com o símbolo <code>R</code>.</p>
+<p>Com relação a capacitância, normalmente simbolizada com a letra <code>C</code>, temos um efeito distinto da resistência. Em corrente contínua um capacitor, que é o componente eletrônico responsável por prover capacitância, permite a passagem de corrente elétrica até que ele atinja a sua carga completa que é função do seu valor dado em farads.</p>
+<p>O indultor, por outro lado, apresenta um comportamento inverso ao do capacitor. Em um circuito elétrico de corrente contínua, o indultor oferece uma oposição a passagem da corrente quando ela é aplicada, até o ponto em que, após alguns instantes, dependendo do valor do indultor medido em Henrys, ele se satura, permitindo assim o fluxo integral da corrente elétrica.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7215890/6ac2b590-e5c0-11e4-82d2-e5ac9f5dc2ef.jpg" alt="lamp" /><p class="caption">lamp</p>
+</div>
+<p>Em vista dos comentários acima, e entendendo qualquer condutor possui as propriedades <code>R</code>, <code>L</code> e <code>C</code> intrínsecas, é fácil entender que quando transmitimos, por meio de um condutor, um sinal elétrico de um ponto ao outro, estamos sujeitos aos 3 elementos físicos retromencionados. Conforme podemos observar na figura abaixo o sinal contínuo transmitido é diferente do sinal recebido, enquanto a situação de <code>C</code> e de <code>L</code> não atinja estabilidade. Este intervalo de tempo é conhecido como <strong>transiente</strong>.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7215891/6acb1730-e5c0-11e4-8379-853ef7aac024.jpg" alt="grafCont" /><p class="caption">grafCont</p>
+</div>
+<p>Tendo em vista o comportamento do condutor em corrente contínua, conforme o gráfico acima, que é conhecido como gráfico de resposta ao degrau, podemos facilmente compreender o comportamento do condutor em corrente alternada, conforme o gráfico a seguir.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7215892/6acf652e-e5c0-11e4-98f7-09f06da6a5d1.jpg" alt="grafOci" /><p class="caption">grafOci</p>
+</div>
+<p>Constatamos, pelo exame do gráfico acima, que a corrente alternada transmitida, representada na forma de uma onda retangular, é simplesmente um conjunto de degraus, isto é, transições entre 0 e 5 volts. Assim sendo, o sinal recebido, possui inúmeros períodos transientes em torno de cada degrau. Ocasionando a curva do sinal recebido no gráfico. Concluindo, podemos entender que a rigor, não existe transmissão efetiva de uma onda quadrada, pois ela contém sempre inúmeros transientes que correspondem a um conjunto de oscilações senoidais. O estudo mais aprofundado do tema mostra que uma onda quadrada ou retangular, assim como qualquer outra forma de onda não senoidal, é uma soma de infinitas senóides, cada uma com sua frequência e amplitude específica. Este estudo, tem os seus resultados assegurados por meio das <strong>séries de Fourier</strong>. Importante ainda é compreender que com base nas séries de Fourier, o fato do sinal recebido ser diferente do transmitido, ocorre porque as senóides de frequências mais altas não conseguem alcançar o ponto receptor do sinal devido as propriedades <code>L</code> e <code>C</code> do condutor. Em geral, cada condutor com seus tamanhos e demais particularidades é equivalente a um conjunto <code>R</code>, <code>L</code> e <code>C</code> que, na prática, não oferece alteração substancial no sinal transmitido desde que cada degrau não tenha um período de duração muito pequeno, isto é, uma frequência muito alta. A frequência limite das senóides que atravessam o condutor sem alteração substancial recebe o nome de <strong>largura de banda</strong>.</p>
+<p>Dentre as inúmeras possiblidades de efetuar transmissão de dados entre dois pontos, a opção que utiliza a base 2 é a melhor, pois próximos aos degraus existentes no sinal, as distorções oferecem uma margem pequena de erro, pois assumindo por exemplo que os níveis lógicos 0 e 1 correspondam na realidade física a 0 e a 5 volts respectivamente basta um único limiar em 2,5 volts por exemplo. Níveis de tensão abaixo do limiar são interpretados como lógica 0, e níveis acima do limiar como lógica 1. Se por outro lado tivéssemos 3 ou mais níveis precisaríamos de 2 ou mais limiares respectivamente, aumentando assim a possibilidade de erro interpretação. O caso extremo é o que possui <strong>infinitos níveis</strong>, correspondendo assim ao <strong>sinal analógico</strong>. Além disso, a base 2 oferece possiblidades mais simples para realizar cálculos diversos nos processadores e desse modo é a opção adotada, para qual não existe qualquer previsão ou intenção de alteração.</p>
+<p>A possiblidade de uso da base 2 foi se consolidando ao longo das diversas gerações de computadores ao longo dos tempos. Particularmente, todas as máquinas e equipamentos de desenvolvidos com a finalidade de realizar cálculos até o ano de 1945 englobam o que chamamos de <strong>Geração 0</strong> de computadores, na qual incluímos basicamente as réguas de cálculo e as máquinas calculadoras, que atualmente constituem peças de museu. Entre 1945 e 1955, passamos a ter a <strong>Geração 1</strong> de computadores, que eram basicamente constituídos de válvulas eletrônicas. Tais computadores normalmente ocupavam espaços físicos imensos e nos quais a temperatura média chegava aos 50~60 °C. Tal fato, implicava em manter os referidos computadores em gigantescos armários térmicos, sendo ainda necessário realizar trocas de cabeamento e conexões para que o computador fosse reprogramado.</p>
+<p>Com os avanços nas pesquisas, alcançamos a <strong>Geração 2</strong> de computadores que vão de 1955 a 1965. Nesta geração a base dos circuitos foi o transistor semicondutor em sua versão discreta. Os transistores constituem componentes eletrônicos com função básica de amplificação e comutação de sinais, sendo constituídos basicamente de 1 dentre 2 minerais naturais: <strong>Silício</strong> e <strong>Germânio</strong>, ambos constantes da tabela periódica. Para o correto funcionamento, os transistores são constituídos de 1 desses minerais especialmente preparados com base num processo químico conhecido como dopagem e que tem a função de acrescentar impurezas aos minerais necessárias ao funcionamento do componente. O processo, que se tornou de baixo custo, requer maquinário considerado como muito específico, tendo sido inicialmente desenvolvido no Bell Labs nos EUA. Uma característica peculiar dos transistores é que eles requerem tensões e correntes baixíssimas para funcionar, entretanto, são fisicamente quase microscópicos. Visando, desse modo, permitir o uso industrial e comercial deles, faz-se necessário encapsulá-los em uma massa plástica que os torna muito maiores. Assim o transistor discreto, como é popularmente chamado, é muito maior que o transistor real.</p>
+<p>Com o advento da tecnologia mecânica, a indústria passou a ser capaz de manipular mais facilmente elementos quase microscópicos, dessa forma foi possível passar a conectar vários desses elementos e assim encapsulá-los em um único invólucro. Desse modo, surgiu então entre 1965 e 1980 a <strong>Geração 3</strong> de computadores que era basicamente constituída de conjuntos de transistores encapsulados juntos, fato este que deu origem ao nome <strong>Circuito Integrado</strong>. Após a década de 80, o avanço da tecnologia permitiu a construção de máquinas capazes de agrupar milhões de transistores em um único circuito integrado. Esse fato conduziu a <strong>Geração 4</strong> de computadores, também conhecida como geração de Very Large Scale Integration (VLSI). Os avanços tecnológicos, tanto em nível de fabricação de componente quanto em nível de programação deles via software, fez com que após o ano 2000 uma nova geração, conhecida como <strong>Geração 5</strong> de computadores fosse definida. Nela, encontramos muitos milhões de transistores e outros componentes em um único circuito integrado que conta ainda com reduções drásticas de tamanho físico. Essa geração é também conhecida como das máquinas de baixa potência, ou máquinas &quot;invisíveis&quot; ou até <strong>máquinas descartáveis</strong>. Exemplos são os smartphones, tablets, entre outros, inclusive cartões de Radio Frequency Identification(RFID).</p>
+<p>A atuação conjunta software-hardware, somada ao desenvolvimento técnico-mecânico de fabricação dos circuitos integrados fez com que as máquinas de baixa potência ou descartáveis estivessem disseminadas em toda a indústria eletrônica, passando então a compor os mais diversos aparelhos, tais como, geladeiras, máquinas de lavar, brinquedos, relógios, entre outros. Desenvolveu-se inclusive uma linha de pesquisa para tratar particularmente desse tema de pesquisa que é conhecida como computação <strong>ubíqua</strong> ou <strong>pervasiva</strong>.</p>
+<h4 id="mini-prova-2">MINI PROVA 2 <a name="mp2"></a></h4>
+<ul>
+<li>ELABORE UM PEQUENO TEXTO RESUMINDO E DISCUTINDO OS CONCEITOS DE CADA UMA DAS 5 GERAÇÕES DE COMPUTADORES.</li>
+</ul>
+<hr />
+<h3 id="aula-4"><a name="aula4"></a> Aula 4</h3>
+<hr />
+<h3 id="tecnologias-emergentes-de-5ª-geração"><a name="tecnologias"></a> Tecnologias Emergentes de 5ª Geração</h3>
+<p>Conforme vimos anteriormente, a 5ª Geração de computadores engloba os dispositivos que possuem tecnologia de processamento digital com baixo consumo de energia e tamanho extremamente reduzido. Particularmente, podemos inserir em tal contexto alguns dispositivos para processamento dedicado, sendo que entre eles temos os <strong>Digital Signal Processors (DSPs)</strong> e também <strong>Field Programmable Gate Array (FPGAs)</strong>. Estes últimos podem ainda, conforme a finalidade especifica ter a denominação de <strong>Control Programmable Logic Devices (CPLDs)</strong>.</p>
+<p>Os DSPs são <strong>processadores</strong>, normalmente disponibilizados em placas eletrônicas que trazem outros circuitos de apoio, dedicados para realizar operações de modo veloz e para uso em <strong>tempo real</strong>, isto é, provendo <strong>atraso fixo</strong> entre a entrada e a saída. Os principais fabricantes de DSPs são <strong>Texas Instruments</strong> e a <strong>Motorola</strong>. O diagrama de blocos de DSPs é, de modo simplificado, o seguinte:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7215893/6ad0a06a-e5c0-11e4-944d-84b7497d8fb1.jpg" alt="diagBlocos" /><p class="caption">diagBlocos</p>
+</div>
+<p>Exemplos do uso DSPs são: Modificações realizadas de modo digital, em áudio para uso on the fly, sistemas de controle e correção de trajetória em freios ABS, entre outro. Com relação as FPGAs ou CPLDs, fabricadas, principalmente, pela <strong>Altera</strong> e/ou <strong>XILINX</strong>, temos um funcionamento bastante particular e que a rigor é extremante versátil. Na realidade, esses dispositivos não constituem processadores. Ao contrário, podem ser configurados para atuar como processadores e também como outros tipos de circuitos digitais, o principal motivo para utilizá-los é que eles possibilitam uma otimização pois o software utilizado para programá-los faz na verdade ligações internas ao componente em nível de hardware. Isso implica em termos um circuito que pode ser literalmente montado via software.</p>
+<p>Em vista da versatilidade, normalmente as FPGAs possuem custo mais elevado do que os DSPs. Além disso, tem sido comum no mercado FPGAs vendidas em conjunto com outros dispositivos, tais como telas de cristal líquido, touchscreen, miniteclados, entre outros. Somente as FPGAs permitem total e completa proteção à propriedade intelectual dos desenvolvedores de software, pois é possível queimar, isto é, interromper definitivamente o caminho de dados de comunicação com o meio externo. Dessa forma, se for de interesse podemos isolar o projeto desenvolvido definitivamente.</p>
+<hr />
+<h4 id="artigo-1">Artigo 1 <a name="aula1"></a></h4>
+<ul>
+<li>Elaborar um artigo cientifico de 3 ou 4 páginas em inglês discutindo vantagens, desvantagens e aplicações das FPGAs.</li>
+<li>O Artigo deve seguir a seguinte formatação.</li>
+<li>TITULO</li>
+<li>NOME, EMAIL, ENDEREÇO PARA CONTATO</li>
+<li>ABSTRACT (3,4 LINHAS)</li>
+<li>INTRODUCTION COM 2/3 PARÁGRAFOS</li>
+<li>DISCUSSION 2/3 PARÁGRAFOS</li>
+<li>CONCLUSSIONS 1 PARÁGRAFO</li>
+<li><p>REFERENCES.</p></li>
+<li>Sites confiáveis para pesquisas e artigos científicos.</li>
+<li>www.ieee.org -&gt; IEEEXplorer</li>
+<li>www.sciencedirect.com</li>
+<li><p>isiknowledge.com</p></li>
+<li><p>Editor para fazer o artigo <strong>LaTeX</strong>.</p></li>
+</ul>
+<hr />
+<h2 id="representação-de-dados-nos-computadores"><a name="repres"></a> Representação de dados nos computadores</h2>
+<hr />
+<p>Conforme já discutimos anteriormente, <strong>qualquer dado</strong> constitui um conjunto de <strong>números</strong>, que pode descrever texto, sinais multimídia 1D e 2D. Particularmente, no caso de <strong>texto</strong>, a representação computacional é realizada por meio de <strong>números inteiros</strong>. Por outro lado, <strong>sinais multimídias</strong> podem utilizar <strong>inteiros</strong> ou <strong>reais</strong>, também chamados de <strong>pontos flutuantes</strong>.</p>
+<h3 id="representação-de-texto"><a name="represT"></a>Representação de Texto:</h3>
+<p>A representação de texto em computadores digitais, baseada em valores <strong>inteiros</strong>, é regulada pelo <strong>American Standard Code for Information Interchange (ASCII)</strong>. O referido código, constitui um padrão internacional para simbolizar caracteres diversos que compõe um texto. Procurando na tabela ASCII, podemos conhecer o código designado para cada símbolo. Como exemplo temos os valores: 65, 66, 67, 97, 98 representando respectivamente <code>A</code>, <code>B</code>, <code>C</code>, <code>a</code>, <code>b</code>, de qualquer forma, <strong>todos os caracteres do código ASCII são números que quando convertidos para a base 2, utilizam 8 bits</strong>, isto é, são <strong>valores inteiros na faixa de 0 a 255</strong>. Mesmo que os caracteres de um texto possam eventualmente ser escritos na base 2 com menos do que 8 bits significativos, o padrão determina o uso dos 8, sendo q nesse caso os primeiros bits são 0.</p>
+<blockquote>
+<p><strong>Exemplo</strong>: - representar a string &quot;Eu amo chocolate&quot; para uso em um computador digital. Indique os valores na base 10. 69-85-32-65-77-79-32-67-72-79-67-79-76-65-84-69</p>
+</blockquote>
+<p>Devemos notar que todas as linguagens de programação nos trazem a possiblidade de acessar <strong>1 byte</strong> de memória por meio do uso de variáveis do tipo <code>char</code>. Normalmente uma variável <code>char</code> portanto, ocupa <strong>1 byte independentemente de características de hardware, tal como a arquitetura</strong>.</p>
+<blockquote>
+<p><strong>OBS</strong>: As diversas sequências de 0 e 1 podem ser comprimidas, isto é, podem utilizar um número menor de bits, em um processo sem perdas, reversível ou loss less, planejando convenientemente dicionários de dados com base em estatísticas de ocorrências de 0 e 1. Um dos procedimentos mais comuns para comprimir uma string é conhecido como <strong>Código de Huffman</strong>.</p>
+</blockquote>
+<blockquote>
+<p><strong>OBS 2</strong>: Lembramos que diversas linguagens de programação permitem o acesso a bits específicos de uma determinado byte. Para isso utilizamos os operadores lógicos E bit-a-bit e OU bit-a-bit que em linguagem C são representados respectivamente por <code>&amp;</code> e <code>|</code>.</p>
+</blockquote>
+<p><strong>Ex:</strong></p>
+<pre class="sourceCode c"><code class="sourceCode c">    ...
+    x = <span class="dv">65</span>;
+    x = x&amp;<span class="dv">10</span>;
+    ...
+    <span class="co">// Após executar o código acima o resultado será: </span>
+    <span class="dv">65</span> -&gt; <span class="dv">01000001</span>
+    <span class="dv">10</span> -&gt; <span class="dv">00001010</span>
+    --------------
+     X -&gt; <span class="dv">00000000</span>
+     </code></pre>
+<ul>
+<li>Como faríamos para, com base nos operadores acima, isolar, por exemplo, o bit menos significativo de <code>x</code>? Basta fazer um E bit-a-bit com o 00000100 (4), pois as posições com 0 anularam as posições respectivas da variável <code>x</code>, restando somente o bit de interesse. Esse bit restante pode ainda ser rotacionado para esquerda ou para a direita com os operadores <code>&lt;&lt;</code> e <code>&gt;&gt;</code>.</li>
+</ul>
+<h3 id="representação-de-dados-oriundos-de-sinais-1d-ou-2d-por-inteiros"><a name="represS"></a>Representação de dados oriundos de sinais 1D ou 2D por inteiros:</h3>
+<p>Considerável parte dos sinais manipulados nos computadores utilizam a representação por valores inteiros de modo a corresponder com a quantização adotada. Assim, se um sinal é quantizado em amplitude com <code>n</code> bits, possui representação na qual 2^n possibilidades existentes, conforme já discutimos anteriormente. De modo geral, <strong>uma variável declarada como inteira, possui 2 ou 4 bytes, dependendo da linguagem e da arquitetura</strong>. De qualquer forma, se não há menção especifica na declaração, o primeiro bit é usado para representar o sinal e os demais para representa o número em módulo. Assim por exemplo temos <code>1111111111111111</code> representa o número <code>65.535</code> caso a variável que o carrega tenha sido declarada como um <code>unsigned int</code>. Caso a variável seja declarada somente como <code>int</code>, então ela possui sinal. Desse modo o seu valor em módulo não leva em conta o primeiro bit e no caso do exemplo acima, ele será <code>-32768</code>. Por padrão, quando a variável possui sinal e o primeiro bit é 1, ela é negativa, sendo positiva se o primeiro bit for 0. Estabelece-se desse modo a regra:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7215894/6ae8a1ec-e5c0-11e4-9007-7d5f69a238d8.jpg" alt="regraInt" /><p class="caption">regraInt</p>
+</div>
+<ul>
+<li>O modelo acima para representação de inteiros é conhecido como modelo <strong>sinal-magnitude</strong>.</li>
+</ul>
+<hr />
+<h4 id="mini-prova-3">MINI PROVA 3 <a name="mp3"></a></h4>
+<ul>
+<li>CONSTRUIR UM PROGRAMA EM C PARA SOLICITAR E LER NO TECLADO UM VALOR DE 8 BITS EM UMA ÚNICA VARIÁVEL E APRESENTAR UMA MENSAGEM NA TELA INFORMANDO SE O TERCEIRO BIT MENOS SIGNIFICATIVO É 0 OU 1.</li>
+</ul>
+<hr />
+<h3 id="aula-5"><a name="aula5"></a> Aula 5</h3>
+<hr />
+<h3 id="codificação-e-representação-de-conteúdo-multimídia-com-valores-inteiros"><a name="codMult"></a> Codificação e representação de conteúdo multimídia com valores inteiros</h3>
+<p>Do mesmo modo como trabalhamos anteriormente na codificação de texto, trabalharemos no padrão <strong>sinal-magnitude</strong> visando codificar sinais diversos, que possuem correspondentes analógicos, utilizando <strong>amostragem</strong> e <strong>quantização</strong>. Lembramos ainda que, embora esta definição não seja precisa, na prática podemos encarar um texto como sendo um sinal originalmente discreto e para o qual não existe correspondente analógico.</p>
+<h4 id="procedemos-a-seguir-com-a-codificação-de-um-sinal-1d.">Procedemos a seguir com a codificação de um sinal 1D.</h4>
+<p><strong>Exemplo</strong>: Codificar, utilizando valores inteiros no padrão sinal-magnitude, com taxa de amostragem de 20 mil amostras por segundo e com quantização de 16bits, o seguinte sinal acústico. Codifique, para facilitar, as 10 primeiras amostras do sinal.</p>
+<ul>
+<li><strong>Solução</strong>:</li>
+</ul>
+<p>Usaremos a função: f(t)=30000.sen(2pi.4000t). Onde 30000 é amplitude e não interfere no período.</p>
+<p>O sinal em questão possui o seguinte aspecto:</p>
+<p><code>**TODO** gráfico senoide de -30k a 30k</code></p>
+<blockquote>
+<p>Observamos que o sinal em questão pode ser quantizado com 16bits pois possui valores variando de -30000 até 30000 e com 16bits podemos representar inteiros com sinal na faixa de -32768 até 32767.</p>
+</blockquote>
+<p>É importante também verificarmos se a taxa de <strong>amostragem</strong> proposta condiz com o sinal analógico lembramos que, de acordo com o <strong>Teorema da Amostragem</strong>, precisamos no mínimo de uma quantidade de pontos por segundo igual ao <strong>dobro</strong> da máxima frequência presente no sinal, sendo os pontos igualmente espaçados. Assim, considerando que <code>p</code> é o período do sinal acima, constatamos o que segue:</p>
+<pre><code>            f(t+p) = f(t), logo
+            
+            sen(2pi4000(t+p)=sen(2pi4000t)
+            2pi4000(t+p) = 2pi4000t + 2kpi
+            Considerando K = 1.
+            2pi4000t + 2pi4000p = 2pi4000t + 2pi
+            2pi4000p = 2pi
+            4000p = 1
+            p = 1/4000 =&gt; F=1/p = 4000Hz ou 4Khz</code></pre>
+<p>Constatamos assim que a frequência do sinal é de 4000 Hertz e portanto a taxa de amostragem mínima é de 8000 amostras por segundo. Tendo em vista que solicitamos no enunciado 20000 amostras por segundo não teremos problemas.</p>
+<blockquote>
+<p><strong>OBS</strong>: Toda vez que um sinal analógico estiver no formato <code>f(t) = A.sen(2pi.F.t)</code>, então <code>F</code> é sua frequência.</p>
+</blockquote>
+<p>Para amostrarmos o sinal analógico conforme solicitado, fracionamos o tempo de 1 segundo em 20000 amostras, conforme o enunciado. Utilizando ainda, a variável <code>n</code> no lugar de <code>t</code> e colchetes no lugar de parênteses, visando manter a padronização indicativa de sinal digital, temos:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7330891/7c4d3f7e-eacf-11e4-8e36-64e941997eda.png" alt="codecogseqn" /><p class="caption">codecogseqn</p>
+</div>
+<pre><code>            f[1] = 28531,695
+            f[2] = 17633,557
+            f[3] = -17633,557
+            f[4] = -28531,695
+            f[5] = 0
+            f[6] = 28531,695
+            f[7] = 17633,557
+            f[8] = -17633,557
+            f[9] = -28531,695
+            f[10] = 0</code></pre>
+<ul>
+<li>Lembrando que os valores devem ser representados como inteiros então a real representação é a seguinte:</li>
+</ul>
+<pre><code>            f[1] = 28532
+            f[2] = 17634
+            f[3] = -17634 
+            f[4] = -28532
+            f[5] = 0
+            f[6] = 28532
+            f[7] = 17634
+            f[8] = -17634
+            f[9] = -28532
+            f[10] = 0</code></pre>
+<hr />
+<p><strong>Exemplo2</strong>: Idem anterior, quantizando o sinal com 8 bits no padrão sinal-magnitude e utilizando a menor taxa de amostragem possível para que não ocorra aliasing.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7330910/6de06460-ead0-11e4-9d3d-109091469eab.png" alt="codecogseqn 1" /><p class="caption">codecogseqn 1</p>
+</div>
+<ul>
+<li>Solução:</li>
+</ul>
+<p>Começaremos &quot;melhorando&quot; a equação:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7330913/aff68884-ead0-11e4-9344-3904b376c260.png" alt="codecogseqn 2" /><p class="caption">codecogseqn 2</p>
+</div>
+<p>Após escrevermos o sinal no formato padrão (acima) vamos examinar a <strong>quantização</strong>.</p>
+<p>Verificamos que caso ambas as senóides atinjam ao mesmo tempo os seus valores extremos, podemos ter resultados variando -200 até 200 usando 8 bits, somente podemos representar valores de -128 à 127 de forma que a quantização proposta é <strong>insuficiente</strong>. Se forçamos a quantização com 8 bits teremos trecho do sinal que apresentarão <strong>saturação</strong>, isto é, ficarão limitados ao valor máximo possível de ser representado, conforme exemplificado a seguir.</p>
+<blockquote>
+<p><strong>TODO</strong> grafico &quot;saturado&quot;</p>
+</blockquote>
+<p>Aumentando a quantização para 9bits percebemos que o problema estará resolvido pois valores na faixa de -256 até 255 serão possíveis. Em computadores corriqueiros(tradicionais), o padrão é a existência de variáveis que implicam em representações numéricas com quantidade de bits múltipla de 8. Assim sendo, precisaríamos utilizar uma quantização de 16bits. Por outro lado, em placas dedicadas de processamento, tais como os DSPs, as FPGAs e as CPLDs, é possível planejar a quantização e acessar a memória com o número de bits variados, sendo comum por exemplo o uso de 4bits, 10bits, 12bits, 24bits e até 40bits. Assim sendo a opção pela quantização depende do conjunto Software-Hardware disponível. Prosseguiremos com o exemplo assumindo o uso de uma placa DSP que disponibiliza a quantização com 10bits, pela qual podemos ter valores inteiros na faixa de -512 até 511. Uma vez solucionado o problema da quantização vamos analisar o espectro do sinal, isto é, o seu conteúdo de frequências para que seja possível definir a taxa de amostragem. Os dois subsinais que compõe o sinal considerado possuem frequência de 1000Hz e 1200Hz. Assim, sendo 1200 a maior frequência, a taxa de amostragem mínima é de 1200x2 que é igual a 2400 amostras por segundo. Portanto a versão discreta do sinal é:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7330924/92897b98-ead1-11e4-9734-3ebe48914c1a.png" alt="codecogseqn 3" /><p class="caption">codecogseqn 3</p>
+</div>
+<ul>
+<li><p>As dez primeiras amostras são:</p>
+<pre><code>        f[1] = 60
+        f[2] = -103,923
+        f[3] = 120
+        f[4] = -103,923
+        f[5] = 60
+        f[6] = 0
+        f[7] = -60
+        f[8] = 103,923
+        f[9] = -120
+        f[10] = 103,923</code></pre></li>
+<li><p>Procedendo com a quantização os resultados são os seguintes:</p>
+<pre><code>        f[1] = 60
+        f[2] = -104
+        f[3] = 120
+        f[4] = -104
+        f[5] = 60
+        f[6] = 0
+        f[7] = -60
+        f[8] = 104
+        f[9] = -120
+        f[10] = 104</code></pre></li>
+</ul>
+<blockquote>
+<p><strong>OBS</strong>: Os exemplos acima constituíram modelos bem definidos, para os quais é possivel analisar e determinar a taxa de amostragem e a quantização necessárias. Por outro lado, para sinais oriundos do meio externo e que não possuam modelo bem definido, devemos analisar ao menos as suas essências ou tipos. Por exemplo, se o sinal é de áudio sabemos que 44100 amostras por segundo com 16bits de quantização basta. Para voz, 8000 amostras por segundo com 8 bits de quantização são o suficiente.</p>
+</blockquote>
+<hr />
+<h3 id="representação-computacional-de-valores-reais"><a name="represR"></a> Representação computacional de valores reais</h3>
+<p>Visando registrar valores reais, também conhecidos como de ponto flutuante, oriundos tanto da digitalização de sinais do meio externo quanto de variáveis e cálculos existentes em Softwares diversos, podemos utilizar as representações adequadas para tais casos. Sabe-se que números reais podem ser representados genericamente na forma <img src="https://cloud.githubusercontent.com/assets/3441126/7330970/c5293bb4-ead2-11e4-9f44-ae00dca14b65.png" alt="codecogseqn 4" />, sendo <code>M</code> a mantissa, isto é, a parte fracionária, <code>B</code> a base e <code>e</code> o expoente. Particularmente no caso dos computadores o padrão internacional IEEE754 implica que a representação de valores reais é realizada primeiramente normalizando a mantissa para que o expoente seja positivo e usando a base 2. Sendo assim, o modelo representacional fica sendo <img src="https://cloud.githubusercontent.com/assets/3441126/7330977/feb10236-ead2-11e4-9320-b6dde2e4b769.png" alt="codecogseqn 5" />. Como exemplo, vamos representar o número 5.75 utilizando o referido padrão. Devemos, obviamente, converter o valor em questão para a base 2. Para realizar a conversão devemos trabalhar separadamente com as partes <strong>inteira</strong> e <strong>fracionária</strong>. A conversão da parte inteira implica em realizar divisões sucessivas por 2 até que o cociente se torne 0 e recuperar o resto inteiro das divisões em ordem contrária. Para a parte fracionaria, devemos multiplica-las sucessivamente por 2, usando a parte fracionaria da multiplicação anterior para realizar a próxima multiplicação, repetindo o processo até que a parte fracionária seja 0. Em seguida devemos recuperar as partes inteiras de cada multiplicação na ordem em que elas ocorreram. Finalmente concatenamos a parte inteira na base 2 com a parte fracionaria na base 2, usando o ponto decimal entre elas. O procedimento está resumido no diagrama a seguir:</p>
+<blockquote>
+<p><strong>TODO</strong> diagrama conversão de real para base 2</p>
+</blockquote>
+<p>O valor 101.11 é a representação correta, na base 2, do valor 5.75 entretanto para representa-lo no computador precisamos adequá-lo ao padrão IEEE. Para isso é necessário, conforme observamos acima, escrever valor na forma <img src="https://cloud.githubusercontent.com/assets/3441126/7330977/feb10236-ead2-11e4-9320-b6dde2e4b769.png" alt="codecogseqn 5" />. Para isso aplicamos o processo de normalização que consiste em deslocar as casas decimais em número já na base 2 de modo que antes do ponto decimal tenhamos apenas um digito 0. Assim fazemos 101.11 = 0.10111x2^3 (usamos o 2 porque é a base, por exemplo 3,14 = 0.314x10^1 porque é na base 10). Após a normalização o número está pronto para ser representado em um computador digital. Para isso, escolhemos um dentro os dois formatos disponíveis na grande maioria dos conjunto Software-Hardware e acessíveis por meio das diversas linguagens de programação:</p>
+<ul>
+<li>Float:
+<ul>
+<li>1bit para o sinal: 0 = positivo e 1 = negativo</li>
+<li>8bits para o expoente</li>
+<li>23bits para a mantissa</li>
+</ul></li>
+<li>Double
+<ul>
+<li>1bit para o sinal: 0 = positivo e 1 = negativo</li>
+<li>11bits para o expoente</li>
+<li>52bits para a mantissa</li>
+</ul></li>
+</ul>
+<p>Desse modo, variáveis declaradas como <code>float</code> ocupam 1+8+23 = 32bits(4bytes) e variáveis declaras como double ocupam 1+11+52 = 64bits(8bytes). No caso do nosso exemplo, isto é, 0.10111x2^3, a sua representação como float é a seguinte:</p>
+<blockquote>
+<p>0 para o sinal; expoente 3 então (11), logo 00000011; e 00000000000000000010111 para a mantissa;</p>
+</blockquote>
+<p>No caso de representarmos o nosso exemplo como um double, devemos fazer o mesmo acima, porem lembrando que é 11bits para o expoente e 52bits para mantissa.</p>
+<p>Concluímos desse modo que o nosso número em exemplo pode ser representado com folga por meio de um <code>float</code>, não requerendo o uso de um <code>double</code>. De modo genérico o padrão <code>IEEE754</code>, implica que computacionalmente temos a seguinte situação:</p>
+<blockquote>
+<p><strong>TODO</strong>: UNIVERSO DOS VALORES REAIS</p>
+</blockquote>
+<hr />
+<h4 id="mini-prova-4">MINI PROVA 4 <a name="mp4"></a></h4>
+<ul>
+<li>REPRESENTAR O VALOR 2.718 NAS PRECISÕES FLOAT E DOUBLE NO PADRÃO IEEE754</li>
+</ul>
+<hr />
+<h3 id="aula-6"><a name="aula6"></a> Aula 6</h3>
+<hr />
+<h2 id="taxonomia"><a name="tax"></a> TAXONOMIA</h2>
+<p>Uma vez que completamos os estudos focados na representação de valores <code>int</code>, <code>float</code>, <code>double</code> passamos a dar atenção ao conceito de <strong>taxonomia</strong> que implica na topologia(interligação dos elementos processados e memoria) para posteriormente estudarmos os processadores internamente diversas classificações existemem ambiente academico sendo que nenhum é considerado ideal , de qualquer forma a classificação taxonomica mais utilizada foi a publicada por michael flynn em 1986 ficando conhecida como taxonomia de flynn. Essa taxonomia divide em 4 tipos as possibilidades de ligação entre processadore, com a função basica de realizar calculos e memória com a função basica de armazenar dados e instruções. particularmente temos :</p>
+<ul>
+<li><strong>single instruction single data (SISD)</strong>:</li>
+</ul>
+<p>Trata-se do modelo mais simples e utiizado na grande maioria dos computadore pessoais. pode ser representado como segue, sendo P o simbolo para processador e M o simbolo para memória,</p>
+<p>P<img src="https://cloud.githubusercontent.com/assets/3441126/7724278/bb732190-fec6-11e4-8fc1-c91df3c7ae39.png" alt="image03" />M</p>
+<p>A simbologia acima significa que computador e memoria e o processador requisita a proxima instrução a ser executada buscando-a na memoria. em seguida a intrução é enviada da memoria para o processador, o processador requisita ainda os dados, isto é os operandos envolvidos com a instrução a ser executada, esses dados são então enviados da memoria para o processador. O processador requisita ainda os dados, isto é, os operandos envolvidos com a instrução a ser executada. Esses dados são então enviados da memória para o processador, que por fim, executa a instrução possivelmente devolvendo o resultado para a memória. As intruções normalmente são de calculos, de comparações, ou de desvio conforme estudaremos adiante posteriormente as comparações e os calculos são feitos com base em valores numéricos, isto é os dados obtidos na memoria, esssa conversa entre um unico processador e um unico bloco de memoria constitui o modelo mais simples de taxonomia</p>
+<ul>
+<li><strong>Single Instruction Multipple Data(SIMD)</strong>:</li>
+</ul>
+<p>Constitue um modelo um pouco mais aprimorado sendo representado da seguinte forma:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7724452/1313e424-fec8-11e4-972b-fbb4d5f7c2d2.jpg" alt="image00" /><p class="caption">image00</p>
+</div>
+<p>Neste modelo tradicionalmente utilizado nas Graphics Processing Units (GPUs) a porção de memoria disponivel é dividida em duas partes sendo quue uma somente armazena instruções e outra que por sua vez é subdivida em blocos armazena dados.. tem-se ainda um processador dedicado a recolher da memoria de intruções cada instrução a ser executada e distribui-as aos demais processadores a medida que estiverem livres. cada um desses processadores conversa com o seu bloco de memoria de dados, buscando operandos e enviando resultados. caracteriza-se deste modo um principio de paralelismo pois em uma mesma janela de tempo os processadores P1,P2,P3 etc estão cada qual executando determinadas instruções fica, assim clara a aplicabilidade deste modelo no processamento gráfico em que imagens precisam ser sintetizadas com consideravel velocidade.</p>
+<ul>
+<li><strong>Multiple Instruction Single Data (MISD)</strong>:</li>
+</ul>
+<p>Neste modelo, representado a seguir, temos vários blocos de memoria destinados ao armazenamento de instruções mas somente um bloco destinado ao armazenamento de dados. para cada bloco de memoria de instruções existe um processador correspondente. neste modelo o foco é o processamento divesificadode um mesmo dado em paralelo.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7724472/402794f6-fec8-11e4-95e1-7ccbae3b5cea.jpg" alt="image02" /><p class="caption">image02</p>
+</div>
+<p>Este modelo é na verdade uma concepção teoria para o qual té o presente momento não existe implementação comercial, havendo somente poucas implementações em nivel de teste industrial e academico.</p>
+<ul>
+<li><strong>Multiple Instruction Multiple Data (MIMD)</strong>:</li>
+</ul>
+<p>Ai na frente coloca o seguinte, trata-se de uma taxonomia na qual os diversos processadores existentes possuem cada qual o seu bloco de memoria que servem para armazenar dados e instruções, alem disso os processadores conversam, entre aspas ne, entre si para a distribução das tarefas. o diagrama a seguir exemplifica esta taxonomia para um caso de 4 elementos de processamentos:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7724503/77944628-fec8-11e4-9aac-4f395cd25cff.jpg" alt="image01" /><p class="caption">image01</p>
+</div>
+<hr />
+<p>os modelos mais simples e mais completos de taxonomias, isto é, SISD e MIMD foram concebidos para finalidadfes genericas de processamento, sendo obviamente versoes nao paralela e massivamente paralelano caso do modelo SIMD, a aplicação mais propicia é aquela para a qual temos a necessidade de processamentos do tipo</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="kw">for</span>(inti=<span class="dv">0</span>;i&lt;<span class="dv">100</span>;i++)
+
+{
+
+                g[i]=sqrt(x[i]);
+
+}</code></pre>
+<p>ou seja uma mesma instrução é aplicada em operandos diferentes, por outro lado no modelo MISD a ideia é aplicar diversas instruções em um unico dado ou par de dados, na pratica teriamos então um modelo de taxonomia particularmente util para situações oriundas de códigos tais como:</p>
+<pre class="sourceCode c"><code class="sourceCode c">
+y=sqrt(x);
+
+y2=cos(x);
+
+y3=sin(x);
+
+y4=exp(x);</code></pre>
+<p>é possivel observar facilmente o motivo pelo qual o modelo MISD não é implementado comercialmente, ja que beneficiaria que otimizaria sequencias de codigos que estatisticamente são incomuns ou pouco encontrados.</p>
+<hr />
+<h4 id="miniprova-5">MINIPROVA 5 <a name="mp5"></a></h4>
+<ul>
+<li>codifique, isto é apresente o resultado da digitalização tanto em decimal quanto em binário no padrão float IEEE, as 5 primeiras amostras do sinal unidimensional</li>
+</ul>
+<p><code>f(t)=120sin(2*pi*175t)</code></p>
+<p>utilizando uma taxa de amostragem igual a 3 vezes e meio a máxima frequencia do sinal(175*3,5).</p>
+<hr />
+<h3 id="aula-7"><a name="aula7"></a> Aula 7</h3>
+<hr />
+<h2 id="modelos-de-arquiteturas"><a name="arq"></a> Modelos de Arquiteturas</h2>
+<p>Do ponto de vista comercial, excluindo modelos teóricos e/ou puramente acadêmicos, podemos considerar a existência de duas arquiteturas de computadores:</p>
+<ul>
+<li>Arquitetura de Von Neumann.</li>
+<li>Arquitetura Harvard.</li>
+</ul>
+<p>O modelo de <strong>Von Neumann</strong>, assim chamado por ter sido especificado pelo matemático húngaro John Von Neumann, constitui o esquema mais básico de processamento, pelo qual a área de memória é compartilhada para armazenar as instruções a serem executadas e os dados, ou seja, operandos, utilizados em conjunto com tais instruções. Existe, dessa forma, um único barramento, isto é, conjunto de vias elétricas por onde as informações transitam para conduzir dados e instruções. Podemos dizer que não há paralelismo nas tarefas e a sequência de processamento está sujeito a um gargalo, conhecido como gargalo de Von Neumann, que limita o desenvolvimento das atividades de processamento. Particularmente percebemos que o modelo de Von Neumann caracteriza as máquinas para as quais a taxonomia é do tipo <strong>SISD</strong>. Em contra partida, o modelo <strong>Harvard</strong> especificado por pesquisadores diversos na universidade Harvard, na década de 40, tem como princípio a existência de regiões de memória separadas para armazenar instruções e dados. Desse modo existe um barramento que interage com uma porção de memória para troca de instruções e outro barramento que interage com uma segunda região de memória visando trocar dados. Entende-se, assim que já existe a ideia de paralelismo pois enquanto transita uma instrução por um barramento, os respectivos dados ou operandos transitam por outro. Nota-se então que este modelo Harvard corresponde a proposta da taxonomia <strong>SIMD</strong>.</p>
+<p>Independentemente do modelo de arquitetura, temos sempre a figura da unidade central de processamento (Central Processing Unit – CPU), que contém basicamente duas subunidades:</p>
+<ul>
+<li>Unidade de Controle (UC)</li>
+<li>Unidade Lógica e Aritmética (ULA)</li>
+</ul>
+<p>A primeira subunidade, isto é <strong>UC</strong>, tem como função comandar a <strong>sequência de processamento</strong>, isto é, qual instrução será executada em qual momento; enquanto que a segunda subunidade, isto é <strong>ULA</strong>, realiza os <strong>cálculos e as comparações lógicas</strong>. Acrescentamos ainda à CPU uma porção de <strong>memória</strong>. Particularmente, pequenos blocos de memória, utilizados dentro do computador costumam possuir velocidade de escrita e leitura <strong>superior</strong> a memória RAM da máquina, sendo chamado de <strong>registradores</strong>. Em geral os registradores armazenam resultados imediatos ou intermediários das operações aritméticas e lógicas.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7672897/803fe032-fcdb-11e4-85c4-2d996122d030.jpeg" alt="arqCpu" /><p class="caption">arqCpu</p>
+</div>
+<p>É de nosso conhecimento, que os processadores somente entendem uma linguagem chamada de <strong>linguagem de máquina</strong>, e que é definida e conhecida pelos engenheiros eletrônicos e de computação que projetaram o processador. Essa linguagem constitui um conjunto de sinais elétricos digitais que comandam a execução das tarefas no processador. Tendo em vista tratar-se de uma linguagem muito próxima ao hardware que seria inacessível muitas vezes até mesmo para os engenheiros, é sempre definida uma linguagem mais facilmente compreendida que é chamada de <strong>linguagem Assembly</strong>, havendo ainda um conversor, chamado montador, ou <strong>Assembler</strong>, que funciona como um <strong>compilador</strong> traduzindo os comandos Assembly para linguagem de máquina. Cada processador possui seus conjuntos de instruções, sendo que as versões melhorada de uma linha de processadores contém todas as instruções das versões anteriores adicionadas de algumas outras que são otimizadas para determinado fim. Por exemplo, o processador i7 reconhece todas as instruções do i5 e algumas outras. A linguagem Assembly dos processadores, que iremos estudar adiante, não é confortável para programar e desenvolver software no dia-a-dia. Assim sendo, foram criadas as linguagens de programação de alto nível, cada qual com seu compilador que traduz as instruções da linguagem para comandos Assembly. Na figura a seguir, temos um resumo deste procedimento.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7672906/e566e424-fcdb-11e4-93c6-1e1073c02d7a.jpeg" alt="assmaq" /><p class="caption">assmaq</p>
+</div>
+<p>Notamos que, cada processador tem o seu conjunto de comandos que são reconhecidos. Dependendo da quantidade e da função especifica do conjunto de comandos de um processador, podemos classificá-lo em um entre dois modelos:</p>
+<ul>
+<li>Reduced Instruction Set Computer - <strong>RISC</strong></li>
+<li>Complex Instruction Set Computer - <strong>CISC</strong></li>
+</ul>
+<p>Nas máquinas <strong>RISC</strong>, costumeiramente temos algumas dezenas de comandos para realizar operações mais elementares, sendo que as operações mais específicas são forçosamente implementadas a partir das mais elementares, como exemplo temos as instruções de soma e subtração entre dois operandos. Por outro lado, as máquinas <strong>CISC</strong> possuem instruções para realizar não somente as operações básicas, mas também as mais complexas ou elaboradas, definidas a partir das básicas, tal como por exemplo uma exponencial. Os processadores que utilizamos no dia-a-dia, tais como os da Intel e AMD, são do modelo CISC. De modo mais abrangente, a arquitetura de <strong>Harvard</strong> normalmente possuem processadores <strong>RISC</strong> enquanto que as máquinas de <strong>Von Neumann</strong> são normalmente <strong>CISC</strong>. Ainda com relação a uma visão geral, podemos exemplificar arquiteturas Harvard como os processadores 8086, 8088, assim como os PICs, por outro lado, processadores 8085, Z80 constituem os modelos CISC de Von Neumann. Cabe finalmente uma diferenciação entre microprocessador, comumente abreviador por processador e microcontrolador. Os nossos computadores do dia-a-dia possuem microprocessadores, que seguem 1 dos modelos estudados acima. Damos o nome de microcontrolador ao microprocessador que, além da estrutura básica descrita acima, possua também circuitos eletrônicos auxiliares, tais como conversor analógico digital, e conversor digital analógico. A linha PIC fabricada pela Microchip, constitui um conjunto de microcontroladores, enquanto os PIC constituem clássicos exemplos de microcontroladores de baixíssimo custo e que podem ser facilmente programados em linguagem de alto nível praticamente idênticas a linguagem C.</p>
+<ul>
+<li><strong>Exercício</strong>:</li>
+</ul>
+<p>Tomando como base uma função em linguagem C que recebe como parâmetros um vetor de Int que corresponde a um sinal digitalizado e o seu tamanho, aumente a amplitude do sinal até o máximo possível com a restrição de que os valores devem estar na faixa de -32768 até 32767.Discuta, com base na implementação realizada, qual seria a taxonomia mais propicia para executar o referido código.</p>
+<ul>
+<li><strong>Solução</strong>:</li>
+</ul>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7672942/f547c772-fcdc-11e4-9ff4-71bc68f94e91.jpeg" alt="j7_gnujo" /><p class="caption">j7_gnujo</p>
+</div>
+<p>No programa acima, temos dois trechos principais: <strong>A</strong> e <strong>B</strong>. O trecho A não se beneficia consideravelmente de uma execução paralela pois encontrar o maior valor do vetor implica uma comparação integral com os seus elementos. Por outro lado, o trecho B certamente se beneficia de uma execução paralela pois uma mesma instrução, a multiplicação, é realizada para cada elemento do vetor. Dessa forma, considerando A e B, podemos dizer que o programa todo, visto como uma entidade única, se beneficia do paralelismo, sendo que a taxonomia SIMD, de acordo com a classificação de Flynn é a ideal. Tal taxonomia corresponde normalmente à arquitetura Harvard e maquinas Harvard geralmente atuam com processadores RISC. Essas características são perfeitas pois disponibilizam o paralelismo desejado que não é degradado pelas instruções RISC pois multiplicação é uma instrução básica.</p>
+<hr />
+<ul>
+<li><strong>Exercício</strong>:</li>
+</ul>
+<p>Considere o trecho de código a seguir que implementa a convolução de dois sinais discretos. Discuta a taxonomia ideal para tal.</p>
+<ul>
+<li><strong>Solução</strong>:</li>
+</ul>
+<p>O procedimento de convolução entre vetores discretos, tem o significado físico de filtragem, que objetiva remover frequências. Dessa forma, quando queremos remover determinada faixa de frequência de um sinal, devemos projetar um filtro, que nada mais é que um pequeno vetor de números e realizar a convolução do sinal a ser filtrado com o filtro. A convolução entre dois sinais produz um terceiro sinal que corresponde a um sinal filtrado, isto é sem as frequências indesejadas. Considerando que o sinal a ser filtrado é o vetor <code>f</code> e o filtro é <code>h</code> então a convolução de <code>f</code> com <code>h</code> é:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7672994/0de58f56-fcdf-11e4-87f7-5cfe04154ddd.gif" alt="gif latex" /><p class="caption">gif latex</p>
+</div>
+<p>Na pratica implementamos a convolução, seguindo um procedimento muito simples, conforme segue:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/7673043/96757e16-fce0-11e4-99ef-58c9e7e56595.jpeg" alt="wmgewrc4" /><p class="caption">wmgewrc4</p>
+</div>
+<p>O vetor resultante da convolução de <code>f</code> com <code>h</code> que chamaremos de <code>y</code>, possui tamanho tal que <img src="https://cloud.githubusercontent.com/assets/3441126/7673024/0df3bf4e-fce0-11e4-8c53-73ee5db77171.gif" alt="gif latex2" /> . Desse modo, determinar <code>y</code> implica em preencher um vetor com a referida função. Cada um desses elementos de <code>y</code> corresponde a uma soma de outros elementos produzidos pelo processo de cálculo da convolação. A estrutura geral da implementação dos dois laços for conforme o rascunho que segue:</p>
+<pre class="sourceCode c"><code class="sourceCode c">    <span class="kw">for</span>(i....
+        <span class="kw">for</span>(j....
+            y[i] = .....</code></pre>
+<p>Claramente observamos que o algoritmo se beneficia de uma implementação paralela. Chegamos assim a uma situação similar à do exemplos anterior isto é, SIMD é a melhor taxonomia, implicando possivelmente numa arquitetura Harvard com processador RISC. De modo geral, grande parte das operações envolvendo vetores, matrizes e analises relacionadas com processamentos de sinais diversos se beneficiam da referida estrutura de Hardware</p>
+<hr />
+<h4 id="mini-prova-6">MINI PROVA 6 <a name="mp6"></a></h4>
+<ul>
+<li>DESCREVA COMO DEVE SER OU IMPLEMENTE UM PEQUENO PROGRAMA PARA TRIANGULARIZAR UMA MATRIZ QUADRADA NXN, REALIZANDO O PIVOTEAMENTO DE GAULS. DISCUTA AS MELHORES CARACTERÍSTICAS DE HARDWARE PARA EXECUTAR ESSE ALGORITMO.</li>
+</ul>
+<hr />
+<h3 id="aula-8"><a name="aula8"></a> Aula 8</h3>
+<hr />
+<h2 id="programação-assembly"><a name="assembly"></a> Programação Assembly</h2>
+<p>Conforme já discutimos anteriormente, a linguagem Assembly constitui o nível mais baixo de linguagem computacional em que podemos programar diretamente. Para fins didáticos e visando não utilizar um processador demasiadamente complexo, utilizaremos um processador 8085 como base para os nossos estudos que permitirão analisar as particularidades do Assembly e o trabalho considerável dos compiladores das linguagens de alto nível para realizar traduções.</p>
+<p>O microprocessador 8085 começou a ser fabricado em 1974 pela Intel, passando posteriormente a ser fabricado por outras empresas, tal como a Siemens e a Philips em razão do seu considerável sucesso comercial. Trata-se de um microprocessador para o qual os dados possuem 8 bits e os endereços de memória possuem 16 bits. O microprocessador que contem aproximadamente 6 mil transistores possui um conjunto de instruções do tipo CISC com a arquitetura Von Neumann. Em Anexo listamos um conjunto de instruções pertencente a ele.</p>
+<p>É importante ainda notar que existiram pequenas porções de memória processadas assim como é comum em todas os demais conhecidos como <strong>registradores</strong>, os quais são consideravelmente mais velozes para a escrita e leitura de dados, embora possuam custo superior. O 8085 possui os seguintes registradores, assim nomeados:</p>
+<ul>
+<li><strong>A</strong> : É conhecido como registrador acumulador, sendo utilizado para armazenar operandos ou resultados de operações. Trata-se de um registrador de 8 bits.</li>
+<li><strong>B</strong> e <strong>C</strong> : São registradores de 8 bits de uso geral e que podem, mediante instruções, constituir um único registrador de 16 bits.</li>
+<li><strong>D</strong> e <strong>E</strong> : Idem anterior</li>
+<li><strong>H</strong> e <strong>L</strong> : Idem anterior, lembrando que são frequentemente utilizados para armazenar endereços de memória. Quando utilizados em conjunto são normalmente referenciados pelo símbolo <strong>M</strong>.</li>
+<li><p><strong>F</strong> : Trata-se do registrador <strong>flag</strong>, isto é, bandeira, possuindo a função de indicar ocorrências com as operações logicas até aritméticas de forma que seu conteúdo, quando é alterado, é sempre em função de tais operações, não sendo modificada diretamente pelo programador. Possui 5 bits dos quais 3 são denominados Z, S e CY que significam respectivamente zero, signal e carry. O primeiro assume o valor lógico 1 quando a última operação realizada resultar no valor 0. O segundo bit assume o valor 1 quando a ultima operação resulta em um valor negativo. Finalmente, o terceiro bit assume o valor 1 quando a ultima operação implicou em excesso, ou seja, “vai 1”.</p></li>
+<li><p><strong>Exemplo 1</strong>:</p>
+<pre><code>MVI C,01h # valor 01h inserido no Reg C
+volta: DCR C # decrementamos o valor contido em C
+MOV A,B # movemos (copiamos) o valor em B para A (acumulados)
+JNZ volta # se a ultima operação não resultor em 0 retorna ao label volta
+HLT # fim do programa</code></pre></li>
+</ul>
+<hr />
+<ul>
+<li><p><strong>Exemplo 2</strong>:</p>
+<pre><code>MVI C,10h -&gt;  C&lt;-10h
+volta: DCR C -&gt; C- -
+JZ fim -&gt; Caso a última operação resulte em 0, desvie para a lable fim
+MOV A,B -&gt; A&lt;-B
+JMP volta -&gt; desvie incondicionalmente para o lable volta
+fim:HLT -&gt;fim do programa</code></pre></li>
+</ul>
+<blockquote>
+<p><strong>obs</strong>: Instruções como JZ e JNZ consultam o bit Z do registrador F para decidir como atuar. Lembramos que a principio o programador não insere valores no registrador F. Ao contrário, somente o próprio processador é que altera os valores de F. Particularmente, algumas instruções modificam os bits de F e algumas outras consultam o seu valor, dizemos então que instruções tais como DCR são instruções que alteram flags. Por outro lado, instruções tais como MVI, que simplesmente movimentam dados são instruções que não alteram flags.</p>
+</blockquote>
+<hr />
+<ul>
+<li><p><strong>Exemplo 3</strong>: Com base no código de alto nível a seguir escreva uma possível versão correspondente no Assembly do 8085</p>
+<pre class="sourceCode c"><code class="sourceCode c">Int a = <span class="dv">5</span>
+While(a&gt;<span class="dv">0</span>)
+a--;</code></pre></li>
+<li><p><strong>Solução</strong>:</p>
+<pre><code>MVI C,05h
+while: JZ fim
+DCR C
+JMP while
+fim: HLT</code></pre></li>
+</ul>
+<hr />
+<ul>
+<li><p><strong>Exemplo 4</strong>: Idem anterior para o seguinte trecho de código:</p>
+<pre class="sourceCode c"><code class="sourceCode c">Int x = <span class="dv">3</span>
+For(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;<span class="dv">0</span>;i++)
+x- -;</code></pre></li>
+<li><p><strong>Solução</strong></p>
+<pre><code>MVI A,03h
+MVI C,0Ah
+volta: DCR A
+DCR C
+JNZ volta
+HLT</code></pre></li>
+</ul>
+<blockquote>
+<p><strong>Obs</strong>: No código acima os comando DCR A e DCR C não poderiam estar trocados pois se assim fosse, a flag Z teria o valor modificado com base na variável errada, correspondente ao código de alto nível.</p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Exemplo 5</strong>: A multiplicação de 2 valores é também um caso interessante de ser observado. Em alto nível o calculo é obvio tal como:</li>
+</ul>
+<pre class="sourceCode c"><code class="sourceCode c">Int a =<span class="dv">3</span>;
+Int b =<span class="dv">4</span>;
+Int c=a*b;</code></pre>
+<p>Devemos entretanto lembrar que a multiplicação é a na verdade uma soma repetitiva de forma que mesmo em alto nível podemos implementar o trecho acima da seguinte forma:</p>
+<pre class="sourceCode c"><code class="sourceCode c">Int c=<span class="dv">0</span>;
+Int a=<span class="dv">4</span>;
+For(<span class="dt">int</span> i=<span class="dv">0</span> ; i&lt;<span class="dv">4</span> ; i++)
+    c=c+a;</code></pre>
+<p>Em baixo nível, ambos os códigos acima podem ser escritos da seguinte forma</p>
+<pre><code>MVI A,00h -&gt; A=0
+MVI C,03h -&gt; C=3
+volta ADI 04h -&gt; A=A+4
+DCR C -&gt; C - -
+JNZ volta -&gt; if C!= 0 volta
+HLT -&gt; fim</code></pre>
+<p>Na implementação destacamos a instrução ADI a qual não faz referencia a registrador que esta sendo incrementado pois ela opera diretamente no acumulador. Outra opção para realizar o mesmo procedimento é</p>
+<pre><code>MVI A,00h -&gt; A=0
+MVI B,04h -&gt; B=4
+MVI C,03h -&gt; C=3
+volta: ADD B -&gt; A=A+B
+DCR C -&gt; C- -
+JNZ volta
+HLT</code></pre>
+<blockquote>
+<p><strong>Obs</strong>: Mais uma vez utilizamos uma instrução, que é ADD, que opera no acumulador sem que ele seja explicitamente mencionado. No caso da instrução DCR C, sabemos que não há relação com o acumulador, poir “decrementar C” é um comando completo por si só, ou seja, nenhum outro valor se faz necessário para cumprir ordem, por outro lado, “adicionar B” não faz sentido sem que exista outro operando, pois estaríamos adicionando o valor de B em qual registrador? Tendo em vista que esse outro registrador não foi mencionado, sabemos que ele é o acumulador.</p>
+</blockquote>
+<ul>
+<li><p>A seguir, implementamos novamente a multiplicação de 4 por 3 utilizando uma sub-rotina em Assembly, que também é comum inclusive nas traduções automatizadas dos compiladores</p>
+<pre><code>MVI A,00h
+MVI B,04h
+MVI C,03h
+CALL soma
+HLT
+soma: ADD B
+DCR C
+JNZ soma
+RET</code></pre></li>
+</ul>
+<p>No código acima observamos o uso da instrução CALL para chamar a sub-rotina, que possui o comportamento de uma função mas linguagens, entretanto, não existe aqui passagem de parâmetros. Notamos ainda que o nome da função, no caso soma, é na verdade um lable que é referenciado dentro dela própria, existindo ainda a necessidade de termina-la pela palavra reservada RET que faz com que o fluxo retorne para a instrução seguinte a chamada.</p>
+<hr />
+<h4 id="miniprova-7">MINIPROVA 7</h4>
+<ul>
+<li>Construa um programa no Assembly 8085 para dividir 15 por 5, sendo que o resultado, ao final deve estar no acumulador</li>
+</ul>
+<hr />
+<h3 id="programando-com-codigo-assembly"><a name="assembly2"></a> PROGRAMANDO COM CODIGO ASSEMBLY</h3>
+<ul>
+<li><p><strong>Exemplo 1</strong>:</p>
+<pre><code>LDA 2000h -&gt; Insere no acumulador o conteúdo da posição de memória 2000h
+MOV B,A
+LDA 4000h
+STA 2000h -&gt; insere no endereço 2000h o que esta em A
+MOV A,B
+STA 4000h
+HLT</code></pre></li>
+<li><p>O procedimento acima trocou os conteúdos das posições de memória 2000h e 4000h entre si.</p></li>
+</ul>
+<p>Em alto nível, o código acima corresponde a troca de entre duas variáveis tal como:</p>
+<pre class="sourceCode c"><code class="sourceCode c">Troca=a;
+A=b;
+B=troca;</code></pre>
+<hr />
+<ul>
+<li><p><strong>Exemplo 2</strong>:</p>
+<pre><code>LXI H,4000h -&gt; apontando o par de registradores(H,L) para o endereço de memória 4000h que possuindo 16 bits requer um par de registradores de 8 bits
+MOV A,M -&gt; M representa o conteúdo do endereço apontado por H,L que está sendo inserido no acumulador
+INX H -&gt; incrementa o par H,L visto como um único valor de 16 bits. Desse modo o par H,L passa a apontar para o endereço de memória 4001h
+ADD M -&gt;A=A+M
+INX H -&gt; H,L passa apontar para 4002h
+MOV M,A -&gt; copia o conteúdo do acumulador para o endereço de memória apontado por H,L (4002h)
+HLT</code></pre></li>
+</ul>
+<p>Resumindo: o programa soma os conteúdos das memórias de endereço 4000h e 4001h colocando o resultado em 4002h</p>
+<hr />
+<ul>
+<li><p><strong>Exemplo 3</strong>:</p>
+<pre><code>LXI D,4500h -&gt; aponta o par D,E para o endereço de memória 4500h
+LXI H,4100h -&gt; aponta o par H,L para o endereço de memória 4100h
+MOV C,M -&gt; coloca o conteúdo apontado por H,L(4100h) no registrador C
+Loop: INX H -&gt;incrementa o par H,L que passa a apontar para 4101h
+MOV A,M -&gt; move o conteúdo de 4101h para o acumulador
+STAX D -&gt; armazena o valor do acumulador em D (4500h)
+INX D -&gt; incrementa o par D,E(4501h)
+DCR C -&gt; decrementa C
+JNZ Loop
+HLT</code></pre></li>
+</ul>
+<p>Assuma que no endereço 4100h esteja o valor 04h</p>
+<p>O código acima, após ler o valor 04h que estava no endereço 4100h, copia o bloco de memória de 4 posições que inicia em 4101h para o bloco de memória que inicia em 4500h, ou seja</p>
+<p>(4500h)+(4101h) (4501h)+(4102h) (4502h)+(4103h) (4503h)+(4104h)</p>
+<hr />
+<ul>
+<li><p><strong>Exemplo 4</strong>:</p>
+<pre><code>LXI H,4200h
+MOV C,M
+DCR C
+Rep: MOV C , M
+LXI H,4201h
+Loop: MOV A,M
+INX H
+CMP M
+JC Skip
+MOV B,M
+MOV M,A
+DCX H
+MOV M,B
+INX H
+Loop: DCR D
+JNZ Loop
+DCR C
+JNZ Rep
+HLT</code></pre></li>
+</ul>
+<p>Considere que em 4200h existe o valor 05h e em 4201h a 4205h temos respectivamente os valores 5h, 4h, 3h, 2h e 1h. O valor em 4200h representa o comprimento de um bloco de memória, isto é, um vetor, sendo que este vetor está nas posições de 4201h a 4205h.</p>
+<p>Função em alto nível equivalente</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> f(<span class="dt">int</span> * v,<span class="dt">int</span> t){
+    Int troca;
+    Int ht;
+    Do{
+        Ht=<span class="dv">0</span>;
+        For(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;t<span class="dv">-1</span>;i++){
+            If(v[i]&gt;v[i<span class="dv">+1</span>]){
+                Troca=v[i];
+                V[i]=v[i<span class="dv">+1</span>];
+                V[i<span class="dv">+1</span>]=troca;
+                Ht=<span class="dv">1</span>;
+            }
+        }
+    }<span class="kw">while</span>(ht);</code></pre>
+<p>O código acima representa a implementação do <strong>bubble sort</strong>, destaca-se aqui o trabalho automático do compilador na transcrição do código em auto nível para Assembly.</p>
+<hr />
+<h4 id="miniprova-8">MINIPROVA 8</h4>
+<ul>
+<li><p>Explique o que o código Assembly a seguir faz</p>
+<pre><code>LXI H,4500h
+MVI A,M
+MVI B,A
+MVI D,00h
+MOV C,A
+MOV A,D
+Go  ADD B
+JN adiante
+INR D
+Adiante:DCR C
+JNZ go
+STA 4100h
+MOV A,D
+STA 4101h
+HLT</code></pre></li>
+</ul>
+<hr />
+<h3 id="processos-de-comunicação-interna-e-de-entradasaída"><a name="com-io"></a> Processos de comunicação interna e de entrada/saída</h3>
+<p>Basicamente o processo de comunicação interna à maquina ou de entrada e saída com o meio externo pode ser <strong>serial</strong> ou <strong>paralelo</strong>. No primeiro caso, o protocolo de comunicação implica no envio de 1 bit após o outro, <strong>sequencialmente</strong> por uma <strong>única via de transmissão</strong>, que pode ser uma fibra ótica ou um par de cabos elétricos ou até mesmo via rádio frequência. No segundo caso, por outro lado, temos <strong>mais de uma via de comunicação serial</strong>, pois <strong>paralelamente</strong>, sequencias de bits são enviadas por cada via. Comparando os modelos podemos dizer que no caso da comunicação serial o tempo para transmitir um conjunto de bits é maior do que o modelo paralelo, pois temos somente uma via. Por outro lado o modelo paralelo exige recursos físicos, isto é, quantidade de vias de transmissão maiores, ampliando custos e requerendo maior espaço. Consideramos inicialmente a transmissão serial. Neste caso, temos alguns detalhes a considerar, notamos duas possibilidades para este modelo de comunicação que é muito utilizado para teclados, mouses, pen drives: <strong>comunicação serial síncrono</strong> e <strong>comunicação serial assíncrona</strong>. No primeiro caso, além da via principal para a transmissão de dados, temos uma <strong>via adicional</strong> para efetuar a <strong>sincronia de tempo</strong> entre o objeto transmitido e o objeto receptor. Desse modo, o receptor sabe o instante de tempo no qual a transmissão efetivamente começa. Normalmente esse inicio é sinalizada pela transição 1-&gt;0 ou 0-&gt;1, ou até mesmo por mais de uma transição. Tais transições são expressas por meio dos bits conhecidos como <strong>start bit</strong>, podendo também haver <strong>stop bits</strong> que indicam o <strong>fim de uma transmissão</strong>. No segundo caso, isto é, o <strong>modelo serial assíncrono</strong>, existe de fato uma <strong>única via de transmissão</strong>, sendo estão necessário os bits indicadores de inicio e fim. Cada um dos modos, síncrono e assíncrono devem obedecer a velocidades padrão de transmissão. Um exemplo básico é o caso das portas seriais de comunicação que, atualmente, já estão em desuso. Neste aspecto o principal padrão de comunicação que é o que ainda é usada em algumas situações é conhecida como RS-232C. Esta padrão possui conectores normalmente de 9 pinos que tem as seguintes funções:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/8392381/aed21344-1cbf-11e5-9523-c68c6ef872d6.png" alt="rs-232c" /><p class="caption">rs-232c</p>
+</div>
+<p><strong>1 – Detecção de portadora</strong></p>
+<p><strong>2 – Recepção de dados</strong></p>
+<p><strong>3 – Transmissão de dados</strong></p>
+<p><strong>4 – Terminal de saída de dados</strong></p>
+<p><strong>5 – Terra (negativo de alimentação)</strong></p>
+<p><strong>6 – Conjunto de dados pronto</strong></p>
+<p><strong>7 – Solicitação de transmissão</strong></p>
+<p><strong>8 – Pronto para transmitir</strong></p>
+<p><strong>9 – Indicador de chamada</strong></p>
+<p>Podemos ainda subdividir a comunicação serial, síncrona e assíncrona em 3 submodelos: <strong>simplex</strong>, <strong>half duplex</strong> e <strong>full duplex</strong>.</p>
+<p>No primeiro caso a comunicação ocorre em um <strong>único sentido</strong>, no segundo caso, ocorre em <strong>ambos os sentidos</strong>, isto é, A envia para B e B envia para A, <strong>mas não ao mesmo tempo</strong>. Popularmente utilizam 2 vias de comunicação neste caso, podendo ainda utilizar-se uma única via tal como os sinais transmitidos por rádio. Finalmente, no terceiro caso, a comunicação também é <strong>bilateral</strong>, podendo ocorrer ao mesmo tempo. Neste caso fundamentalmente existem duas vias de transmissão. Os circuitos integrados que contém a eletrônica para gerenciar toda essa sistemática comunicação serial são conhecidos como <strong>UART</strong> e <strong>USART</strong>. O primeiro corresponde <strong>Universal Asynchronous Receiver/Trasmitter</strong> e o segundo a <strong>Universal Synchronous/Asynchronous Receiver/Transmitter</strong>.</p>
+<p>O seguinte trecho de código permite a comunicação utilizando a interface serial entre 2 maquinas ou dispositivos. Em termos de hardware fazemos as ligações com os pinos 2,3 e 5 somente.</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;bios.h&gt;</span>
+<span class="ot">#define C7 0x02 </span><span class="co">// 7 bits</span>
+<span class="ot">#define C8 0x03 </span><span class="co">// 8 bits</span>
+<span class="ot">#define S1 0x00 </span><span class="co">// 1 stop bit</span>
+<span class="ot">#define S2 0x00 </span><span class="co">// 2 stop bits</span>
+<span class="ot">#define T110 0x00 </span><span class="co">// 0bps</span>
+<span class="ot">#define T150 0x20</span>
+<span class="ot">#define T300 0x40</span>
+<span class="ot">#define T600 0x60</span>
+<span class="ot">#define T1200 0x80</span>
+<span class="ot">#define T2400 0xA0</span>
+<span class="ot">#define T2800 0xC0</span>
+<span class="ot">#define T9600 0xE0</span>
+<span class="ot">#define COM1 0</span>
+<span class="ot">#define COM2 1</span>
+<span class="ot">#define PORTA COM1</span>
+<span class="ot">#define COMUNICA (T300/S1/C8)</span>
+Main(){
+    Int recebido;
+    Char enviado;
+    bioscom(<span class="dv">0</span>,COMUNICA,PORTA);
+    <span class="kw">do</span>{
+        recebido = bioscom(<span class="dv">3</span>,<span class="dv">0</span>,PORTA);
+        <span class="kw">if</span>(recebido &amp;<span class="bn">0x100</span>){
+            recebido=bioscom(<span class="dv">2</span>,<span class="dv">0</span>,PORTA) &amp; <span class="bn">0x7F</span>;
+            putch(recebido);
+        }
+        If(kbhit())
+            Bioscom(<span class="dv">1</span>,getch(),PORTA);
+    }<span class="kw">while</span>(<span class="dv">1</span>);
+}</code></pre>
+<hr />
+<p>Com relação a comunicação <strong>paralela</strong>, ela pode ocorrer com base nas portas paralelas de 25 pinos, utilizadas no passado para conexões com impressoras, assim como nos sistemas de barramentos internos aos computadores. Com relação a porta paralela as especificações são as seguintes:</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/8392421/129bc4aa-1cc1-11e5-9c39-bb2b608b68d2.png" alt="paralelo" /><p class="caption">paralelo</p>
+</div>
+<p><strong>Pino 1 – Receptor bit 0</strong></p>
+<p><strong>Pino 2 – Transmissor bit 0</strong></p>
+<p><strong>Pino 3 – Transmissor bit 1</strong></p>
+<p><strong>Pino 4 – Transmissor bit 2</strong></p>
+<p><strong>Pino 5 – Transmissor bit 3</strong></p>
+<p><strong>Pino 6 – Transmissor bit 4</strong></p>
+<p><strong>Pino 7 – Transmissor bit 5</strong></p>
+<p><strong>Pino 8 – Transmissor bit 6</strong></p>
+<p><strong>Pino 9 – Transmissor bit 7</strong></p>
+<p><strong>Pino 10 – Receptor bit 6</strong></p>
+<p><strong>Pino 11 – Receptor bit 7</strong></p>
+<p><strong>Pino 12 – Receptor bit 5</strong></p>
+<p><strong>Pino 13 – Receptor bit 4</strong></p>
+<p><strong>Pino 14 – Receptor bit 1</strong></p>
+<p><strong>Pino 15 – Receptor bit 3</strong></p>
+<p><strong>Pino 16 – Receptor bit 2</strong></p>
+<p><strong>Pino 17 – </strong></p>
+<p><strong>Pinos 18 a 25 - Terra</strong></p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;dos.h&gt;</span>
+<span class="ot">#include &lt;sys/io.h&gt;</span>
+Define PORT <span class="bn">0x378</span>
+Main(){
+    Ioperm(PORT <span class="dv">3</span>,<span class="dv">1</span>);
+    While(!kbhit()){
+        Outb(~inb(PORT),PORT);
+        Delay(<span class="dv">1000</span>);
+    }
+}</code></pre>
+<p>Notamos que a leitura de dados, que no exemplo é realizada pela função <code>inb()</code> requer apenas um endereço como parâmetro. Por outro lado, escrever implica que a escrota de determinado dado ocorrerá em determinado endereço, portanto a função <code>outb()</code> utiliza dois parâmetros.</p>
+<p>De modo similar a porta paralela, temos alguns dos barramentos mais modestos, tais como o <strong>ISA</strong> e o <strong>PCI</strong>. Em termos de comunicação serial, temos ainda a interface <strong>USB</strong> e barramentos como o <strong>SATA</strong>. Descreveremos brevemente alguns deles.</p>
+<h3 id="padrão-usb-universal-serial-bus">Padrão USB (Universal Serial Bus)</h3>
+<p>Trata-se de um padrão de comunicação que se tornou comercial na versão 0.7 no ano de 1994, chegando a versão 3.1 em 2013. Caracteriza-se por um protocolo avançado de comunicação serial assíncrono que permite endereçar até 127 dispositivos estendidos fisicamente até o limite teórico de cerca de 5 metros, assumindo ainda o padrão hot-swappable, isto é, não se faz necessário desligar a máquina para conectar o dispositivo. Este conceito, combinado com o devido tratamento via software realizado pelo sistema operacional caracteriza o que chamamos de plug and play. Até a versão 2.0 a sistemática de comunicação era half-duplex, entretanto, a partir da versão 3.0 a comunicação é full-duplex com até 10gbps.</p>
+<p>Alguns outros detalhes do protocolo podem ser encontrados nos respectivos RFC (Request For Comment). O conector USB é constituído de 4 pinos e existem no modelo tipo A e tipo B, nas versão mini, micro e tradicional.</p>
+<div class="figure">
+<img src="https://cloud.githubusercontent.com/assets/3441126/8392447/9f5df39a-1cc1-11e5-865a-d28f92d27ed5.png" alt="usba" /><p class="caption">usba</p>
+</div>
+<p><strong>1 - +5 volts</strong></p>
+<p><strong>2 – Recepção</strong></p>
+<p><strong>3 – Transmissão</strong></p>
+<p><strong>4 – 0 Volts (Terra)</strong></p>
+<p>Notamos que o padrão USB foi especificado para possibilitar alimentar, com 5 volts, o dispositivo que a ele se conecta, provendo até 0,9 amperes de corrente.</p>
+<h3 id="padrão-isa-industry-standart-architecture">Padrão ISA (Industry Standart Architecture)</h3>
+<p>Trata-se de um dos primeiros barramentos comerciais especificado com 8 bits de dados e 10 bits de endereço, havendo ainda a possibilidade do uso de 16 bits de dados e 10 bits de endereço no padrão E-ISA (extended ISA), o qual possui velocidade de até 8mbps. O ISA e o E-ISA são padrões já em desuso, mas de fácil manipulação até mesmo para fins didáticos. Em termos de hardware, ISA e E-ISA, são caracterizados respectivamente por conectores de 62 pinos e 62+36 pinos, os quais proveem linhas de dados, linhas de endereço, alimentação de 5 a 12 volts entre outros sinais disponíveis na máquina.</p>
+<p>O barramento ISA permite o acesso a dados e a endereços, inclusive facilmente acessível na linguagem C com as mesmas funções já vistas.</p>
+<pre class="sourceCode c"><code class="sourceCode c">    Inb(endereço)
+    Outb(dado de 8 ou 16 bits,endereço)</code></pre>
+<p>Destacamos que o barramento da máquina seja ele paralelo, tal como ISA e E-ISA, ou serial, permite o acesso a todos os dados que nele transitam. Desse modo tudo possui um endereço. Assim, por exemplo, a placa de áudio, mesmo que on-board, está conectada ao barramento, mas só é acessível pelo seu endereço. Inumeras placas e componentes permanecem conectados ao barramento, mas, para acumula-los, escrevemos nos seus respectivos endereços.</p>
+<p>Os vários dispositivos que ligam nos barramentos possuem, em geral, um decodificador de endereço especifico, que faz com que a placa passe a funcionar ou não. Desse modo, embora as várias placas e componentes estejam conectadas ao barramento, apenas uma delas estará operando por vez.</p>
+<h4 id="miniprova-9">MINIPROVA 9</h4>
+<ul>
+<li>Comente, com base em uma pequena e rápida pesquisa, quais são os 3 tipos de prioridades existentes para transmissão de dados seriais pela interface USB.</li>
+</ul>
+<hr />
+<h4 id="exercício-i">Exercício I</h4>
+<p>Projetar uma placa para ser conectada ao barramento ISA, respondendo no endereço 0x318, de modo que exista uma interface luminosa de 8 bits que vai contar, em binário, de 0 a 255 com intervalo de 1 segundo entre cada valor.</p>
+<p>Solução: Sabemos que o barramento ISA, assim como outros barramentos que mencionaremos a seguir, possui (além de sinais de controle), uma sub divisão em 2 partes. Conforme vimos, toda placa ou periférico conectado ao barramento deve solucionar em um endereço específico. Em nosso exemplo, o endereçamento solicitado é o 0x318. Assim, nossa placa requer um decodificador para este endereço. Na parte de dados, devemos disponibilizar indicadores luminosos sendo, os LEDs os mais comuns. O restante deverá ser controlado via software. Lembrando finalmente que no barramento ISA temos 10 vias de endereços e 8 de dados (16 no caso do E ISA), nosso circuito será o seguinte</p>
+<p>Mantendo a construção do circuito acima. Alinhado também pelo barramento ISA</p>
+<h4 id="exercício-ii">Exercício II</h4>
+<p>Idem anterior, fazzendo com que a placa projetada interprete os dados caso o endereço esteja na faixa 0x318 até 0x31c. A placa deve agir normalmente para qualquer endereço dessa faixa com realação aos dados . A idéia é apagar e acender todos os <em>LED</em>s simultaneamente com intervalo de 1/2 segundo.</p>
+<h4 id="solução">Solução:</h4>
+<p><strong>Gráfiico</strong></p>
+<h4 id="exercício-iii">Exercício III</h4>
+<p>Em ambos os exemplos anteriores o computador, via software, esta escrevendo no barramento e a placa projetada por nós esta lendo o que foi escrito e executando determinada tarefa em hardware. No presente exemplo faremos o contrário, isto é, nossa placa produzirá dados, escrevendo-os no barramento, e o computador lerá esses dados via software.Seja então o seguinte problema<strong>:</strong></p>
+<p>Projetar uma placa com 8 elementos de interface mangética acionados por imãs (<strong>reed switches</strong>), para o projeto, estão disponíveis oito imãs para acionar isoladamente cada um dos <em>reed switches</em>. Essa placa deverá escrever no barramento de dados o códgio binário correspondente ao conjunto de <em>reed switches</em> no endereçco 0x318.</p>
+<p>Via software leia o valor corerspondente do barramento de dados.</p>
+<h5 id="solução-1">Solução:</h5>
+<p>Escrever dados em um endereço implica em escrever a informação de interesse no barramento de dados e escrever também, em paralelo, um valor que corresponde ao endereçco pré-definido da placa no barramento de endereços.</p>
+<p><strong>(Precisa-se de adicionar foto!! Ou diagrama)</strong></p>
+<pre class="sourceCode C"><code class="sourceCode c"><span class="ot">#include&lt;bios.h&gt;</span>
+
+main(){
+    <span class="kw">while</span>(<span class="dv">1</span>)
+        printf(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Valor lido: %d&quot;</span>, inb(<span class="bn">0x318</span>));
+}</code></pre>
+<h4 id="exercício-iv">Exercício IV</h4>
+<p>Idém anterior, lendo dados do endereçco 0x3FF. Os dados podem ser 0x00 ou 0xFF, respectivamente, se o único <em>reed switch</em> existente estiver ligado ou desligado</p>
+<h5 id="solução-2">Solução:</h5>
+<p><em>(Gráfico)</em></p>
+<p><strong>OBS:</strong> O barramento <em>ISA</em> é bastante utilizado para fins didáticos , mas comercialmente destacamos a existencia de outros modelos de barramentos, tais como, o <strong>PCI</strong> (<em>Peripheral component Interconnect</em>), que possui 64 bits de dados na sua versao extendida e 32 bits na versão inferior, permitindo um transito de dados superior a 220mb/s, conforme especificado pela intel.</p>
+<p>Destaca se ainda o barramento <strong>AMR</strong> (<em>Audio Modem Riser</em>), o <strong>CNR</strong> (<em>Communications and Network Riser</em>) e o <strong>ACR</strong> (<em>Advanced Comunications Riser</em>), sendo os dois primeiros padronizados pela intel, e o terceiro pela AMD. Estes três padrões são classificados como dispositivos HSP(<em>Hot Signal Processing</em>) que enfatiza tarefas dedicadas tais como interfaces de audio e rede.</p>
+<p>Notamos ainda a existencia dos padrões <strong>SATA</strong>, com velocidade de até 3GB/s no modo assincrono , o padrão <em>firewire</em> especificado especidicao pelo padrão IEEE 1394 que permite endereçar até 63 dispositivos com velocidade de comunicação de até 400MB/s. O padrão thunderbolt foi criado pela Intel e é inspirado em PCI mas permite comunicações a uma velocidade de 10GB/s finalmente o padrão de comunicaçcão sem fio <strong>bluetooth</strong>, é considerado um barramento assyncrono por rádio frequencia definido pela Ericson em 1994.</p>
+<p>O nome <em>bluetooth</em> foi dado em homenagem ao rei dinamarques, Harald Bluetooth, que era conhecido como Harald dos dentes azuis, em virtude das pedras preciosas que utilizava em seus dentes. Este rei unificou após muita luta a Dinamarca e a Noruega. A idéia foi unificar dispositivos em um único padrão que ganhou o nome em homenagem ao rei.</p>
+<p><img src="http://www.sitedecuriosidades.com/im/g/4835D.jpg" /> <em>Foto autentica de Harald Bluetooth</em></p>
+<h4 id="miniprova-10">Miniprova 10</h4>
+<p>Construa software e hardware para apresentar ao meio externo 4 sinais luminosos, que correspondem a números inteiros entre 0 e 15, em binário, solicitando e lendo do teclado, a interface de hardware no endereçco 0x234</p>
